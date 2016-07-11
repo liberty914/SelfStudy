@@ -1,0 +1,305 @@
+﻿
+* 도움을 받은 링크
+https://github.com/demun/FrontEndStudy/blob/master/document/Sass/
+https://github.com/demun/FrontEndStudy/blob/master/document/Sass/docs/04_웹디자이너를_위한_SASS.md#참고문서
+
+* Web Sass 컴파일러 (아래의 모든 Sass예제코드를 테스트해볼수 있다.)
+http://www.sassmeister.com/
+
+
+
+        < Sass (Syntactically Awesome Stylesheet) 의 장점 및 기능 >
+
+
+1. 변수선언  ★★★★★
+ - 변수에는 색상, 글꼴 등의 그 어떤 CSS라도 저장할 수 있으며, $ 기호로 선언한다.
+ - 당연한 이야기지만.. 값이 2번이상 반복되고, 언젠가 수정될 가능성이 있는 경우에만 사용한다.
+ - 전체적인 Theme에 영향을 주는 color값이나, @media 쿼리의 해상도 분기점 등, 유용하게 쓰일수 있는 곳이 많다.
+ - 중괄호를 기준으로 변수에 대한 유효범위(local, global)가 존재하는것으로 보임 (확인이 필요하다)
+    - 중괄호 외에 선언할시에 다른 .scss 파일에도 영향을 미칠지 또한 확인이 필요함.
+
+    $main-color: #999999;
+    $font-stack: Helvetica, sans-serif;
+    body { color: $main-color; font: 100% $font-stack; }
+
+    $width-mobile : 768px;
+    $width-pc: 960px;
+    $mobile: "screen and (min-widht: 300px)";  //아에 이렇게 하는방법도 존재함.
+    @media #{$movile} { }  //==>  @media screen and (min-widht: 300px) { }
+    //여기서 #{}를 보간법이라고 하며, 이를 이용해서 선택자 및 속성이름에 변수를 사용할 수가 있다.
+
+
+
+2. Data Type (자료형)
+ - SassScript 는 7가지의 기본 Data-Type을 지원한다.
+    number: 10 || 1.2 || 10px(단위도 포함)
+    string: "문자열" || '문자열'  || 따옴표없이도 가능
+    color: #04a3f9 || rgba(255, 0, 0, 0.5) || lightgreen
+    boolean: true || false
+    null: null
+    list: 공백이나 컴마로 구분된 목록. 10px 2px 5px 2px || Helvetica, Arial, sans-serif
+    $map: ( key1: value1, key2: value2 )  //중괄호가 아닌 소괄호로 정의한다.
+
+
+
+3. @mixin(함수)  ★★★★★
+ - 재사용성, 컴포넌트 모듈화의 핵심.
+ - function fName() { }  ==> 프로그래밍에서 function을 선언하는 형식과 완전히 동일하다.
+ - CSS규칙과 Sass문서에서 허용되는 거의 모든것(매개변수, vender prefix등)을 포함할 수 있다.
+ - 다만, vendor prefix를 위해 사용하는것은 비추천이다.
+   https://github.com/postcss/autoprefixer 플러그인을 따로 쓰자. 최신정보가 반영되고 좋다.
+ - mixin 안에 다른 mixin을 @include해서 사용할 수도 있다.
+ - mixin 안에 속성뿐만 아니라, 선택자 자체를 넣어줄수도 있다.
+ - argument에 ... 을 붙임으로서 가변적인 파라메터를 받을수 있다.
+
+    // 예제 1
+    @mixin aaa($side, $radius: 10px) {  //디폴트값 설정가능 (null을 넣으면, 파라미터가 없을시 해당 속성값의 생략이 가능하다.)
+        border-#{$side}-radius: $radius;
+    }
+    .box1 { @include aaa(top); }  /* 기본값 10px이 들어감 */
+    .box2 { @include aaa(top, 30px); }
+
+
+    // 예제 2
+    @mixin does-parent-exist {
+        @if & {                     //부모선택자가 있다면
+            &:hover { color: red; } //부모선택자에 hover선택자 추가
+        }
+        @else {  //부모선택자가 없다면
+            a { color: red; }
+        }
+    }
+    .demo { @include does-parent-exist; }
+    @include does-parent-exist;
+
+
+
+4. @function  ★★★★★
+ - 재사용성, 컴포넌트 모듈화의 핵심.
+ - Sass에서는 function을 정의할 수 있다.
+ - JavaScript의 function과 동일하다고 보면된다. 말 그대로 진짜 function(함수) 이다.
+ - @mixin과의 차이점은, @mixin은 @include라는 사용법에서도 느껴지듯이, 중괄호로 감싼 해당 내용을 통으로 전달하지만,
+   function은 로직을 수행한 뒤 값을 @return 한다는 것이다.
+
+    @function fName($n) {
+        $grid-width: 40px;
+        $gutter-width: 10px;
+        @return $n * $grid-width + ($n - 1) * $gutter-width;  //값을 리턴!
+    }
+    #sidebar { width: fName(5); }
+
+
+
+5. Nesting (중첩)
+ - 개인적으로 가독성 매우나쁨, 난 절대 추천할수 없음.
+ - 부모선택자(&)를 사용할 수 있다.
+
+    nav {
+        overflow: hidden;
+        &:hover { border: 2px; }
+        ul { float: left; }
+    }
+
+
+
+6. extended(속성단위 여러줄로), compact(선택자단위 한줄로), compress(min)
+ - Sass를 .css 파일로 컴파일하는데 사용하는 옵션이다.
+
+
+
+7. Partial(파샬)
+ - CSS의 @import 와 비슷
+ - 다른 .sass 파일이나 .scss 파일을 인클루드 함.
+ - 확장자를 쓰지않아도 된다는데, 그딴 의미없는짓은 하지않도록 하자.
+ - Mixin만 따로 mixin.scss 에 담아두고, 모듈화 시키는것도 유지보수의 방법이 될수도 있다.
+
+    @import "include.scss";
+
+
+
+8. @extend / inheritance (확장/상속)
+ - 미리 정의된 다른 CSS 선언을 상속받을 수 있다.
+ - @extend 와 @mixin 은 어느정도 비슷한 기능을 한다고 볼수도 있지만, 엄연히 다르다.
+   @mixin 은 함수처럼 파라미터를 통해, 동적인 값을 넣는 Dynamic하고 Flexible한 코딩이 가능하지만,
+   @extend 는 완성된 하나의 선택자의 속성을 그냥 copy&paste 하는것과 동일하다.
+    - 이들을 사용할때는 컴파일 후의 .css 코드를 생각해보고, 현명하게 작성해야한다. 무조건 편하다고 그냥쓰면 안된다.
+
+    /* 순수한 css버전 */
+    .message, .success, .error, .warning {
+        border: 1px solid #cccccc;
+        padding: 10px;
+        color: #333;
+    }
+    .success { border-color: green; }
+    .warning { border-color: yellow; }
+    .error { border-color: red; }
+
+    /* Sass 버전 */
+    .message {
+        border: 1px solid #ccc;
+        padding: 10px;
+        color: #333;
+    }
+    .success { @extend .message; border-color: green; }
+    .warning { @extend .message; border-color: yellow; }
+    .error   { @extend .message; border-color: red; }
+
+ - 사실 위의 예제는, 가독성은 좋아졌지만, 컴파일후에는 코드의 용량이 늘어나므로, 좋은 예제가 아니라고 생각한다.
+ - 위의 예제 뿐만 아니라, @extend가 그리 좋은 기능인지는 의문이 든다. 상속안에 또 상속을 할경우, 유지보수에 어려움이 생길 가능성이 다분하다.
+ - 심지어 @extend는 @media 블록 안에서는 제대로 작동하지 않는다고 한다.
+
+
+
+9. Operator (연산)
+ - 기본연산(+ - * / %)과 비교연산(<, <=, ==, >=, >, !=)을 지원한다.
+
+    .container { width: 100%; }
+    article[role="main"] { float: left; width: 600px / 960px * 100%; }
+    aside[role="complimentary"] { float: right; width: 300px / 960px * 100%; }
+
+    p { font-size: 1em + (2em * 3); }  ==>  p { font-size: 7em }
+
+ - container 클래스의  width 속성만 변경한다면  article,aside 의 값도 자동으로 반영되어 변경되니 유지보수가 훨씬 간단해질 수 있음.
+
+
+
+10. comment (주석)
+ - Sass에서는 한줄주석(//내용)과 여러줄 주석(/*내용*/)이 가능하다.
+
+
+
+11. interactive Shell
+ - SassScript 를 테스트해보고 싶을 때, 터미널이나 cmd환경에서 sass -i 명령어로 바로 코드를 작성하고 결과를 확인할수 있다.
+
+    $ sass -i
+    >> "Hello, Sassy World!"
+    "Hello, Sassy World!"
+    >> 1px + 1px + 1px
+    3px
+    >> #777 + #777
+    #eeeeee
+    >> #777 + #888
+    white
+
+
+
+12. @media
+ - Sass에서는 미디어쿼리를 위해 똑같은 선택자를 반복할 필요없이, 해당 선택자 안에 바로 정의할 수 있다.
+
+    .sidebar {
+        width: 300px;
+        @media screen and (orientation: landscape) {
+            width: 500px;
+        }
+    }
+
+ - @media 쿼리는 서로 중첩될 수도 있다.
+
+    @media screen {
+        .sidebar {
+            height:300px
+            @media (orientation: landscape) {
+                width: 500px;
+            }
+        }
+    }
+
+
+
+13. @at-root
+ - 해당 선택자를 중괄호 또는 부모에 관계없이 루트로 보냄.
+    @media print {
+        .page {
+            width: 8in;
+            @at-root {
+                color: red;
+            }
+        }
+    }
+
+
+
+14. @debug
+ - console.log() 또는 printf() 와 비슷한 역할을 한다. 값을 예측하기 어려울때 찍어보는 용도이다.
+
+    @debug 10em + 12em;
+    @debug $width + $padding;
+
+
+
+15. @if - @else if - @else
+ - if 조건문을 사용할 수 있다. (다만 소괄호를 사용하지 않는다.)
+
+    $jb-type: jb-blue;
+    p {
+        @if $jb-type == jb-red {          //조건문 1
+            color: red;
+        } @else if $jb-type == jb-blue {  //조건문 2
+            color: blue;
+        } @else {                         //조건문 3
+            color: black;
+        }
+    }
+
+ - if문은 함수로도 사용할 수 있는데, if(조건, 참일때, 거짓일때) 로 사용한다.
+
+    .box { padding: if(true, 10px, 20px); }
+
+
+
+16. @while 조건 { }
+ - while 반복문을 사용할 수 있다. (소괄호는 사용하지 않는다.)
+
+    $i: 1;            //탈출변수 선언
+    $gutter: 20px;    //사이크기 초기값 셋팅
+    @while $i <= 12 {
+        .grid-#{$i} {  //grid-1 부터 grid-12까지
+            width: (60px * $i) + $gutter * ($i - 1);
+        }
+        $i: $i + 1;
+    }
+
+
+
+17. @for $i from 시작 to 끝 { }
+ - for 반복문을 사용할 수 있다. (소괄호는 사용하지 않는다.)
+ - to(<), through(<=) 중에 선택해서 사용한다.
+
+    @for $i from 1 to 13 {  //반복횟수를 12개로 설정 (1씩 증가함)
+        .grid-#{$i} {
+            width: 70px * $i;
+        }
+    }
+
+
+
+18. @each
+ - JavaScript의 for in 문과 비슷하게 동작한다.
+ - 배열 또는 Map타입 data의 내용을 하나씩 접근할수 있다.
+
+    //Sass 코드, 배열일 경우 예시.
+    @each $obj in phone, tablet, cup, mouse {
+        .item-#{$obj} { background-image: url("img/#{$obj}.jpg"); }
+    }
+
+    //변환된 css코드
+    .item-phone { background-image: url("img/phone.jpg"); }
+    .item-tablet { background-image: url("img/tablet.jpg"); }
+    .item-cup { background-image: url("img/cup.jpg"); }
+    .item-mouse { background-image: url("img/mouse.jpg"); }
+
+    //Sass 코드, Map일 경우 예시.
+    @each $map in (h1: 2em, h2: 1.5em, h3: 1.2em) {
+        #{nth($map, 1)} { font-size: nth($map, 2); }  //nth(obj, nth) 내장함수. 순서를 나타내는듯.
+    }
+
+
+
+
+
+* Web Sass 컴파일러 (위의 모든 Sass예제코드를 테스트해볼수 있다.)
+http://www.sassmeister.com/
+
+
+
+

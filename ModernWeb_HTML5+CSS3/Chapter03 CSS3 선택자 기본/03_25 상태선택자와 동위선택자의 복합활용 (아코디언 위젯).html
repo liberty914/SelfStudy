@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Selector Basic Page</title>
+  <style>
+    input[type=checkbox]:checked + div {  /* 체크박스가 선택되면 */
+      height: 0px;  /* 체크박스의 첫번째형제 div의 높이를 0으로 만듬 (안보이게) */
+    }
+    
+    div {
+      overflow: hidden;
+      width: 650px; height: 300px;
+      
+      /* 변환 효과를 적용합니다. */
+      -ms-transition-duration: 1s;
+      -webkit-transition-duration: 1s; 
+      -moz-transition-duration: 1s; 
+      -o-transition-duration: 1s; 
+      transition-duration: 1s; 
+    }
+  </style>
+</head>
+
+<body>
+  <input type="checkbox" />
+  <div>
+    <h1>Lorem ipsum</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <h1>Lorem ipsum</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <h1>Lorem ipsum</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <h1>Lorem ipsum</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+</body>
+</html>

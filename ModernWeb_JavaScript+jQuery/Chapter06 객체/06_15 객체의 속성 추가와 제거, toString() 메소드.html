@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title></title>
+</head>
+
+<!--
+-->
+<body>
+  <header><h1></h1></header>
+  
+  <script>
+    var student = {};
+    
+    student.이름 = '양동호';  //그냥 마치 원래 있던것처럼 추가하면 된다.
+    student.취미 = '악기';
+    student.특기 = '노래, 춤';
+    student.장래희망 = '떼부자';
+    student.toString = function() {  //객체에 있는 속성을 출력하는 메소드, 이렇게 따로 만들지 않으면 [object Object] 를 출력한다.
+      var str = '';
+      for(var key in this) {
+        if(key == 'toString') {  //toString() 메소드는 출력하지 않게함.
+          continue;
+        }
+        str += key+' : '+this[key]+'\n';  //여기서 . 접근연산자를 사용하면 undefined로 출력됨. 사용불가!
+      }
+      return str;
+    };
+    
+    alert(student);  //내부적으로 toString() 메소드 호출함.
+    
+    delete (student.취미);  //student 객체의 취미 속성을 제거함.
+    alert(student);
+    
+    delete (student.toString);  //toString 메소드를 제거했으니  
+    alert(student);             //[object Object] 를 출력!
+  </script>
+    
+</body>

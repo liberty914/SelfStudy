@@ -1,0 +1,53 @@
+<ul class="list-unstyled">
+  <h4>Reviews</h4>
+  <li ng-repeat="review in product.reviews">
+    <blockquote>
+      <strong>{{review.stars}} Stars</strong>
+      <p>{{review.body}}</p>
+      <cite class="clearfix">—{{review.author}} —on {{review.createdOn | date}}</cite>
+    </blockquote>
+  </li>
+</ul>
+
+<!--리뷰 적는 공간-->
+<form name="reviewForm" novalidate
+ng-controller="ReviewController as reviewCtrl"
+ng-submit="reviewForm.$valid && reviewCtrl.createReview(product);">  <!--submit될때 실행할 함수-->
+<!--2 Way Binding 리뷰-->
+<blockquote>
+  <strong>{{reviewCtrl.review.stars}} Stars</strong>
+  <p>{{reviewCtrl.review.body}}</p>
+  <cite class="clearfix">—{{reviewCtrl.review.author}}</cite>
+</blockquote>
+
+<!--리뷰 Form-->
+<h4>리뷰를 적어보세요.</h4>
+<fieldset class="form-group">
+  <select class="form-control" title="Stars"
+    ng-options="stars for stars in [5,4,3,2,1]"
+    ng-model="reviewCtrl.review.stars" required>
+    <option value="">상품의 점수</option>
+  </select>
+</fieldset>
+<fieldset class="form-group">
+  <textarea class="form-control" title="Review"
+    placeholder="상품에대한 한줄평을 적어보세요!"
+    ng-model="reviewCtrl.review.body" required>
+  </textarea>
+</fieldset>
+<fieldset class="form-group">
+  <input type="email" class="form-control" title="Email"
+    placeholder="jimmyDean@example.org"
+    ng-model="reviewCtrl.review.author" required />
+</fieldset>
+<fieldset class="form-group">
+  <input type="submit" class="btn btn-primary pull-right" value="리뷰 등록" />
+</fieldset>
+{{reviewForm.$valid}}
+</form>
+
+<!--form의 상태에 따른 스타일시트-->
+<style>
+.ng-dirty.ng-invalid { border-color: red; }
+.ng-dirty.ng-valid { border-color: green; }
+</style>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Style Property Basic</title>
+    <!--    <위치 속성>
+          절대 위치 좌표  ==>  요소의 x, y좌표를 설정해서 절대 위치를 지정한다.
+          상대 위치 좌표  ==>  요소를 입력한 순서를 통해 상대적으로 위치를 지정.
+          
+            <position 속성에 사용할 수 있는 키워드>
+          static    ==> 태그가 위에서 아래로 순서대로 배치.
+          relative  ==> 초기 위치상태에서 상하좌우로 위치를 이동.
+          absolute  ==> 절대 위치 좌표를 설정.
+          fixed     ==> 화면을 기준으로 절대 위치 좌표를 설정.        -->
+  <style>
+    .box {
+      width: 100px; height: 100px; 
+      position: absolute; 
+    }
+    
+    .red {
+      background-color: red;
+      top: 10px; left: 10px;  /* position: absolute일 경우에만 사용할 수 있는 속성들. */
+      z-index: 100;
+    }
+    
+    .green { 
+      background-color: green;
+      top: 50px; left: 50px;  /* position: absolute일 경우에만 사용할 수 있는 속성들. */ 
+      z-index: 50;
+    }
+      
+    .blue { 
+      background-color: blue;
+      top: 90px; left: 90px;  /* position: absolute일 경우에만 사용할 수 있는 속성들. */ 
+      z-index: 10;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Lorem ipsum dolor amet</h1>
+  <div>
+    <div class="box red"></div>
+    <div class="box green"></div>
+    <div class="box blue"></div>
+  </div>
+  <h1>Lorem ipsum dolor amet</h1>
+</body>
+</html>

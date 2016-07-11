@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>SMART Phone Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  
+  <!--초기화-->
+  <style>
+    * { margin: 0; padding: 0; }
+    body { font-family: 'Arial, Helvetica, sans-serif'; }
+    li { list-style: none; }
+    a { text-decoration: none; }
+  </style>
+  
+  <!--헤더-->
+  <style>
+    #main_header {
+      background: url('../resources/img/ch6/header_background.png');  /* 배경 지정 */
+      height: 45px;  /* bg이미지가 45px이기때문에 height도 45px을 주었음 */
+      
+      position: relative;  /* 자손 위치 지정 */
+      text-align: center; 
+      line-height: 45px; 
+    }
+    #main_header > h1 {
+      color: white; 
+    }
+    #main_header > a, #main_header > label {  /* a태그와 label태그에 모두 적용됨 */
+      display: block; 
+      height: 32px; 
+      position: absolute; 
+    }
+    #main_header > a.left {  /* brand는 좌측으로 */
+      width: 62px; 
+      left: 5px; top: 7px; 
+    }
+    #main_header > label.right {  /* 토글버튼은 우측으로 */
+      width: 32px; 
+      right: 5px; top: 7px; 
+    }
+  </style>
+  
+  <!--스프라이트 이미지 (CSS Sprites Generator : http://csssprites.com/ 에서 만들고, 사용법도 제공됨) -->
+  <style>
+    #main_header > a.left {
+      background: url('../resources/img/ch6/sprites.png'); 
+      background-position: 0px 0px; 
+      text-indent: -99999px;  /* 태그 내부에 있는 글자를 보이지 않게 만들고자, 터무니 없는 값을 적용하여, 글자를 화면 밖으로 밀어버리는 코드. */
+    }
+    #main_header > label.right {
+      background: url('../resources/img/ch6/sprites.png'); 
+      background-position: -62px 0px; 
+      text-indent: -99999px;  /* JavaScript와 함께라면 무척 자주 사용될테니 꼭 기억하자. */
+    }
+  </style>
+  
+  <!--토글 목록-->
+  <style>
+    #toggle { display: none; }  /* toggle체크박스 단추를 안보이게 함 */
+    #toggle + #wrap > #toggle_gnb_wrap { display: none; }  /* toggle체크박스의 형제인 wrap의 직계자식 toggle_gnb_wrap 을 안보이게함 */
+    #toggle:checked + #wrap > #toggle_gnb_wrap { display: block; }  /* toggle체크박스가 체크되었을땐 내용을 보이게함 */
+    
+    #toggle_gnb_wrap {  /* 레이아웃 색상 */
+      background: #363636; 
+      padding: 15px; 
+    }
+    #toggle_gnb {
+      background: #FFFFFF; 
+      padding: 5px; 
+    }
+    
+    #toggle_gnb > ul { overflow: hidden; }
+    #toggle_gnb > ul > li { width: 80px; float: left; }
+  </style>
+  
+  <!--네비게이션(1)-->
+  <style>
+    #top_gnb {
+      overflow: hidden;
+      border-bottom: 1px solid black; 
+      background: #B42111; 
+    }
+    #top_gnb > div > a {
+      float: left;   /* 수평 정렬 */
+      width: 25%;   /* 부모태그(top_gnb)의 width기준 25%, 목록이 4개이기 때문에 25%로 적용했다. 5개면 20%이어야 한다. */
+      
+      height: 35px;  /* 크기 및 색상, 정렬 */
+      line-height: 35px;  /* 클릭가능범위를 높이기위함 */
+      text-align: center;  /* 글자 가운데정렬, a태그가 width와 height속성을 가졌기때문에 가능함 */
+      color: white; 
+    }
+  </style>
+  
+  <!--네비게이션(2)-->
+  <style></style>
+  <!--본문-->
+  <style></style>
+  <!--푸터-->
+  <style></style>
+</head>
+
+<!--=======================================================================================================================================-->
+
+<body>
+  <input id="toggle" type="checkbox" />  <!--속임수용 체크박스!-->
+  <div id="wrap">
+    
+    <header id="main_header">
+      <a class="left" href="#">Main</a>
+      <h1>Mobile</h1>
+      <label class="right" for="toggle">Toggle</label>  <!--체크박스를 반응하게하는 label태그!-->
+    </header>
+    
+    <div id="toggle_gnb_wrap">
+      <div id="toggle_gnb">  <!--토글버튼 생성, toggle_gnb-->
+        <ul>  <!--내용입력-->
+          <li><a href="#">버튼</a></li>
+          <li><a href="#">버튼</a></li>
+          <li><a href="#">버튼</a></li>
+          <li><a href="#">버튼</a></li>
+          <li><a href="#">버튼</a></li>
+          <li><a href="#">버튼</a></li>
+          <li><a href="#">버튼</a></li>
+          <li><a href="#">버튼</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <nav id="top_gnb">  <!--상위 네비게이션 생성, top_gnb-->
+      <div><a href="#">버튼</a></div>  <!--내용입력-->
+      <div><a href="#">버튼</a></div>
+      <div><a href="#">버튼</a></div>
+      <div><a href="#">버튼</a></div>
+    </nav>
+    
+    <nav id="bottom_gnb">  <!--하위 네비게이션 생성, bottom_gnb-->
+      <div><a href="#">버튼</a></div>  <!--내용입력-->
+      <div><a href="#">버튼</a></div>
+      <div><a href="#">버튼</a></div>
+      <div><a href="#">버튼</a></div>
+      <div><a href="#">버튼</a></div>
+    </nav>
+    
+  </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Sass를 사용한다면(run gulp sass first), 이 주석을 풀고 위의 CSS link를 삭제하세요.
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- 아이오닉 / 앵귤러 JS -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- 코르도바 스크립트 (이건 개발중에 404에러가 날것입니다.) -->
+    <script src="cordova.js"></script>
+
+    <!-- 당신의 어플리케이션의 js파일 -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+  </head>
+  <body ng-app="starter">
+    <!-- 우리가 view를 탐색할때 nav-bar는 업데이트 될 것입니다. -->
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+    </ion-nav-bar>
+
+    <!-- ion-nav-view 태그의 디렉티브에 view들이 렌더링 됩니다.
+        Templates는 /templates 폴더안에 있습니다.
+        하지만 당신이 원한다면 이 HTML파일에서 인라인 템플릿을 가질수 있습니다. -->
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>

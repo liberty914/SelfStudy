@@ -1,0 +1,221 @@
+
+[id=close] { display: none; }  /* 배너 끄는 체크박스 안보이게함 */
+[id=close]:checked ~ #topBannerWrap { display: none; }  /* 체크박스 선택되면 배너 안보이게함 */
+
+/* 배너 */
+#topBannerWrap { width: 100%; height: 70px; background-color: #18284f; }
+#topBanner { margin: 0 auto; width: 980px; height: 70px; }
+#topBanner label { position: absolute; top: 20px; right: 20px; cursor: pointer; display: block; width: 28px; height: 29px; background: url("../img/bg_aside_sprite_140925.png") -111px -31px; }
+
+
+/*===================================================================*/
+
+
+/* 즐겨찾기, 구독하기, 로그인 등 상단바 */
+section#topBar { width: 980px; margin: 0 auto; overflow: hidden; }
+section#topBar div { overflow: hidden; }
+section#topBar div ul:first-child { float: left; }
+section#topBar div ul:last-child { float: right; }
+section#topBar div ul li { float: left; }
+section#topBar div ul li a { display: inline-block; margin: 7px 7px 7px 7px; }
+
+
+/*===================================================================*/
+
+
+header { margin: 0 auto; width: 980px; padding: 10px 0px; height: 55px; position: relative; }
+header h1 img { width: 204px; float: left; }  /* 쿠팡 로고 */
+
+header form { position: relative; left: 20px; }
+header form [id^=select-check] { display: none; }
+header form [id^=search-radio-] { position: absolute; top: 12px; left: 10px; display: inline; width: 130px; height: 1px; }
+#select-cate-box {
+  position: absolute; top: 40px; left: 204px;
+  width: 130px; height: 0px;
+  overflow: hidden;
+  z-index: 6;
+  box-sizing: border-box;
+  border-left: 1px solid #b4b4b4;
+  border-right: 1px solid #b4b4b4;
+  transition: 0.3s;
+}
+#select-cate-box ul { background-color: white; }
+#select-cate-box ul li { }
+#select-cate-box ul li label { display: block; padding: 7px 10px; cursor: pointer; }
+
+/* 검색 카테고리 선택 */
+header form .selectCategory {
+  position: relative;
+  float: left;
+  width: 130px;
+  height: 40px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  line-height: 40px;
+  border: 1px solid #b4b4b4;
+  background-color: #ffffff;
+  display: inline-block;
+  cursor: pointer;
+}
+[id=select-check] ~ [for=select-check] span { position: absolute; top: 13px; right: 10px; }
+[id=select-check] ~ [for=select-check] span:first-of-type {  }
+[id=select-check] ~ [for=select-check] span:last-of-type { display: none; }
+[id=select-check]:checked ~ [for=select-check] span:first-of-type { display: none; }
+[id=select-check]:checked ~ [for=select-check] span:last-of-type { display: inline; }
+[id^=search-radio-]:checked::before { content: attr(value) !important; }
+
+[id^=select-check]:checked ~ #select-cate-box { display: block; height: 300px; overflow-y: scroll; border-bottom: 1px solid #b4b4b4; }
+
+/* 검색어 입력하는 공간 */
+header form input[type=text] {
+  float: left;
+  width: 300px; height: 40px;
+  padding: 0 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+  border: 1px solid #b4b4b4;
+  border-left: 0;
+}
+
+/* 검색 버튼 */
+header form .button {
+  float: left;
+  display: inline-block;
+  background-color: #008cff;
+  color: white;
+  width: 100px;
+  line-height: 40px;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* 인기검색어 hover하기 전 */
+header #search-rank {
+  position: absolute; right: 0px; top: 13px;
+  width: 190px; height: 32px;
+  background-color: white;
+  border: 1px solid #b4b4b4;
+  overflow: hidden;
+}
+
+/* 인기검색어가 돌아가면서 올라가는 부분 */
+header #search-rank #rank-animation { animation: searchRank 11s infinite; }
+
+#ani-stop h2 { display: none; text-align: center; font: bold 12px "godic"; line-height: 32px; border-bottom: 1px solid black; }
+#ani-stop ol { }
+#ani-stop ol li {}
+#ani-stop ol li a {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  height: 32px;
+  padding: 10px;
+  box-sizing: border-box;
+  color: #555555;
+}
+#ani-stop ol li a span { float: left; display: block; width: 30px; }
+#ani-stop ol li a strong { float: left; display: block; }
+#ani-stop ol li a em {
+  position: absolute; right: 10px;
+  font: 12px bold "consolas";
+  display: inline-block;
+  width: 30px; line-height: 10px;
+  text-align: center;
+}
+#ani-stop ol li a em.rankUp { color: red; }
+#ani-stop ol li a em.rankNo { color: gray; font-size: 30px; }
+#ani-stop ol li a em.rankDown { color: #008cff; }
+
+/* hover했을때 펼쳐지는것 */
+#search-rank:hover { overflow: visible; }
+#search-rank:hover #rank-animation { animation-play-state: paused; }
+#search-rank:hover #rank-animation #ani-stop h2 { display: block; }
+#search-rank:hover #rank-animation #ani-stop {
+  position: absolute; top: -10px; right: -1px;
+  background-color: white;
+  width: 200px;
+  z-index: 5;
+  border: 1px solid black;
+}
+#search-rank:hover #rank-animation #ani-stop li:last-of-type { display: none; }
+
+/* 검색어 자동으로 올라가게 만드는 애니메이션 */
+@keyframes searchRank {
+  0% { margin-top: 0px; }
+  10% { margin-top: -32px; }
+  20% { margin-top: -64px; }
+  30% { margin-top: -96px; }
+  40% { margin-top: -128px; }
+  50% { margin-top: -160px; }
+  60% { margin-top: -192px; }
+  70% { margin-top: -224px; }
+  80% { margin-top: -256px; }
+  90% { margin-top: -288px; }
+  100% { margin-top: -320px; }
+}
+
+
+/*===================================================================*/
+
+
+/* 카테고리 부분 네비게이션 */
+nav#gnb { margin: 0 auto; width: 980px; height: 40px; background-color: white; position: relative; }
+nav#gnb .button {
+  display: inline-block;
+  background-color: #008cff;
+  color: white;
+  width: 148px; line-height: 40px;
+  font-weight: bold; font-size: 14px;
+  text-indent: 41px;
+  cursor: default;
+}
+
+/* 카테고리중 상단 메뉴 */
+nav#gnb ul.topMenu { position: absolute; top: 0px; left: 190px; }
+nav#gnb ul.topMenu li { float: left; }
+nav#gnb ul.topMenu li a { display: block; padding: 12px 0;  }
+nav#gnb ul.topMenu li a span { padding: 0 15px; border-right: 1px solid #c9c9c9; font-weight: bold; }
+nav#gnb ul.topMenu li:hover a span { color: #008cff; }
+nav#gnb ul.topMenu li:last-of-type a span { padding: 0 15px; border: 0; }
+
+/* 카테고리중 좌측 세로메뉴 */
+nav#gnb ul.categoryMenu  {
+  position: absolute; top: 40px;
+  width: 148px;
+  height: 413px;
+  background-color: white;
+  box-sizing: border-box;
+  z-index: 5;
+  border: 2px solid #008cff;
+  border-top: 0;
+  box-shadow: 5px 5px 10px gray;
+}
+ul.categoryMenu hr { margin: 10px 0; height: 1px; background-color: #d6d6d6; border: none;}
+ul.categoryMenu .cate-parent-li { }
+ul.categoryMenu .cate-parent-li .cate-parent-a { display: block; text-indent: 30px; width: 148px; line-height: 30px; }
+ul.categoryMenu .cate-parent-li .cate-parent-a span { transition: 0.1s; }
+ul.categoryMenu .cate-parent-li:hover .cate-parent-a span { font-size: 13px; font-weight: bold; color: #008cff; }
+ul.categoryMenu .cate-parent-li:hover .cate-parent-a span::before { content: "\00a0"; }
+
+/* 좌측 세로메뉴에 마우스를 올리면 등장하는 자식카테고리 */
+.cate-child-ul {
+  position: absolute; top: -2px; left: 144px;
+  width: 0px;
+  box-sizing: border-box;
+  height: 415px;
+  background-color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  /*transition: 0.1s width;   상황에따라 트랜지션은 빼면 깔끔하다. */
+  border: 2px solid #008cff;
+  border-left: 0;
+}
+.cate-child-ul .cate-child-li:first-child a { padding: 10px 20px 0; }
+.cate-child-ul .cate-child-li a { display: inline-block; line-height: 28px; padding: 0 20px; }
+.cate-child-ul img { position: absolute; top: 0px; right: -32px; z-index: -1; }
+.cate-parent-li:nth-last-of-type(3) img { position: absolute; top: 0px; right: 0px; z-index: -1; } /* 여행은 그림이 큼. */
+.cate-child-ul .cate-select { position: absolute; top: 0px; right: 0px; display: block; width: 340px; height: 416px; }
+
+.cate-parent-li:hover .cate-child-ul { width: 500px; z-index: 5; border-left: 1px solid #d6d6d6; box-shadow: 5px 5px 10px gray; }
+.cate-parent-li:hover .cate-child-li a:hover span { font-size: 13px; font-weight: bold; color: #008cff; }
+

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>Chapter10 DOM(문서 객체 모델)</title>
+  <script src='./../common/common.js'></script>
+</head>
+
+<body>
+  <script src='./../common/includeBody.js'></script>
+</body>
+</html>
+
+
+<!--==========================================================================================================-->
+
+
+<!--
+    DOM (Document Object Model, 문서 객체 모델)
+    - HTML태그를 자바스크립트에서 이용할 수 있는 객체로 만든 것.
+    - 넓은 의미로, 웹 브라우저가 HTML페이지를 인식하는 방식
+    - 좁은 의미로, document 객체와 관련된 객체의 집합.
+    - HTML페이지에 태그를 추가, 조회, 수정, 삭제(CRUD)할 수 있다.
+
+    <★무조건 알아야하는 메소드!>
+    document.getElementById('tagID')          ==>  태그의 id로 객체를 가져옴
+    document.getElementsByName('namesValue')  ==>  태그의 name으로 객체를 가져옴 (배열을 return)
+    document.getElementsByTagName('tagName')  ==>  태그명으로 객체를 가져옴 (배열을 return)
+    document.getElementsByClassName('className')  ==> 클래스명으로 객체를 가져옴 (배열을 return)
+
+    document.querySelector('CSS선택자')     ==>  CSS선택자로 가장 처음 선택되는 문서객체를 가져옴.
+    document.querySelectorAll('CSS선택자')  ==>  CSS선택자로 선택되는 모든 문서객체를 가져옴 (배열을 return)
+
+    createElement('tagName')  ==>  요소노드를 생성함
+    createTextNode('text')    ==>  텍스트노드를 생성함
+    appendChild(node)         ==>  객체에 노드를 연결함
+    removeChild(child)        ==>  객체의 "직계자식"노드를 삭제함 (바로 아래에 있어야한다)
+                                   삭제할DOM.parentNode.removeChild(삭제할DOM) ==> 삭제공식! ★
+
+    setAttribute(name, value)  ==>  객체의 속성을 지정함 (웹표준에 정의되지 않은 속성도 가능)
+    getAttribute(name)         ==>  객체의 속성을 가져옴
+
+    DOM.innerHTML    ==>  해당 태그의 내부를 의미하는 속성
+    DOM.textContent  ==>  해당 태그의 텍스트노드를 의미하는 속성
+
+
+    * 노드 - HTML의 각 요소들
+    * 요소노드 - HTML태그를 의미
+    * 텍스트노드 - 요소노드 내부에 들어있는 글자를 의미 (h1태그 사이에 있는 글자 등)
+-->
+
+<script>
+  'use strict';  //엄격하게 문법을 검사
+
+  var myload = function() {
+
+    //문서 객체 만들기(1) - appendChild() 메소드 사용하기
+    var header = document.createElement('h1');
+    var textNode = document.createTextNode('푸하하');
+    header.appendChild(textNode);
+    document.body.appendChild(header);
+
+    var img = document.createElement('img');
+    img.src = './../../ModernWeb_HTML5+CSS3/resources/img/이미지2.jpg';  //객체의 속성(Field)에 값을 대입.
+    img.alt = '이미지 gif파일';      //웹표준이 정의하거나, 브라우저가 지원하는 태그의속성만 가능.
+    img.setAttribute('width', '50%');
+    img.setAttribute('height', '50%');
+    img.setAttribute('하하하', 'Lv.99');  //웹표준에 정의되지 않아도 속성부여 가능!
+    document.body.appendChild(img);
+
+
+    //문서 객체 만들기(2) - innerHTML 속성 사용하기
+    var output = '';
+    output += '<ul>';
+    output += '   <li>이것이</li>';
+    output += '   <li>innerHTML 속성이다!</li>';
+    output += '</ul>';
+    document.body.innerHTML += output;
+
+    //document.getElementById('main_footer').textContent += output;
+    //document.getElementsByTagName('footer')[0].textContent += '<h1>이건 textContent 속성!</h1>';
+
+    document.querySelector('html > body > #main_footer > p').style.backgroundColor = 'pink';  //CSS선택자로 문서객체를 가져온다!
+
+
+    //문서 객체의 스타일 조작
+    document.querySelector('html > body > #main_footer > p').style.fontWeight = 'bold';  // '-' 가 들어간 속성은 "카멜케이스" 를 따른다!
+    document.querySelector('html > body > #main_footer > p').style.color = 'red';
+    document.querySelector('html > body > #main_footer > p').style.border = '5px solid orange';
+    document.querySelector('html > body > #main_footer > p').style['text-align'] = 'center';  //방법 2
+
+
+    //문서 객체의 제거
+    var willRemove = document.querySelector('html > body > ul > li:last-child');
+    willRemove.parentNode.removeChild(willRemove);  //★공식처럼 암기해두자!
+
+
+    //문서 객체를 사용한 시계
+    var clock = document.createElement('h1');
+    document.body.appendChild(clock);
+    setInterval(function() {
+      clock.innerHTML = new Date();
+    }, 1000);
+
+  };
+  window.addEventListener('load', myload);
+</script>

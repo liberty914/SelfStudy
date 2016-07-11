@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Style Property Basic</title>
+  <style>
+    /*   <배경 속성>
+         background-image  ==> url() 함수로 파일경로를 설정해줄수 있다. (2번써서 중첩시킬수도 있다.)
+         background-size   ==> 배경의 크기를 조절.
+         background-repeat ==> 배경반복을 설정.
+         background-attachment  ==> 배경이미지를 어떤방식으로 화면에 붙일지 지정.
+         background-position  ==> 배경이미지의 위치를 지정. (스프라이트 이미지 만들때 자주 사용됨.)       */
+
+    body {
+      background-image: url('../resources/img/이미지2.jpg'), url('../resources/img/이미지12345.jpg');
+      background-size: 50% 370px;  /* 1개쓰면 : 너비  // 2개쓰면 : 너비와 높이 (쉼표를 사용하면 2개의 이미지에 각각 설정한다.) */
+      /* (%를 사용하면 브라우저 크기에 따라 상대적으로 움직이게 할 수 있다. */
+   /* background-size: cover; */  /* cover ==> 가로를 100%로 한것과 같은 효과.
+                                  contain  ==> ???   */
+      background-repeat: no-repeat;  /* 배경이미지 반복안함. (디폴트는 repeat) */
+
+      background-attachment: scroll;
+      /*  scroll ==> 디폴트 (휠을내리면 그냥 넘어감. 안따라옴.)
+          fixed  ==> 휠을 내리거나 올려도 페이지에 고정되어 따라움직임. (패럴렉스 스크롤링에 사용됨)
+          local  ==> ???        */
+
+      background-position: right 20%, left 40%;  /* 1개쓰면 : 좌우 // 2개쓰면 : 상하,좌우 */
+      /*  세로기준 가운데지점, left가 default값.
+          top, right, bottom, left, center
+          px 또는 %를 지정하여 움직일수 있다. (center와 50% 는 동일하다.)   */
+
+      /* 한줄에 모두 기입할 수도 있다. 그러나 가독성이 매우 떨어지기때문에 이렇게 나눠서 쓰도록 하자. */
+    }
+
+    /*#parel {  ==> 패럴렉스 스크롤링 초간단 예제
+      height: 1000px;
+      background-image: url('img/이미지2.jpg');
+      background-size: 100%;
+      background-attachment: fixed;
+      position: relative;
+    }
+
+    #parel2 {
+      height: 500px;
+      background-image: url('img/이미지3.jpg');
+      background-size: 100%;
+      position: relative;
+    }
+
+    #parel3 {
+      height: 1000px;
+      background-image: url('img/이미지12345.jpg');
+      background-size: 100%;
+      background-attachment: fixed;
+      position: relative;
+    }*/
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <h1>Lorem ipsum dolor sit amet</h1>
+    <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>
+    <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>
+    <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>
+  </div>
+</body>
+</html>

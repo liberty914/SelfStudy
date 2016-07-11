@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Style Property Basic</title>
+    <!--    <Vendor Prefix>
+          ==> 웹 브라우저 공급업체(MS, Google, Apple 등)에서 제공하며,
+              실험적인 기능이 필요할 때 사용. 아직 완벽하게 제정된 상태가 아님.
+              다른 웹 브라우저를 이기려면 새로운 기능을 모두 제공해야하므로, 벤더프리픽스를 사용해 지원함.                              -->
+          
+  <style>
+    input[type=checkbox]:checked + div {
+      height: 0px; 
+    }
+    div { 
+      overflow: hidden; 
+      width: 650px; height: 550px; 
+      
+      /* 변환 효과를 적용합니다. */
+   /* -ms-transition-duration: 1s; 
+      -webkit-transition-duration: 1s; 
+      -moz-transition-duration: 1s;    현재는 변환속성도 벤더프리픽스 없이 사용할수 있다. (지속적으로 업데이트중)
+      -o-transition-duration: 1s;      ==> 정식 지원됨.     */
+      transition-duration: 1s; 
+    }
+    /* transition-duration 속성 앞에 붙어 있는 글자들이 Vendor Prefix이다. */
+  </style>
+</head>
+
+<body>
+  <input type="checkbox" />
+  <div>
+    <h1>Lorem ipsum dolor amet</h1>
+    <h1>Lorem ipsum dolor amet</h1>
+    <h1>Lorem ipsum dolor amet</h1>
+    <h1>Lorem ipsum dolor amet</h1>
+    <h1>Lorem ipsum dolor amet</h1>
+    <h1>Lorem ipsum dolor amet</h1>
+    <h1>Lorem ipsum dolor amet</h1>
+    <h1>Lorem ipsum dolor amet</h1>
+  </div>
+</body>
+</html>

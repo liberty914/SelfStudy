@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Selector Basic Page</title>
+  
+  <!-- 제이쿼리 모바일 UI 프레임워크 사용! -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />  <!-- 너비는 디바이스크기, 초기화크기 1 -->
+  <link rel="stylesheet"
+        href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+</head>
+
+<body>
+  <!-- "data-" 속성은 사용자 지정 속성, 웹을 하면할수록 사용빈도가 굉장히 높아진다.
+       웹 표준에 존재하지는 않고, 임의로 지정하는 속성임. -->
+  <div data-role="page">
+    <div data-role="header" data-theme="b">  <!-- 상단바를 나타내고, black색상 -->
+      <h1>HTML5</h1>
+    </div>
+    <div data-role="content">
+      <ul data-role="listview">
+        <li data-role="list-divider">HTML5</li>  <!-- 배경회색, 글자 진하게 속성이 들어가있음 -->
+        <li>Multimedia</li>
+        <li>Connectivity</li>
+        <li>Device Access</li>
+        <li data-role="list-divider">CSS3</li>
+        <li>Animation</li>
+        <li>3D Transform</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

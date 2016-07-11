@@ -1,0 +1,69 @@
+
+* 도움을 받은 링크
+https://docs.mongodb.org/manual/reference/mongo-shell/
+https://docs.mongodb.com/manual/reference/method/db.collection.save/
+
+
+
+        < 기본적인 CRUD 명령어 >
+
+
+db.<collectionName>.find();
+    현재 db의 해당 collection에서 모든 데이터를 가져온다.
+
+db.collection.save(<document>);
+    document JSON object에 _id필드가 존재하면 update()를,
+    _id필드가 존재하지 않으면 insert() 를 하게된다.
+
+
+
+
+
+        < MongoDB 의 Shell에서 사용하는 명령어들 >
+
+
+mongod
+    mongoDB 서버를 실행시킨다
+
+
+mongo [--port 9999 admin -u root -p]
+    mongoDB 클라이언트를 실행시켜 서버로 접속하도록 한다.
+    (admin 부분에 aaa 라고 입력하면 aaa컬렉션으로 바로 진입함, default는 test)
+
+
+show dbs
+    현재 서버가 가지고있는 모든 db list를 출력한다.
+
+
+db
+    현재 클라이언트가 접속한 db이름을 출력한다.
+
+
+use <db>
+    입력한 db를 사용한다 (접속한다)
+
+
+show collections
+    접속한 db의 모든 collection list 를 출력한다.
+
+
+
+	< 참조 >
+
+- mongoDB에 저장되어있는 컬럼의 Data Type을 변환시키는 방법 (string —> number 예제)
+  링크(https://docs.mongodb.com/manual/reference/operator/query/type/)
+
+db.patent.find( { registeredDate : { $type : 'string' } } ).forEach( function (row) {   
+    var test = Number(row.registeredDate);
+    if (test) {
+      row.registeredDate = test;  //convert field to string
+      db.patent.save(row);
+    }
+  });
+
+
+- mongoDB 백업하고, 복구하기
+	use researchers
+	mongodump --host localhost:27017 --db researchers --out
+	db.dropDatabase();
+	mongorestore -h localhost:27017 --db researchers ~/applicat/005_researcher/문서/Data/mongoDump/researchers

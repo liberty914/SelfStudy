@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Style Property Basic</title>
+  <style>
+    /*   <테두리(border) 속성>
+         border-width  ==> 테두리의 두께
+         border-style  ==> 테두리의 형태
+         border-color  ==> 테두리의 색깔
+         border-radius ==> 테두리의 반지름(모서리를 둥글게, 또는 원의 형태로 만들수 있음.)
+         border-left, right, bottom, top  ==> 각각을 따로 설정할수 있다.       */
+    
+    .box {
+      border-width: thick; 
+      border-style: dashed; 
+      border-color: aqua;  /* 이렇게 3가지 속성이 필수임. */
+      
+      border: orange medium dashed;  /* 순서는 어떻게쓰던지 아무상관이 없다.
+                                          그러나 대체로 1px solid black 순서로 사용함. */
+      border-radius: 100px;
+      border-radius: 10px 25px 40px 55px;  /* 왼쪽위(10시)부터 시계방향 */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <h1>Lorem ipsum dolor sit amet</h1>
+  </div>
+</body>
+</html>

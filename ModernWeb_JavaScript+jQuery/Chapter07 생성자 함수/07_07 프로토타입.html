@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title></title>
+</head>
+
+<!--
+  속성 = 상태(값)  //  메소드 = 행위
+  속성은 모든 객체가 다른 값을 가짐. (상태는 모두 다르지만)
+  메소드는 모든 객체가 같은 값을 가짐. (행위는 모두 같음)
+  
+  만약 1000개의 객체를 생성한다면, 똑같은 메소드를 1000개를 생성하는것.
+  ==> 심각한 메모리낭비. 비효율적
+  
+  해결책? "prototype" 공간!
+  ==> 생성자 함수로 생성된 객체가 공통으로 가지는 공간.
+      메소드를 하나만 생성해도, 모든 객체가 해당 메소드를 사용할 수 있다.
+      ==> 생성자함수에는 '속성만' 넣는다.
+          메소드는 모두 prototype 안에 넣어준다.
+  자바스크립트의 모든 함수는 prototype을 가지며, prototype은 객체이다.
+-->
+<body>
+  <header><h1></h1></header>
+  
+  <script>
+    function Student(name, kor, mat, eng, sci) {
+      this.이름 = name;
+      this.국어 = kor;
+      this.수학 = mat;
+      this.영어 = eng;
+      this.과학 = sci;
+      // this.getSum = function() {};  //Student객체의 프로토타입 공간에 getSum() 메소드를 넣는다!
+      // this.getAvg = function() {};
+      // this.toString = function() {};
+      Student.prototype.getSum = function() {};  //Student객체의 프로토타입 공간에 getSum() 메소드를 넣는다!
+      Student.prototype.getAvg = function() {};
+      Student.prototype.toString = function() {};
+    }
+    
+    var student = new Student("양동호1", 101, 102, 103, 104);
+    console.log(student);
+  </script>
+</body>
+</html>

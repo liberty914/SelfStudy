@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>HTML TEXT Basic Page</title>
+</head>
+
+<body>
+  <p>table태그 : 표를 만들때 사용하는 태그. 
+    과거에는 테이블태그로 레이아웃도 구성했으나, 현대에는 div태그를 사용하므로 사용빈도가 줄어듬.</p>
+  <p>tr : 표 내부의 행 (table row)</p>
+  <p>th : 행 내부의 제목 셀 (table header)</p>
+  <p>td : 행 내부의 일반 셀 (table data)</p>
+  <p>colspan 속성 : 셀의 너비 지정 (가로 병합)</p>
+  <p>rowspan 속성 : 셀의 높이 지정 (세로 병합)</p>
+  
+  <table border="1">
+    <tr> <!--첫번째 줄-->
+      <th colspan="3">Table Data1-1</th> <!--첫번째 데이터는 가로로 3칸을 차지함-->
+      <th rowspan="2">Table Data1-2</th> <!--두번째 데이터는 (4번째칸부터) 세로로 2칸을 차지함-->
+    </tr>
+    <tr> <!--두번째 줄-->
+      <td>Table Data2-1</td>
+      <td rowspan="2">Table Data2-2</td> <!--두번째 데이터는 (2번째칸부터) 세로로 2칸을 차지함--> 
+      <td>Table Data2-3</td>
+    </tr>
+    <tr> <!--세번째 줄-->
+      <td>Table Data3-1</td> <!--첫번째 칸에 들어감-->
+      <td>Table Data3-2</td> <!--세번째 칸에 들어감 (데이터2-2때문에) -->
+    </tr>
+  </table>
+  
+</body>
+</html>

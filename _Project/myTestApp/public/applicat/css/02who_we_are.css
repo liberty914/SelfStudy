@@ -1,0 +1,112 @@
+
+
+#who-we-are { }
+#who-we-are .first { background-color: white; }
+#who-we-are .first .content { width: 40%; text-align: center; margin: 0 auto 50px; }
+
+#who-we-are .first .content img { width: 60px; height: 60px; margin-top: 20px; }
+#who-we-are .first .content h1 { color: #d6005b; font-size: 1.5em; margin: 20px auto; }
+#who-we-are .first .content hr { background-color: #d6005b; width: 70px; height: 1px; border: 0; margin: 20px auto; }
+#who-we-are .first .content strong { color: #999999; font-weight: bold; font-size: 14px; }
+
+
+#who-we-are .second { background-color: #2F4A76; }
+#who-we-are .second .content { width: 40%; text-align: center; margin: 0 auto; padding: 20px 0 0 0; position: relative; }
+#who-we-are .second .content h2 {
+  color: white;
+  border: 1px solid #fff;
+  width: 200px;
+  margin: 20px auto 20px auto;
+  padding: 7px;
+  border-radius: 25px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+#who-we-are .second .content p { color: white; line-height: 30px; font-size: 15px; }
+#who-we-are .second .content img:first-of-type { margin: 40px 0 0 0; opacity: 0; transition: 1s; }
+#who-we-are .second .content img:last-of-type { position: absolute; left: 50%; bottom: -170px; margin-left: -140px; opacity: 0; transition: 1s; }
+
+
+#who-we-are .third { background-color: white; }
+#who-we-are .third .content { width: 40%; margin: 0 auto; padding: 200px 0 200px 0; text-align: center; }
+#who-we-are .third .content h2 {
+  color: #2F4A76;
+  width: 200px;
+  border: 1px solid #2F4A76;
+  border-radius: 30px;
+  padding: 7px;
+  margin: 10px auto;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+#who-we-are .third .content p { color: #2F4A76; line-height: 30px; margin: 30px 0 0 0; }
+
+
+#who-we-are .fourth { background-color: #2e3a75; }
+#who-we-are .fourth .content { width: 40%; margin: 0 auto; padding: 50px 0 50px 0; text-align: center; color: white; position: relative; }
+#who-we-are .fourth .content h2 {
+  width: 200px;
+  border: 1px solid #fff;
+  border-radius: 30px;
+  padding: 7px; margin: 10px auto;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+#who-we-are .fourth .content p { line-height: 30px; margin: 30px 0 0 0; }
+#who-we-are .fourth .content img { opacity: 0; transition: 0.5s; }
+#who-we-are .fourth .content img:last-of-type { position: absolute; left: 50%; margin-left: -215px; bottom: -205px; opacity: 0; transition: 1s; }
+
+
+#who-we-are .fifth { background-color: white; }
+#who-we-are .fifth .content { margin: 0 auto; }
+#who-we-are .fifth .content .art-box {
+  margin: 300px auto 0;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 7%;
+}
+#who-we-are .fifth .content .art {
+  min-width: 200px;
+  width: 30%;
+  max-width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  opacity: 1;
+  color: white;
+  margin: 0 0 0 10px;
+  height: 250px;
+  padding: 15px 20px;
+  box-shadow: 3px 3px 2px black;
+  position: relative;
+}
+#who-we-are .fifth .content .art:nth-of-type(1) { background-color: #3c7adb; transition-duration: 0.5s; transition-delay: 0.9s; opacity: 0; }
+#who-we-are .fifth .content .art:nth-of-type(2) { background-color: #158392; transition-duration: 0.5s; transition-delay: 0.6s; opacity: 0; }
+#who-we-are .fifth .content .art:nth-of-type(3) { background-color: #EC1A66; transition-duration: 0.5s; transition-delay: 0.3s; opacity: 0; }
+#who-we-are .fifth .content .art span { font-size: 9px; }
+#who-we-are .fifth .content .art span:nth-child(1) { position: absolute; top: 20px; left: 20px; }
+#who-we-are .fifth .content .art span:nth-child(2) { position: absolute; top: 20px; right: 20px; }
+#who-we-are .fifth .content .art h3 { font-size: 1.5em; text-align: left; margin: 30px 0 0 0; }
+#who-we-are .fifth .content .art p { text-align: left; margin: 20px 0 0 0; font-size: 12px; }
+#who-we-are .fifth .content .art div {
+  position: absolute; bottom: 10px; left: 50%;
+  margin-left: -50px;
+  padding: 5px 10px;
+  border: 1px solid white; border-radius: 20px;
+  cursor: pointer;
+}
+
+
+#who-we-are .fifth .more { width: 60px; margin: 40px auto; text-align: center; cursor: pointer; }
+#who-we-are .fifth .more img { display: block; }
+#who-we-are .fifth .more span { color: #ec1a66;}
+
+
+
+
+
+
+
+
+
+
+

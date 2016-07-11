@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Style Property Basic</title>
+    <!--    <box-shadow 속성>
+          ==> box에 그림자를 부여하는 스타일 속성.                              -->
+
+  <style>
+    div {
+      text-shadow: 5px 5px 5px black;     /* 글자에 그림자를 부여 (좌우, 상하, 흐림도, 색상) */
+      box-shadow: 10px 10px 30px orange;  /* box에 그림자를 부여 */
+      border: 3px solid blue;
+
+      text-shadow: 5px 5px 5px black, 5px 5px 20px red, 5px 5px 30px lime;
+      box-shadow: 10px 10px 10px orange, 10px 10px 20px green, 10px 10px 30px magenta;
+      /* 그림자를 이렇게 중첩해서 사용할수도 있다. */
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <h1>Lorem ipsum dolor amet</h1>
+  </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Style Property Basic</title>
+  <style>
+    /*   <폰트 속성>
+         font-size    ==> 글자 크기
+         font-family  ==> 글씨체. (폰트)
+         font-style   ==> 폰트 기울기
+         font-weight  ==> 폰트 두께        */
+    
+    .a { font-size: 32px; }
+    .b { font-size: 2em; }
+    .c { font-size: large; }
+    .d { font-size: small; }
+    
+    .font_arial { font-family: '없는 폰트', Arial; }
+    .font_roman { font-family: 'Times New Roman', Arial, Helvetica, sans-serif; }
+    /* 사용자에게는 개발자가 사용하는 폰트가 없을수 있다. 그런 경우엔 앞에있는 순서대로 폰트를 찾음.
+       다국적 서비스를 제공할경우, 가장 마지막폰트에는 반드시 serif / sans-serif / monospace 중 하나가 들어가야한다.
+       이 3개를 generic-family 폰트라고 한다.  */
+       
+    .font_arial { font-style: oblique; }
+    .font_roman { font-weight: 900; }  /* 디폴트는 400(normal), 700(bold) */
+    
+  </style>
+</head>
+
+<body>
+  <h1 class="font_arial">Lorem ipsum dolor sit amet</h1>
+  <h1 class="font_roman">Lorem ipsum dolor sit amet</h1>
+  <p class="a">Lorem ipsum</p>
+  <p class="b">Lorem ipsum</p>
+  <p class="c">Lorem ipsum</p>
+  <p class="d">Lorem ipsum</p>
+  <p>Lorem ipsum</p>
+</body>
+</html>

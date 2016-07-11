@@ -1,0 +1,58 @@
+{
+  "$error":{
+    "required":[
+    {  //별점 영역
+      "$validators":{},
+      "$asyncValidators":{},
+      "$parsers":[],
+      "$formatters":[],
+      "$viewChangeListeners":[],
+      "$untouched":true,
+      "$touched":false,
+      "$pristine":true,
+      "$dirty":false,
+      "$valid":false,
+      "$invalid":true,
+      "$error":{"required":true},
+      "$name":"",
+      "$options":null
+    }, {  //리뷰 영역
+      "$validators":{},
+      "$asyncValidators":{},
+      "$parsers":[],
+      "$formatters":[null],
+      "$viewChangeListeners":[],
+      "$untouched":true,
+      "$touched":false,
+      "$pristine":true,
+      "$dirty":false,
+      "$valid":false,
+      "$invalid":true,
+      "$error":{"required":true},
+      "$name":"",
+      "$options":null
+    }, {  //이메일 영역
+      "$validators":{},
+      "$asyncValidators":{},
+      "$parsers":[],
+      "$formatters":[null],
+      "$viewChangeListeners":[],
+      "$untouched":true,
+      "$touched":false,
+      "$pristine":true,
+      "$dirty":false,
+      "$valid":false,
+      "$invalid":true,
+      "$error":{"required":true},
+      "$name":"",
+      "$options":null
+    }
+    ]
+  },
+  "$name":"reviewForm",
+  "$dirty":false,
+  "$pristine":true,
+  "$valid":false,
+  "$invalid":true,
+  "$submitted":false
+}

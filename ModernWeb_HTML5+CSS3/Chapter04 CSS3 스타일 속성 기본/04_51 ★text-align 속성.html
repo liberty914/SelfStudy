@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Style Property Basic</title>
+  <style>
+    /*   <text-align 속성>
+         ==> 자기의 영역(block형식 너비) 내에서 정렬.
+             inline 형식일 경우, 너비가 존재하지 않는다.
+             중앙이라는 개념이 없으므로 text-align속성을 사용할 수 없다.        */
+    
+    .font_big { font-size: 2em; }
+    .font_italic { font-style: italic; }
+    .font_bold { font-weight: bold; }
+    .font_center { text-align: center; }
+    .font_right { text-align: right; }
+  </style>
+</head>
+
+<body>
+  <p class="font_big font_italic font_bold font_center">Lorem ipsum dolor amet</p>
+  <p class="font_bold font_right">2015.08.28</p>
+  <p>Lorem ipsum dolor amet, consectetur adipiscing elit.</p>
+</body>
+</html>

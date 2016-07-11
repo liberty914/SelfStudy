@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Selector Basic Page</title>
+  <!--   <부정 선택자>
+         :not(선택자)  ==>  선택자를 반대로 적용합니다. (선택자)외에 모든것을 선택. -->
+  <style>
+    input:not([type=password]) {
+      background-color: red; 
+      /* input태그중에서 type속성값이 password가 아닌 태그의 
+         background 속성에 red키워드를 적용합니다. */
+    }
+  </style>
+</head>
+
+<body>
+  <input type="password" />
+  <input type="text" />
+  <input type="password" />
+  <input type="text" />
+  <p>Lorem ipsum</p>
+</body>
+</html>

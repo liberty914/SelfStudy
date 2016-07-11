@@ -1,0 +1,15 @@
+<!--
+<div class="gallery"
+  ng-controller="GalleryController as gallery"
+  ng-show="product.images.length"> -->
+<div class="gallery"
+  ng-show="product.images.length">
+  <!--이미지가 하나라도 있는 경우에만 갤러리가 보임-->
+  <img ng-src="{{product.images[gallery.current]}}" />
+  <ul class="list-inline thumbs">
+    <li class="thumbnail"
+      ng-repeat="image in product.images">  <!--copy & paste 가 발생하는 모든 곳에 주의하자.-->
+      <img ng-src="{{image}}" />
+    </li>
+  </ul>
+</div>

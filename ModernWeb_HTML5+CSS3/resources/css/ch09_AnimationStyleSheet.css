@@ -1,0 +1,83 @@
+
+/*====================================================================================================================*/
+/* 09_14 스타일 사용 */
+
+* { margin: 0; padding: 0; }
+body { position: relative; }
+#box { position: absolute; width: 200px; height: 200px; margin: 10px; 
+       border-radius: 100px; text-align: center; background: pink; }
+       /*background: linear-gradient(#cn60b3 0%, #db36a4 100%); 속성이 이상하게 안먹힌다. 왜지? */
+#box > h1 { line-height: 200px; }
+
+@keyframes rint {
+  from {}
+  to {}
+}
+
+
+/*====================================================================================================================*/
+/* 09_15 키 프레임 규칙 
+         ==> CSS3에서 애니메이션을 지정하는 형식
+         키 프레임 안에는 %단위로 애니메이션을 적용한다.
+         예외적으로 0%, 100%인 경우는 from, to키워드를 사용할수 있다.  */
+
+@keyframes rint {
+  from { left: 0; transform: rotate(0deg); }
+  50% { left: 70%; }
+  to { left: 70%; transform: rotate(360deg); }
+}
+/* 애니메이션이 10초라고 가정하면, 0초, 5초, 10초일 때의 형태를 지정한 것. */
+
+
+/*====================================================================================================================*/
+/* 09_16 animation-name 속성
+         ==> 키 프레임을 생성한 이후에는, animation-name속성을 사용해서 태그를 키 프레임에 연결함. */
+
+#box { animation-name: rint; 
+       animation-duration: 2s; 
+       animation-timing-function: ease; }
+
+
+/*====================================================================================================================*/
+/* 09_17 animation-iteration-count 속성
+         ==> 특정 횟수만큼 반복시키는 속성 */
+
+#box { animation-iteration-count: infinite; }
+
+
+/*====================================================================================================================*/
+/* 09_18 animation-direction 속성
+         ==> 애니메이션의 반복하는 형태를 지정
+         사용 가능한 키워드 : alternate ==> from에서 to로 이동후, to에서 from으로(반대로) 움직입니다.
+                             normal   ==> 계속 from에서 to로 이동합니다. (디폴트)   */
+
+#box { animation-direction: alternate; }
+
+
+/*====================================================================================================================*/
+/* 09_19 animation-play-state 속성
+         ==> 애니메이션을 중지하고 재생할 때 사용하는 속성   */
+
+#box:hover { animation-play-state : paused; }
+#box:active { animation-play-state : running; }
+#box:focus { animation-play-state : running; }
+
+
+/*====================================================================================================================*/
+/* 09_20 animation 속성 (한번에 입력하기) */
+
+#box { animation: rint 2s linear none infinite alternate; }
+
+/* name duration function delay count direct 순서로 입력합니다. */
+
+
+
+
+
+
+
+
+
+
+
+

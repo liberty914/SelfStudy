@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://programmingsummaries.tistory.com/340 -->
+<html lang="ko">
+<head>
+  <title>변신 토글박스 예제</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+  <div class="blog-open-nav blog-open-nav-arrow ">
+    <span class="">
+      toggle menu
+    </span>
+  </div>
+</body>
+</html>
+
+
+<style>
+/* 네비게이션 토글버튼 박스 */
+.blog-open-nav {
+  position: absolute; top: 30px; left: 8%;
+  width: 43px; height: 43px;
+  text-indent: -9999px; overflow: hidden; z-index: 3; border-radius: 5px;
+  cursor: pointer;
+}
+
+/* 흰색 짝대기 가운데 */
+.blog-open-nav span {
+  left: 9px; top: 20px; right: 9px;
+}
+/* 디자인 설정 */
+.blog-open-nav span,
+.blog-open-nav span::before,
+.blog-open-nav span::after { position: absolute; background-color: #fff; display: block; height: 4px; }
+
+/* 흰색 짝대기 위, 아래 */
+.blog-open-nav span::before,
+.blog-open-nav span::after { left: 0px; width: 100%; content: ""; }
+/* 위치설정 */
+.blog-open-nav span::before { top: -10px; }
+.blog-open-nav span::after  { bottom: -10px; }
+
+
+/* 애니메이션(화살표) 준비단계 (실제적으로 표현되는 상태는 아님, 시각적으로 보여지는 css속성은 쓰지않았음.) */
+.blog-open-nav-arrow { background-color: rgba(0,0,29,.5); transition: background-color 1s; }
+.blog-open-nav-arrow span { transition: transform 1s; }
+.blog-open-nav-arrow span::before { transform-origin: top right;    transition: transform 1s, width 1s, top 1s; }
+.blog-open-nav-arrow span::after  { transform-origin: bottom right; transition: transform 1s, width 1s, bottom 1s; }
+
+/* hover 했을때 화살표로 변신하는 부분 설정 */
+.blog-open-nav-arrow:hover { background-color: rgba(0,0,29,.8); }
+.blog-open-nav-arrow:hover span { transform: rotate(180deg); }  /* 짝대기3개를 180도 뒤집음 (돌아가는것 처럼 보이는 효과) */
+.blog-open-nav-arrow:hover span::before,
+.blog-open-nav-arrow:hover span::after { width: 70%; }  /* 화살표 날개부분을위해 길이를 줄임 */
+.blog-open-nav-arrow:hover span::before { transform: translateX(10px) translateY( 2px) rotate( 45deg); top: 0px;    }  /* 회전~! */
+.blog-open-nav-arrow:hover span::after  { transform: translateX(10px) translateY(-2px) rotate(-45deg); bottom: 0px; }
+</style>

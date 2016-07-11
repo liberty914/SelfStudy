@@ -1,0 +1,119 @@
+
+#what-we-do { }
+#what-we-do .first { text-align: center; margin: 0 0 30px 0; }
+#what-we-do .first h1 { font-size: 1.5em; color: #d6005b; font-weight: bold; margin: 150px 0 0 0; }
+#what-we-do .first hr { background-color: #d6005b; width: 70px; height: 1px; border: 0; margin: 20px auto; }
+#what-we-do .first strong { color: #999; font-weight: bold; font-size: 14px; }
+
+
+
+#what-we-do .second {}
+#what-we-do .second .swipe-container { overflow: hidden; position: relative; }
+#what-we-do .second .swipe-container [class^=swipe-button-] {
+  width: 80px; height: 80px;
+  position: absolute; top: 50%; margin-top: -40px;
+  z-index: 5;
+  cursor: pointer;
+  background-size: 100% auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+#what-we-do .second .swipe-container .swipe-button-left { background-image: url("../img/icon001.png"); left: 5%; }
+#what-we-do .second .swipe-container .swipe-button-right { background-image: url("../img/icon002.png"); right: 5%; }
+#what-we-do .second .swipe-container .swipe-pagination-box {
+  position: absolute; bottom: 10%; left: 50%; margin-left: -5%; width: 10%; height: 20px; z-index: 5;
+}
+#what-we-do .second .swipe-container .swipe-pagination-box .swipe-pagination-bullet {
+  width: 10px; height: 10px; border-radius: 100%; background-color: white; display: block; float: left; margin-left: 20%; cursor: pointer;
+}
+
+
+#what-we-do .second .swipe-container .swipe-box {
+  transform: translate3d(0%, 0, 0);
+  /*transform: translate3d(-100%, 0, 0);*/
+  /*transform: translate3d(-200%, 0, 0);*/
+  display: flex;
+  transition: 0.5s;
+}
+#what-we-do .second .swipe-container .swipe-box [class=swipe-1], [class=swipe-2], [class=swipe-3] {
+  flex-shrink: 0;
+  width: 100%;
+  height: 500px;
+  background-size: 100% auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+}
+
+#what-we-do .second .swipe-1 {
+  background-image: url("../img/applicaticon02.png");
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+}
+#what-we-do .second .swipe-1 h2 { font-size: 40px; font-weight: bold; }
+#what-we-do .second .swipe-1 strong { font-size: 70px; font-weight: bold; }
+
+
+#what-we-do .second .swipe-2 {
+  background-image: url("../img/appimg1.png");
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+#what-we-do .second .swipe-2 h2 { color: #5d9ce5; border: 1px solid #5d9ce5; margin: 0 auto 50px; min-width: 130px; width: 15%; padding: 10px 20px; border-radius: 20px; font-size: 20px; font-weight: bold; }
+#what-we-do .second .swipe-2 .content-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  width: 100%;
+}
+#what-we-do .second .swipe-2 .content-wrap div { display: flex; flex-direction: column; align-items: center; margin: 0 3%; }
+#what-we-do .second .swipe-2 .content-wrap div img { }
+#what-we-do .second .swipe-2 .content-wrap div strong { }
+
+
+#what-we-do .second .swipe-3 {
+  background-image: url("../img/appimg2.png");
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+#what-we-do .second .swipe-3 h2 { color: #5d9ce5; border: 1px solid #5d9ce5; margin: 0 auto 50px; min-width: 200px; width: 15%; padding: 10px 20px; border-radius: 20px; font-size: 20px; font-weight: bold; }
+#what-we-do .second .swipe-3 .content-wrap {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+#what-we-do .second .swipe-3 .content-wrap div { display: flex; flex-direction: column; align-items: center; margin: 0 3%; }
+#what-we-do .second .swipe-3 .content-wrap div img {}
+#what-we-do .second .swipe-3 .content-wrap div strong {}
+
+
+
+#what-we-do .third .content { text-align: center; }
+#what-we-do .third .content h2 { margin: 5% auto 0; font-size: 1.5em; width: 11%; min-width: 150px; border: 1px solid #5d9ce5; font-weight: bold; color: #5d9ce5; padding: 1% 2%; border-radius: 30px; }
+#what-we-do .third .content .technic { width: 100%; display: flex; flex-direction: row; justify-content: center; transition: 1s; }
+#what-we-do .third .content .technic h3 { width: 20%; line-height: 150%; text-align: center; margin: 3% .5%; font-weight: bold; }
+#what-we-do .third .content .technic img { width: 20%; height: 20%; margin: 1.5% .5%; }
+#what-we-do .third .content .technic:nth-of-type(1) { opacity: 0; }
+#what-we-do .third .content .technic:nth-of-type(2) { opacity: 0; }
+#what-we-do .third .content .technic:nth-of-type(3) { opacity: 0; }
+#what-we-do .third .content .technic:nth-of-type(4) { opacity: 0; }
+#what-we-do .third .content .technic:nth-of-type(5) { opacity: 0; }

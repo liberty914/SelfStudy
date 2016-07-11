@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Selector Basic Page</title>
+  <!--   <시작 문자 선택자>
+         ::first-letter  ==> 첫 번째 글자를 선택.
+         ::first-line    ==> 첫 번째 줄을 선택.
+         (콜론을 1번만 써도 되지만, 2개를 쓰는것이 표준이다.)  -->
+  <style>
+    p::first-letter { font-size: 3em; }  /* p태그의 첫번째 글자의 font-size를 3배 크게함. */
+    p::first-line { color: red; }     /* p태그의 첫번째 줄의 color를 red로 함 */
+  </style>
+</head>
+
+<body>
+  <h1>Lorem Ipsum is simply dummy text</h1>
+  <p>of the printing and typesetting industry. </p>
+  <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer</p>
+</body>
+</html>

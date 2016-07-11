@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>HTML TEXT Basic Page</title>
+
+  <!-- 웹 브라우저마다 표시되는 video태그의 형태가 일관적이지 않기 때문에 문제가 발생할 수 있다.
+    그런 크로스 브라우징문제를 해결해주는 간단한 플러그인을 삽입한다. -->
+  <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
+  <script src="http://vjs.zencdn.net/c/video.js"></script>
+</head>
+
+<body>
+  <p>video태그 : 동영상파일을 재생할수 있게 해주는 태그 </p>
+  <p>src속성 : 파일의 경로 지정 </p>
+  <p>poster속성 : 동영상이 준비중일때, 이미지 파일 경로 지정</p>
+  <p>preload속성 : 동영상 재생 전에 모두 불러올지 지정 </p>
+  <p>autoplay속성 : 동영상을 자동 재생할지 지정 </p>
+  <p>loop속성 : 동영상을 반복할지 지정 </p>
+  <p>controls속성 : 동영상 재생도구를 출력할지 지정 </p>
+  <p>width속성 : 동영상의 너비를 지정</p>
+  <p>height속성 : 동영상의 높이를 지정</p>
+
+  <p>source태그 : 크로스브라우징 문제를 해결해주는 태그 </p>
+  <p>src속성 : 파일의 경로 지정 </p>
+
+  <video poster="../resources/img/이미지1.jpg"
+    controls="controls"
+    width="640" height="360"
+    class="video-js vjs-default-skin"
+    data-setup="{}">
+    <source src="../resources/video/비디오1.mp4" type="video/mp4" />
+  </video> <!-- 이 코드가 위로 올라가면 출력이되는데, 밑으로 내려가면 출력이 안된다... 왜그럴까? -->
+
+  <video poster="../resources/img/이미지2.jpg"
+    controls="controls"
+    width="640" height="360"
+    src="../resources/video/비디오2.mp4"/>
+
+</body>
+</html>

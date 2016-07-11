@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title></title>
+</head>
+<body>
+  <header>
+    <h2>JavaScript 함수</h2>
+  </header>
+  
+<!--
+-->
+<script>
+  for(var i=0; i<3; i++) {
+    setTimeout(function() {
+      alert(i);  //0, 1, 2 를 출력할 줄 알았는데... 3, 3, 3을 출력한다!
+    }, 0);       //==> setTimeout()함수를 호출하는 시점이, 반복문이 모두 끝낭 이후이르모 발생하는 문제!
+  }              //==> 따라서 0, 1, 2를 출력하려면 변수를 따로 복사해두어야한다! (★자기호출함수와 ★클로저를 활용!!!)
+</script>
+  
+</body>
+</html>

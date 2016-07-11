@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title></title>
+</head>
+<body>
+  <header>
+    <h2>JavaScript 함수</h2>
+  </header>
+  
+<!--
+-->
+<script>
+  //setTimeout(function, millisecond)  ==> 일정 시간 후 함수를 한번 실행.
+  setTimeout(function () {
+    alert('3초가 지났습니다. ㅇㅂㅇ');
+  }, 3000);
+  
+  
+  
+  //setInterval(function, millisecond)  ==> 일정 시간마다 함수를 반복해서 실행.
+  var intervalID = setInterval(function() {
+    aaa = document.createElement('div');
+    aaa.innerHTML = '<p>' + new Date() + '</p>';  //innerHTML은 함수가 아니다. 착각하지 말자...
+    document.body.appendChild(aaa);  //appenChild() 함수에는 Node객체가 들어갈수 있다. Node객체란 태그로 만들어진 객체를 의미한다.
+  }, 1000);
+  
+  setTimeout(function() {
+    clearInterval(intervalID);  //clearInterval(id)  ==> 일정 시간마다 함수를 반복하는 것을 중단합니다.
+  }, 10000);
+</script>
+  
+</body>
+</html>

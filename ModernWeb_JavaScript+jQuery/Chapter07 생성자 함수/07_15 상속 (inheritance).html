@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title></title>
+</head>
+
+<!--
+  상속 (inheritance)
+  ==> 기존의 생성자함수나 객체를 기반으로, 새로운 생성자함수나 객체를 만드는 것.
+  ==> 상속을 통해 새로만들어지는 객체에는, 기존 객체의 특성(속성, 메소드)이 모두 들어있다.
+  
+  new 키워드 ==> 해당 함수를 객체화 시킴.
+                함수의 내용을 Object형으로 변환시켜, Object를 return
+                내부에 Property를 설정해주려면 반드시 this키워드를 사용해야한다.
+                this키워드를 사용하지 않으면, 결코 Property로 설정되지않는다.
+                (==> 객체로 쓸수없다)
+-->
+<body>
+  <script>
+    function Rectangle(w, h) {
+      var width = w;   //외부에서 접근할 수 없는 Field
+      var height = h;  //가지고있지는 않지만, 클로저로 인해 존재만 하는 변수.
+      
+      this.getWidth = function() { return width; };  //Information Hiding된 Field는 Getter/Setter로 접근이 가능하다!
+      this.getHeight = function() { return height; };
+      this.setWidth = function(w) {
+        if (w < 0) {
+          throw '너비는 음수일 수 없습니다.';  //예외를 발생시킴!
+        } else {
+          width = w;
+        }
+      };
+      this.setHeight = function(h) {
+        if (h < 0) {
+          throw '높이는 음수일 수 없습니다.';  //예외를 발생시킴!
+        } else {
+          height = h;
+        }
+      };
+      
+      Rectangle.prototype.getArea = function() {
+        return this.getWidth() * this.getHeight();
+      };
+    }
+  </script>
+  
+  <script>
+    function Square(length) {    //이 함수에 5라는 parameter가 들어간다면..
+      this.aaa = Rectangle;      //aaa라는 속성(Property)을 만들고, 그 속성에 생성자 함수 Rectangle() 을 넣었음
+      this.aaa(length, length);  //Rectangle() 함수를 실행 ==> Rectangle(5, 5) 함수가 실행됨.
+      Square.prototype.constructor = Square;  //있어도 그만, 없어도 그만? 그럼 왜쓰는지...
+    }
+    Square.prototype = Rectangle.prototype;  //반드시 생성자함수 외부에 있어야한다. 왜그런지는 모르겠음.
+    
+    var rectangle = new Rectangle(5, 7);
+    var square = new Square(5);  //Square함수를 실행시켰지만, 사실은 그 안의 Rectangle함수를 실행시킨 셈.
+    
+    alert(square instanceof Rectangle);  //정상적으로 상속되었는지는 반드시 이렇게 확인해야함.
+    alert(rectangle.getArea() + ' : ' + square.getArea());
+    square.setWidth(10);
+    alert(rectangle.getWidth() + ' : ' + square.getWidth());
+    
+  </script>
+</body>
+</html>

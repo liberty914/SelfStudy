@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title></title>
+</head>
+
+<!--
+-->
+<body>
+  <header><h1></h1></header>
+  
+  <script>
+    var student0 = { 이름: '양동호1', 국어: 187, 수학: 198, 영어: 188, 과학: 195 };
+    var student1 = { 이름: '양동호2', 국어: 287, 수학: 298, 영어: 288, 과학: 295 };
+    var student2 = { 이름: '양동호3', 국어: 387, 수학: 398, 영어: 388, 과학: 395 };
+    var student3 = { 이름: '양동호4', 국어: 487, 수학: 498, 영어: 488, 과학: 495 };
+    var student4 = { 이름: '양동호5', 국어: 587, 수학: 598, 영어: 588, 과학: 595 };
+    //1. 이렇게 객체가 흩어져있으면 조작이 어렵다. 배열 내에 저장하자.
+    
+    var students = [];
+    students.push({ 이름: '양동호1', 국어: 187, 수학: 198, 영어: 188, 과학: 195 });
+    students.push({ 이름: '양동호2', 국어: 287, 수학: 298, 영어: 288, 과학: 295 });
+    students.push({ 이름: '양동호3', 국어: 387, 수학: 398, 영어: 388, 과학: 395 });
+    students.push({ 이름: '양동호4', 국어: 487, 수학: 498, 영어: 488, 과학: 495 });
+    students.push({ 이름: '양동호5', 국어: 587, 수학: 598, 영어: 588, 과학: 595 });
+    //2. 합계와 평균을 얻어내는 메소드를 추가할것이다.
+    //   근데 이렇게 각각 입력하는것도 비효율적이다. 반복문을 사용하자.
+    
+    for(var i in students) {
+      students[i].getSum = function() {
+        return this.국어 + this.수학 + this.영어 + this.과학
+      };
+      students[i].getAvg = function() {
+        return this.getSum() / 4;
+      };
+    }
+    
+    var output = '이름     총점     평균\n';  //크롬에서는 \t 가 안먹힌다. 왜지?
+    for (var i in students) {
+      with (students[i]) {
+        output += 이름+'     '+getSum()+'     '+getAvg()+'\n';
+      }
+    }
+    alert(output);
+  </script>
+    
+</body>

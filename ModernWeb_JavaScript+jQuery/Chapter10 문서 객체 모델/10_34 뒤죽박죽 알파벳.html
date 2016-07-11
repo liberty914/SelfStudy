@@ -1,0 +1,93 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title>테스트</title>
+</head>
+
+<body>
+</body>
+</html>
+
+
+
+<!-- 보조 함수 -->
+<script>
+//0부터 숫자까지, 소숫점을 없애는 함수
+function nextRandomInteger(limit) {
+  return Math.round(Math.random() * limit);
+}
+
+//랜덤한 알파벳을 리턴하는 함수
+var randomAlphabet = (function () {
+  var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';  //클로저를 사용하는것이 변수충돌에 안전!
+  return function () {
+    return alphabet.charAt(nextRandomInteger(25));  //이렇게하면 변수를 생성,삭제할 때 소모되는 메모리낭비를 줄일 수 있다!
+  };
+})();  //바로 실행되도록 설계된 함수형 변수★★★ (어려운난이도임)
+
+//양, 음으로 랜덤한 속도를 생성하는 함수
+function randomSpeed(maxSpeed) {
+  return Math.random() * maxSpeed - Math.random() * maxSpeed;
+}
+</script>
+
+
+
+<!-- 생성자 함수 -->
+<script>
+var canvasWidth = 1000;
+var canvasHeight = 400;
+
+function MovingText() {
+  this.x = nextRandomInteger(canvasWidth);
+  this.y = nextRandomInteger(canvasHeight);
+  this.vx = randomSpeed(10);
+  this.vy = randomSpeed(10);
+
+  //문서 객체 생성
+  this.body = document.createElement('h1');
+  this.body.innerHTML = randomAlphabet();
+  this.body.style.position = 'absolute';
+
+  //문서 객체를 document.body에 추가
+  document.body.appendChild(this.body);
+}
+
+MovingText.prototype.move = function() {  //글자를 이동하게하는 메소드
+  //범위 검사
+  if (this.x < 0 || this.x > canvasWidth) { this.vx *= -1; }
+  if (this.y < 0 || this.y > canvasHeight) { this.vy *= -1; }
+
+  //이동
+  this.x += this.vx;
+  this.y += this.vy;
+
+  //화면에 이동 표시
+  this.body.style.left = this.x + 'px';
+  this.body.style.top = this.y + 'px';
+};
+</script>
+
+
+
+<!-- window.onload -->
+<script>
+var myFunction = function() {
+  //변수를 선언
+  var movingTexts = [];
+
+  //배열에 MovingText 객체 50개를 생성
+  for (var i=0; i<50; i++) {
+    movingTexts.push(new MovingText());
+  }
+
+  //움직입니다.
+  setInterval(function() {
+    for (var i in movingTexts) {
+      movingTexts[i].move();
+  }
+  }, 1000/60);
+};
+window.addEventListener('load', myFunction);
+</script>
+

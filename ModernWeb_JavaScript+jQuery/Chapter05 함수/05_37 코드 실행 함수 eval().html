@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title></title>
+</head>
+<body>
+  <header>
+    <h2>JavaScript 함수</h2>
+  </header>
+  
+<!--
+  eval(string)  ==> string을 자바스크립트 코드로 실행합니다.
+                    가끔 코드를 직접 입력하기 귀찮을 때, 반복문과 함께 사용할수 있다!
+-->
+<script>
+  var willEval = '';  //문자열 생성
+  willEval += 'var number = 10;';
+  willEval += 'alert(number);';
+  
+  eval(willEval);  //eval() 함수를 호출!
+  
+  alert('오호라... ' + number);  //이렇게 eval()함수로 실행된 코드에서 정의한 변수도 사용가능하다!
+</script>
+  
+</body>
+</html>

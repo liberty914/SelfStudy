@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>HTML TEXT Basic Page</title>
+</head>
+
+<body>
+  <p>form태그 : 입력양식을 Server로 전송하도록 지원하는 태그 </p>
+  <p>action속성 : 입력 데이터의 전달 위치를 지정 ("/app/user/addUser", "/addUser.do") </p>
+  <p>method속성 : 입력 데이터의 전달 방식을 선택 (GET, POST ==> 디폴트는 GET방식) </p>
+
+  <p>input태그가 아닌 입력양식 </p>
+
+  <hr/>
+
+  <form action="#" method="GET">
+
+    <!-- input태그가 아닌 입력양식 -->
+    <textarea cols="10" rows="5">하하하 호호호 </textarea> <!--scroll bar를 포함한 입력길이-->
+
+    <select> <!-- multiple속성을 사용하면 (control또는 shift키를 사용해서) 여러개를 선택 가능하지만, 그럴꺼면 체크박스쓰지... -->
+      <optgroup label="HTML5"> <!--분류의 그룹을 묶어줌 -->
+        <option>김밥</option>
+        <option>떡볶이</option>
+      </optgroup>
+      <optgroup label="CSS3">
+        <option selected="selected">순대</option>
+        <option>오뎅</option>
+      </optgroup>
+    </select> <!-- select태그는 스마트폰에서 내장되어있는 옵션화면을 출력할때도 사용된다. 공통적용가능 -->
+    <!-- 그러나 최근에는 자바스크립트로 훨씬 예쁘게 만들지, select태그는 거의 사용하지않는다. -->
+
+    <input type="submit"/>
+  </form>
+
+  <hr/>
+
+  <p>textarea 태그 : 여러줄의 글자를 입력할 때 사용하는 태그</p>
+  <p>select 태그 : 여러 개의 목록에서 몇 가지를 선택할 수 있는 입력양식요소 </p>
+  <p>option태그 : 옵션을 생성함. </p>
+  <p>optgroup태그 : 옵션을 그룹화함 </p>
+
+
+</body>
+</html>

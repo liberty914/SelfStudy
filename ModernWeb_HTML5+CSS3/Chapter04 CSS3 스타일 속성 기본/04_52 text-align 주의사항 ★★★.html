@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Style Property Basic</title>
+  <style>
+    /*   <text-align 속성>
+         ==> 자기의 영역(block형식 너비) 내에서 정렬.
+             inline 형식일 경우, 너비가 존재하지 않는다.
+             중앙이라는 개념이 없으므로 text-align속성을 사용할 수 없다.        */
+    
+    .font_center { text-align: center; }
+  </style>
+</head>
+
+<body>
+  <span class="font_center">Lorem ipsum dolor amet</span>
+  <!-- span태그는 inline형식이므로, 너비가 존재하지 않는다. 정렬불가능! -->
+  
+  <div class="font_center">
+    <span>Lorem ipsum dolor amet</span>
+  </div>
+  <!-- 이렇게 div태그에 해버리면 정렬이 가능하다! 
+        ==> 결론적으로 div > span 태그의 display: block; 으로 변경하면 text-align이 가능하다! ★★★ -->
+  
+  <p class="font_center">Lorem ipsum dolor amet</p>
+  
+  <div>
+    <a href="#" class="font_center">Lorem ipsum dolor amet</a>
+    <!-- a태그는 inline형식이므로, 너비가 존재하지 않는다. 정렬불가능! -->
+  </div>
+</body>
+</html>

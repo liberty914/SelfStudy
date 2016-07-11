@@ -1,0 +1,11 @@
+
+#test1 { width: 100px; height: 100px; background-color: lightgreen; animation: tabChange2 20s infinite; }
+
+@keyframes tabChange2 {
+  0% { background-color: pink; /*background-image: url('img/00today'S HOT/displayitem_11.jpg');*/ }
+  16.6% { background-color: orange; /*background-image: url('img/00today'S HOT/displayitem_22.jpg');*/ }
+  33.2% { background-color: yellow; /*background-image: url('img/00today'S HOT/displayitem_33.jpg');*/ }
+  49.8% { background-color: lightgreen; /*background-image: url('img/00today'S HOT/displayitem_44.jpg');*/ }
+  66.4% { background-color: skyblue; /*background-image: url('img/00today'S HOT/displayitem_55.jpg');*/ }
+  83% { background-color: pink; /*background-image: url('img/00today'S HOT/displayitem_55.jpg');*/ }
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>소셜커머스(Cougrou) 메인 페이지</title>
+  <!--구 버전의 인터넷 익스플로러에서 HTML5 태그를 인식하게 합니다.-->
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  
+  <!--초기화-->
+  <style>
+       * { margin: 0; padding: 0; font: normal 12px 'Dotum'; }
+       a { text-decoration: none; }
+     img { border: 0; }
+      ul { list-style: none; }
+    body { width: 980px; margin: 0 auto; }
+    /*중앙정렬 방법, 꼭 익혀두자!*/
+  </style>
+  
+  <!--헤더-->
+  <style>
+    #main_header { position: relative; height: 75px; }  /*자손의 position속성에 absolute키워드를 적용하면,
+                                                          부모의 position속성에 relative키워드를 적용합니다!*/
+    #main_header > h1.logo { position: absolute; top: 10px; left: 15px; }
+    #main_header > div.login_menu { position: absolute; top: 10px; right: 0; }
+  </style>
+  
+  <!--사이드-->
+  <style>
+    body { position: relative; }  /*자손의 position속성에 absolute키워드를 적용하면,
+                                    부모의 position속성에 relative키워드를 적용합니다!*/
+    #global_aside { position: absolute; left: 990px; top: 75px; width: 90px; }
+    /*원래너비는 980px이나, 메인 밖의 배너광고이기때문에 990px로 설정.
+      (position속성을 pixed로 주면, 따라다니는 배너광고를 만들수 있다.*/
+    #global_aside > a { display: block; margin-bottom: 5px; }
+  </style>
+  
+  <!--네비게이션_위-->
+  <style>
+    #top_gnb { overflow: hidden; }  /*자손에 float속성을 적용하면, 부모의 overflow속성에 hidden키워드를 적용합니다.*/
+    #top_gnb > div.menu { float: left; width: 140px; height: 50px; 
+                          background: url('../resources/img/ch8/Images/top_gnb.png'); }
+                          /*스프라이트 이미지 사용!*/
+    /*nth-child() 속성을 이용하면 편리하지만, 구버전 브라우저는 사용할수 없으므로 클래스속성을 하나하나 써주었다.
+    #top_gnb > div:nth-child(1) { background-position: 0px 0px; }  ==> #top_gnb의 직계자식 div중에 1번째자식을 선택 */
+    #top_gnb > div.item_1 { background-position: 0px 0px; }
+    #top_gnb > div.item_2 { background-position: 0px -50px; }
+    #top_gnb > div.item_3 { background-position: 0px -100px; }
+    #top_gnb > div.item_4 { background-position: 0px -150px; }  /*일반 이미지*/
+    #top_gnb > div.item_5 { background-position: 0px -200px; }
+    #top_gnb > div.item_6 { background-position: 0px -250px; }
+    #top_gnb > div.item_7 { background-position: 0px -300px; }
+    
+    #top_gnb > div.item_1:hover { background-position: 0px -350px; }
+    #top_gnb > div.item_2:hover { background-position: 0px -400px; }
+    #top_gnb > div.item_3:hover { background-position: 0px -450px; }
+    #top_gnb > div.item_4:hover { background-position: 0px -500px; }  /*마우스오버했을때 이미지*/
+    #top_gnb > div.item_5:hover { background-position: 0px -550px; }
+    #top_gnb > div.item_6:hover { background-position: 0px -600px; }
+    #top_gnb > div.item_7:hover { background-position: 0px -650px; }
+    
+    #top_gnb > div.item_1.active { background-position: 0px -350px; }
+    #top_gnb > div.item_2.active { background-position: 0px -400px; }
+    #top_gnb > div.item_3.active { background-position: 0px -450px; }
+    #top_gnb > div.item_4.active { background-position: 0px -500px; }  /*선택되었을 경우 이미지 (고정)*/
+    #top_gnb > div.item_5.active { background-position: 0px -550px; }
+    #top_gnb > div.item_6.active { background-position: 0px -600px; }
+    #top_gnb > div.item_7.active { background-position: 0px -650px; }
+  </style>
+  
+  <!--네비게이션_아래-->
+  <style></style>
+  <!--목록-->
+  <style></style>
+  <!--본문-->
+  <style></style>
+  <!--푸터-->
+  <style></style>
+</head>
+
+<!--=======================================================================================================================================-->
+
+<body>
+  
+  <header id="main_header">  <!--#main_header태그 생성-->
+    <h1 class="logo">  <!--내용입력-->
+      <a href="#"><img src="../resources/img/ch8/Images/title.png" alt="쿠그루" /></a>
+    </h1>
+    <div class="login_menu">
+      <span><a href="#">로그인</a></span>
+      <span><a href="#">회원가입</a></span>
+      <span><a href="#">고객센터</a></span>
+    </div>
+  </header>
+  
+  <aside id="global_aside">  <!--#global_aside태그 생성 (우측면 배너광고)-->
+    <a href="#"><img src="http://placehold.it/90x160" alt="메인외부 배너광고" /></a>  <!--내용입력-->
+    <a href="#"><img src="http://placehold.it/90x160" alt="메인외부 배너광고" /></a>
+    <a href="#"><img src="http://placehold.it/90x160" alt="메인외부 배너광고" /></a>
+    <a href="#"><img src="http://placehold.it/90x160" alt="메인외부 배너광고" /></a>
+    <a href="#"><img src="http://placehold.it/90x160" alt="메인외부 배너광고" /></a>
+    <a href="#"><img src="http://placehold.it/90x160" alt="메인외부 배너광고" /></a>
+    <a href="#"><img src="http://placehold.it/90x160" alt="메인외부 배너광고" /></a>
+    <a href="#"><img src="http://placehold.it/90x160" alt="메인외부 배너광고" /></a>
+    <a href="#"><img src="http://placehold.it/90x160" alt="메인외부 배너광고" /></a>
+    <a href="#"><img src="http://placehold.it/90x160" alt="메인외부 배너광고" /></a>
+  </aside>
+  
+  <nav id="top_gnb">  <!--#top_gnb태그 생성 (Global Navigation Bar)-->
+    <div class="menu item_1 active"></div>  <!--내용입력-->
+    <div class="menu item_2"></div>
+    <div class="menu item_3"></div>
+    <div class="menu item_4"></div>
+    <div class="menu item_5"></div>
+    <div class="menu item_6"></div>
+    <div class="menu item_7"></div>
+  </nav>
+  
+</body>
+</html>

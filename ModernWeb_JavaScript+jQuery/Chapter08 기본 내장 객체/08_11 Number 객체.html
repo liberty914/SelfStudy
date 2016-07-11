@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title></title>
+</head>
+
+<body>
+  <header id="main_header">
+    <div id="main_title">
+      <h1></h1>
+    </div>
+    <nav id="main_gnb">
+      <ul>
+        <li><a href="#"></a></li>
+      </ul>
+    </nav>
+    <nav id="main_lnb">
+      <ul>
+        <li><a href="#"></a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div id="content">
+    <section id="main_section">
+      <header>
+        <h1></h1>
+      </header>
+      <article class="main_article">
+      </article>
+    </section>
+  </div>
+  
+  <aside id="main_aside">
+    <a href="#"></a>
+  </aside>
+  
+  <footer id="main_footer">
+    <h3></h3>
+    <address></address>
+  </footer>
+<!--==========================================================================================================-->
+
+<!--
+    <Number 객체의 메소드>
+  toExponential(num) ==> 숫자를 지수 표시로 나타낸 문자열을 리턴.
+  toFixed(num)       ==> 숫자를 고정 소수점 표시로 나타낸 문자열을 리턴.
+  toPrecision(num)   ==> 숫자를 길이에 따라 지수 표시 또는 고정 소수점 표시로 나타낸 문자열을 리턴.
+  
+    <Number 생성자 함수의 속성>
+  MAX_VALUE  ==> 자바스크립트가 나타낼수 있는 최대숫자
+  MIN_VALUE  ==> 자바스크립트가 나타낼수 있는 최소숫자
+  NaN        ==> 자바스크립트가 나타낼수 없는 숫자
+  POSITIVE_INFINITY  ==> 양의 무한대 숫자
+  NEGATIVE_INFINITY  ==> 음의 무한대 숫자
+-->
+  <script>
+    var number = 314.159211111;
+    
+    var output = '';
+    output += number.toFixed(1) + '\n';
+    output += number.toFixed(4);
+    alert(output);
+    
+    alert(222..toFixed(5));  //바로 사용하려면 이렇게 점을 두개를 써도 되지만, 괄호를 쓰는게 직관적이고 간편하다.
+  </script>
+</body>
+</html>

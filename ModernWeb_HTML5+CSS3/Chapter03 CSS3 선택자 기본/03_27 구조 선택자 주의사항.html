@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Selector Basic Page</title>
+  <!--   <일반 구조 선택자>
+         :first-child     ==>  형제 관계 중에서 첫 번째에 위치하는 태그를 선택.
+         :last-child      ==>  형제 관계 중에서 마지막에 위치하는 태그를 선택.
+         :nth-child(수열)      ==> 형제 관계 중에서 앞에서 수열번째의 태그를 선택.
+         :nth-last-child(수열) ==> 형제 관계 중에서 뒤에서 수열번째의 태그를 선택.  -->
+  <style>
+    li > a:first-child {color: blue; }  /* li태그의 직계자식중, a의 형제중 첫번째 a태그를 선택 */
+    li:first-child > a {color: red; }  /* li의 형제중 첫번째 li태그의 직계자식 중, a태그를 선택 */
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li><p>aaa</p><a href="#">Condrasa</a></li>
+    <li><a href="#">Condrasa</a></li>
+    <li><a href="#">Condrasa</a></li>
+    <li><a href="#">Condrasa</a></li>
+    <li><a href="#">Condrasa</a></li>
+    <li><a href="#">Condrasa</a></li>
+    <li><a href="#">Condrasa</a></li>
+  </ul>
+</body>
+</html>

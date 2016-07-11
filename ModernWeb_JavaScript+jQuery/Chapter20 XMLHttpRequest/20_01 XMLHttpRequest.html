@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>Chapter20 XMLHttpRequest</title>
+  <!--<script src='./../common/common.js'></script>-->
+</head>
+
+<body>
+  <!--<script src='./../common/includeBody.js'></script>-->
+</body>
+</html>
+
+
+<!--==========================================================================================================-->
+
+
+<!--
+    XMLHttpRequest  ==> AJAX를 사용할 때 사용하는 객체, 간단하게 xhr이라고도 부름
+    
+-->
+
+<script>
+  'use strict';  //엄격하게 문법을 검사
+  
+  var request = new XMLHttpRequest();  //빈 편지지와 같음. 수취인, 배송방식, 내용물을 넣어줘야함.
+  request.open('GET', 'http://naver.com', false);  //각종 정보를 넣음
+  request.send();                             //AJAX를 수행!
+  alert(request.responseText);
+</script>

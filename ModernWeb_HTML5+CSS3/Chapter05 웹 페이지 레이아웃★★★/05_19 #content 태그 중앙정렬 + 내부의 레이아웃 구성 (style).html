@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>Web Page Layout</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>  <!-- 구글폰트에서 가져옴! -->
+  
+  <!-- 초기화 -->
+  <style>  /* 간단하게 예제에서 사용하는 태그만 초기화함. */
+    * { margin: 0; padding: 0; }
+    body { font-family: 'Times New Roman', Times, serif; }
+    li { list-style: none; }
+    a { text-decoration: none; }
+    img { border: 0; }
+  </style>
+      
+  <!-- 헤더 -->
+  <style>
+    #main_header {
+      width: 960px; 
+      margin: 0 auto;  /* 중앙정렬 (header태그가 중앙정렬된거지, 그 자식태그들은 그 header태그 안에 있을뿐이다.) */
+      
+      height: 160px;  /* 절대좌표 */
+      position: relative;  /* ★★★ 자손의 position속성에 absolute 키워드를 적용하면, 부모의 position 속성에 relative키워드를 적용한다. 이게없으면 자식들이 부모를 무시한다. 싸가지없게.  */
+    }
+    #main_header > #title {  /* header내부 왼쪽에서20px, 위에서30px */
+      position: absolute; 
+      left: 20px; top: 30px; 
+    }
+    #main_header > #main_gnb {  /* header내부 우측맨끝, 맨위 */
+      position: absolute; 
+      right: 0; top: 0; 
+    }
+    #main_header > #main_lnb {  /* header내부 우측맨끝, 아래에서10px */
+      position: absolute; 
+      right: 0; bottom: 10px; 
+    }
+  </style>
+  
+  <!-- 타이틀 -->
+  <style>
+    #title { font-family: 'Pacifico', cursive; }  /* 폰트를 사용함! */
+  </style>
+  
+  <!-- 메뉴(1) -->
+  <style>
+    #main_gnb > ul { overflow: hidden; }  /* ★★★ 자손에 float속성을 사용했으므로, 부모의 overflow속성에 hidden키워드를 적용! */
+    #main_gnb > ul > li { float: left; }
+    #main_gnb > ul > li > a {
+      padding: 2px 10px;  /* ★클릭가능한 영역을 확장하고자 a태그에 padding속성을 사용! */
+      display: block;     /* ★padding속성을 4방향으로 사용하려면 block키워드 적용! ==> 그렇지않으면 좌우밖에 안늘어난다. inline은 위아래가 없으니까! */
+      border: 1px solid black; 
+    }
+    #main_gnb > ul > li > a:hover {  /* 마우스가 오버되면 */
+      background: black;          /* 배경색은 검게 */
+      color: white;               /* 글자색은 희게 */
+    }
+    #main_gnb > ul > li:first-child > a { border-radius: 10px 0 0 10px; }
+    #main_gnb > ul > li:last-child  > a { border-radius: 0 10px 10px 0; }
+  </style>
+  
+  <!-- 메뉴(2) -->
+  <style>
+    #main_lnb > ul { overflow: hidden; }  /* ★★★ 자손에 float속성을 사용했으므로, 부모의 overflow속성에 hidden키워드를 적용! */
+    #main_lnb > ul > li { float: left; }
+    #main_lnb > ul > li > a {
+      padding: 10px 20px;  /* ★클릭가능한 영역을 확장하고자 a태그에 padding속성을 사용! */
+      display: block;      /* ★padding속성을 4방향으로 사용하려면 block키워드 적용! ==> 그렇지않으면 좌우밖에 안늘어난다. inline은 위아래가 없으니까! */
+      border: 1px solid black; 
+    }
+    #main_lnb > ul > li > a:hover {  /* 마우스가 오버되면 */
+      background: black;          /* 배경색은 검게 */
+      color: white;               /* 글자색은 희게 */
+    }
+    #main_lnb > ul > li:first-child > a { border-radius: 10px 0 0 10px; }
+    #main_lnb > ul > li:last-child  > a { border-radius: 0 10px 10px 0; }
+  </style>
+  
+  <!-- 콘텐츠 -->
+  <style>
+    #content {
+      width: 960px; margin: 0 auto;  /* 중앙 정렬 */
+      overflow: hidden; 
+    }
+    #content > #main_section {
+      width: 750px; 
+      float: left; 
+    }
+    #content > #main_aside {
+      width: 200px;  /* 10픽셀을 띄우기위해 여유를 줌, float속성의 left와 right로 구분됨. */
+      float: right; 
+    }
+  </style>
+  
+  <!-- 본문 -->
+  <style></style>
+  <!-- 사이드 -->
+  <style></style>
+  <!-- 목록 -->
+  <style></style>
+  <!-- 푸터 -->
+  <style></style>
+</head>
+
+<!-- 레이아웃 공간분할 방법의 순서! ★★★
+     1. 웹 페이지 구상 (어떤 형태로 만들까?)
+     2. 웹 페이지의 구성 영역을 분리 (header, nav, aside, section, footer)
+     3. 구성 영역을 행 단위로 분리
+     4. 나누어진 행의 내부 요소를 분리(세분화)                                           -->
+
+<body>
+  
+  <header id="main_header">  <!--1행, main_header-->
+    <div id="title">  <!--내부영역 분리-->
+      <h1>Rint Development</h1>  <!--내용 입력-->
+      <h2>HTML5 + CSS3 Basic</h2>
+    </div>
+    <nav id="main_gnb">  <!--내부영역 분리: Global Navigation bar-->
+      <ul>
+        <li><a href="#">Web</a></li>  <!--내용 입력-->
+        <li><a href="#">Mobile</a></li>
+        <li><a href="#">Game</a></li>
+        <li><a href="#">Simulation</a></li>
+        <li><a href="#">Data</a></li>
+      </ul>
+    </nav>
+    <nav id="main_lnb">  <!--내부영역 분리: Local Navigation bar-->
+      <ul>
+        <li><a href="#">HTML5</a></li>  <!--내용 입력-->
+        <li><a href="#">CSS3</a></li>
+        <li><a href="#">JavaScript</a></li>
+        <li><a href="#">jQuery</a></li>
+        <li><a href="#">Node.js</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+<!--==================================================================================================================-->
+  
+  <div id="content">  <!--2행, content-->
+    <section id="main_section">  <!--내부영역 분리-->
+      <h1>Main Section</h1>  <!--내용 입력-->
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </section>
+    
+    <aside id="main_aside">  <!--내부영역 분리-->
+      <h1>Main Aside</h1>  <!--내용 입력-->
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </aside>
+  </div>
+  
+<!--==================================================================================================================-->
+  
+  <footer></footer>  <!--3행-->
+  
+</body>
+</html>

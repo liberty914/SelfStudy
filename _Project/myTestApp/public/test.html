@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>테스트 페이지</title>
+</head>
+<body>
+  <h2>Test 페이지</h2>
+  <!-- <form action="javascript:" method="post" id="form"> -->
+  <form action="/testFORM" method="post" enctype="multipart/form-data" id="form">
+    <label>아이디 : <input type="text" name="id" id="id" required /></label><br/>
+    <label>비밀번호 : <input type="password" name="pw" id="pw" required /></label><br/>
+    <label>사진 업로드 : <input type="file" name="images" id="images" accept="image/*" multiple /></label><br/>
+    <img src="C:\fakepath\김민아,166,24.jpg" alt="프로필사진" />
+    <input type="submit" value="그냥 form 전송" /><br/>
+  </form>
+  <button id="getAJAX">get방식 AJAX 요청</button><br/>
+  <button id="postAJAX">post방식 AJAX 요청</button><br/>
+  <hr/>
+</body>
+</html>
+
+<script>
+window.addEventListener("load", function() {
+  var id = document.getElementById("id");
+  var pw = document.getElementById("pw");
+  var images = document.getElementById("images");
+
+  var ajax = function (get_post) {
+    //https://www.new-bamboo.co.uk/blog/2012/01/10/ridiculously-simple-ajax-uploads-with-formdata/
+    //https://github.com/New-Bamboo/example-ajax-upload/blob/master/public/index.html
+    var form = document.getElementById("form");
+    var formData = new FormData(form);
+    console.log(form);
+    console.log(formData);
+    console.log(images.files[0]);
+    formData.append('file', images.files[0]);
+
+    var xHttp = new XMLHttpRequest();
+    xHttp.onreadystatechange = function() {
+      if (xHttp.readyState === 4 && xHttp.status === 200) {
+        console.log(xHttp.responseText);
+        if (xHttp.responseText.lastIndexOf(":") !== -1
+          && xHttp.responseText.lastIndexOf("}") !== -1) {
+          var jsonResult = JSON.parse(xHttp.responseText);
+          console.log(jsonResult);
+        }
+        alert(get_post + "방식 AJAX요청 완료, 데이터는 콘솔창에서!");
+      }
+    };
+    if ("GET" === get_post.toUpperCase()) {
+      xHttp.open("GET", "/testGET", true);
+      xHttp.send();
+    } else {
+      xHttp.open("POST", "/testPOST", true);
+      xHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      //xHttp.send("id="+id.value+"&pw="+pw.value+"&images="+images.value);
+      xHttp.send(formData);
+      //post 방식에 파라미터를 전달할때는 반드시 Header를 붙여줘야한다!!
+    }
+  };
+
+  document.getElementById("getAJAX").onclick = function() { ajax("GET"); };
+  document.getElementById("postAJAX").onclick = function() { ajax("POST"); };
+});
+</script>

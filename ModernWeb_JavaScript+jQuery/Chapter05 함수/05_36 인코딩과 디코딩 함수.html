@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title></title>
+</head>
+<body>
+  <header>
+    <h2>JavaScript 함수</h2>
+  </header>
+  
+<!--
+    <인코딩과 디코딩 함수>
+  escape()   ==> 적절한 정도로 인코딩합니다.
+  unescape() ==> 적절한 정도로 디코딩합니다.
+  (영문 알파벳과 숫자, 일부 특수문자(@ * - _ + . /)을 제외하고 모두 인코딩,
+   1바이트 문자는 %XX 형태로, 2바이트 문자는 %uXXXX 형태로 변환.
+   초기에는 이 함수밖에 존재하지 않았으나, 시간이 지나며 조금씩 문제가 발생했으므로 진화하였음.)
+  
+  encodeURI(uri)         ==> 최소한의 문자만 인코딩합니다.
+  decodeURI(endcodedURI) ==> 최소한의 문자만 디코딩합니다.
+  (escape()함수에서 인터넷 주소로 사용되는 일부 특수문자(? = & : ; /)는 변환하지 않음.)
+  
+  encodeURIConponent(uriComponent) ==> 대부분의 문자를 모두 인코딩합니다.
+  decodeURIComponent(encodedURI)   ==> 대부분의 문자를 모두 디코딩합니다.
+  (알파벳과 숫자를 제외한 모든 문자를 인코딩, UTF-8 인코딩과 같음.
+   현재 가장 많이 사용되는 함수라고 함.)
+-->
+<script>
+  var URI = 'http://naver.com?test=한글입니다.';  //인코딩할 URL
+  var output = '';  //출력할 문자열
+  
+  output += '★escape()\n';
+  output += escape(URI) + '\n\n';
+  
+  output += '★encodeURI()\n';
+  output += encodeURI(URI) + '\n\n';
+  
+  output += '★encodeURIComponent()\n';
+  output += encodeURIComponent(URI) + '\n\n';
+  
+  alert(output);
+</script>
+  
+</body>
+</html>

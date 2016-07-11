@@ -1,0 +1,122 @@
+
+/*   초기화   */
+* { margin: 0; padding: 0; }
+body { font-family: 'Arial, Helvetica, sans-serif'; }
+li { list-style: none; }
+a { text-decoration: none; }
+
+
+/*   헤더   */
+#main_header {
+background: url('../img/ch6/header_background.png');  /* 배경 지정 */
+height: 45px;  /* bg이미지가 45px이기때문에 height도 45px을 주었음 */
+
+position: relative;  /* 자손 위치 지정 */
+text-align: center; 
+line-height: 45px; 
+}
+#main_header > h1 {
+color: white; 
+}
+#main_header > a, #main_header > label {  /* a태그와 label태그에 모두 적용됨 */
+display: block; 
+height: 32px; 
+position: absolute; 
+}
+#main_header > a.left {  /* brand는 좌측으로 */
+width: 62px; 
+left: 5px; top: 7px; 
+}
+#main_header > label.right {  /* 토글버튼은 우측으로 */
+width: 32px; 
+right: 5px; top: 7px; 
+}
+
+
+/*   스프라이트 이미지 (CSS Sprites Generator : http://csssprites.com/ 에서 만들고, 사용법도 제공됨)    */
+#main_header > a.left {
+background: url('../img/ch6/sprites.png'); 
+background-position: 0px 0px; 
+text-indent: -99999px;  /* 태그 내부에 있는 글자를 보이지 않게 만들고자, 터무니 없는 값을 적용하여, 글자를 화면 밖으로 밀어버리는 코드. */
+}
+#main_header > label.right {
+background: url('../img/ch6/sprites.png'); 
+background-position: -62px 0px; 
+text-indent: -99999px;  /* JavaScript와 함께라면 무척 자주 사용될테니 꼭 기억하자. */
+}
+
+
+/*   토글 목록   */
+#toggle { display: none; }  /* toggle체크박스 단추를 안보이게 함 */
+#toggle + #wrap > #toggle_gnb_wrap { display: none; }  /* toggle체크박스의 형제인 wrap의 직계자식 toggle_gnb_wrap 을 안보이게함 */
+#toggle:checked + #wrap > #toggle_gnb_wrap { display: block; }  /* toggle체크박스가 체크되었을땐 내용을 보이게함 */
+
+#toggle_gnb_wrap {  /* 레이아웃 색상 */
+background: #363636; 
+padding: 15px; 
+}
+#toggle_gnb {
+background: #FFFFFF; 
+padding: 5px; 
+}
+
+#toggle_gnb > ul { overflow: hidden; }
+#toggle_gnb > ul > li { width: 80px; float: left; }
+
+
+/*   네비게이션(1)   */
+#top_gnb {
+overflow: hidden;
+border-bottom: 1px solid black; 
+background: #B42111; 
+}
+#top_gnb > div > a {
+float: left;   /* 수평 정렬 */
+width: 25%;   /* 부모태그(top_gnb)의 width기준 25%, 목록이 4개이기 때문에 25%로 적용했다. 5개면 20%이어야 한다. */
+
+height: 35px;  /* 크기 및 색상, 정렬 */
+line-height: 35px;  /* 클릭가능범위를 높이기위함 */
+text-align: center;  /* 글자 가운데정렬, a태그가 width와 height속성을 가졌기때문에 가능함 */
+color: white; 
+}
+
+
+/*   네비게이션(2)   */
+#bottom_gnb {
+display: table;  /* 모바일웹에서 Navigation목록을 만드는 두번째 방법, ==> 내부의 div태그에 width속성을 사용할 필요가 없게해준다! */
+width: 100%;
+border-bottom: 1px solid black; 
+}
+#bottom_gnb > div {
+display: table-cell;  /* td태그와 같은 레이아웃을 갖는다. 오호라... */
+position: relative; 
+}
+#bottom_gnb > div > a {
+display: block; 
+line-height: 35px;  /* 클릭영역 확장 */
+text-align: center; 
+}
+#bottom_gnb > div > a::before {  /* (구분선 만들기) before ==> 태그 앞에 위치하는 공간을 선택 */
+display: block;        /* 무에서 유로, 형태를 갖게함 */
+position: absolute;    /* 절대 좌표를 설정함 (글자와 선이 자기자리를 찾을수 있도록) */
+top: 9px; left: -1px;  /* -1px을 하지않으면 왼쪽에 하나가 삐져나온다. */
+width: 1px; height: 15px;  /* 너비는 1px, 높이는 15px짜리 구분선 */
+border-left: 1px solid black;  /* 왼쪽에만 만듬. */
+content: '';  /* 전후문자선택자는 반드시 content속성이 있어야하는듯. content는 아무것도 쓰지않아야 border만 나옴. */
+}
+
+
+/*   본문   */
+#section_header { text-align: center; padding: 20px; }
+#section_header > time { display: block; text-align: right; padding: 20px; }
+#section_header > p { text-align: left; }
+#section_article { padding: 10px; }
+
+
+/*   푸터   */
+#main_footer {
+padding: 10px; 
+border-top: 3px solid black; 
+text-align: center; 
+}
+

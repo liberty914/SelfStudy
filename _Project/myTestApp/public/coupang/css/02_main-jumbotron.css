@@ -1,0 +1,160 @@
+
+
+#jumbotron { margin: 0 auto; width: 980px; height: 383px; position: relative; }
+#jumbotron h2 {
+  position: absolute;
+  top: 20px; left: 165px;
+  background: url("../img/bg_recommend_sprite_1016.png") 0px -39px;
+  width: 124px; height: 37px;
+  text-indent: -999px;
+  z-index: 3;
+}
+
+#jumbotron .curtain { position: absolute; right: 196px; top: 0px; width: 614px; height: 383px; z-index: 2; }
+#jumbotron .curtain:hover { cursor: pointer; }
+#jumbotron .curtain:hover ~ ul div.animation li a { animation-play-state: paused; }
+#jumbotron .curtain:hover ~ ul div.animation li a img { animation-play-state: paused; }
+
+
+
+  /* 실제적으로 클릭 가능한 점보트론 (작은거) */
+#jumbotron ul div.clickAble { position: absolute; top: 0px; left: 783px; z-index: 0; }  /*기본적으로 0이어서 1에 가려진다.*/
+#jumbotron ul div.clickAble:hover { z-index: 2; }  /*애니메이션이 hover되서 -1이 된 틈을타 2로 올라오게 만든다. (계속 유지됨)*/
+#jumbotron ul div.clickAble li a { display: block; width: 197px; height: 64px; }  /* 공통 스타일 */
+#jumbotron ul div.clickAble li:nth-child(1) a { background: url("../img/00today'S HOT/displayitem_11.jpg") 0px -64px; }
+#jumbotron ul div.clickAble li:nth-child(2) a { background: url("../img/00today'S HOT/displayitem_22.jpg") 0px -64px; }
+#jumbotron ul div.clickAble li:nth-child(3) a { background: url("../img/00today'S HOT/displayitem_33.jpg") 0px -64px; }
+#jumbotron ul div.clickAble li:nth-child(4) a { background: url("../img/00today'S HOT/displayitem_44.jpg") 0px -64px; }
+#jumbotron ul div.clickAble li:nth-child(5) a { background: url("../img/00today'S HOT/displayitem_55.jpg") 0px -64px; }
+#jumbotron ul div.clickAble li:nth-child(6) a { background: url("../img/00today'S HOT/displayitem_66.jpg") 0px -64px; }
+#jumbotron ul div.clickAble li:hover a { background-position: -198px -64px; }  /* hover하면 검은색으로 바뀜 */
+
+  /* 실제적으로 클릭 가능한 점보트론 (큰거), 공통 스타일, 기본적으로 모두 hidden상태 */
+#jumbotron ul div.clickAble li a img { position: absolute; right: 196px; top: 0px; visibility: hidden; }
+#jumbotron ul div.clickAble li:hover a img { visibility: visible; }  /* hover하면 visible됨 */
+
+
+
+  /* 뒷단에서 계속 돌아가는 점보트론 (작은거) */
+#jumbotron ul div.animation { position: absolute; top: 0px; left: 783px; z-index: 1;}  /*기본적으로 z-index가 높아서, 겉으로 보임*/
+#jumbotron ul div.animation:hover { z-index: -1; }  /*hover하면 -1로 내려가는데, 가만놔두면 hover가 풀리면서 다시 1로 올라온다.*/
+#jumbotron ul div.animation li a { display: block; width: 197px; height: 64px; }  /* 공통 스타일 */
+#jumbotron ul div.animation li:nth-child(1) a { animation: jumbotronChange11 9s infinite; background: url("../img/00today'S HOT/displayitem_11.jpg") 0px -64px; }
+#jumbotron ul div.animation li:nth-child(2) a { animation: jumbotronChange22 9s infinite; background: url("../img/00today'S HOT/displayitem_22.jpg") 0px -64px; }
+#jumbotron ul div.animation li:nth-child(3) a { animation: jumbotronChange33 9s infinite; background: url("../img/00today'S HOT/displayitem_33.jpg") 0px -64px; }
+#jumbotron ul div.animation li:nth-child(4) a { animation: jumbotronChange44 9s infinite; background: url("../img/00today'S HOT/displayitem_44.jpg") 0px -64px; }
+#jumbotron ul div.animation li:nth-child(5) a { animation: jumbotronChange55 9s infinite; background: url("../img/00today'S HOT/displayitem_55.jpg") 0px -64px; }
+#jumbotron ul div.animation li:nth-child(6) a { animation: jumbotronChange66 9s infinite; background: url("../img/00today'S HOT/displayitem_66.jpg") 0px -64px; }
+/*#jumbotron ul div.animation li a:hover { background-position: -198px -64px; }*/  /* animation 중인 속성은 hover로 다시 건드릴수 없다. */
+
+  /* 뒷단에서 계속 돌아가는 점보트론 (큰거) */
+#jumbotron ul div.animation li a img { position: absolute; right: 196px; top: 0px; z-index: 1; }
+#jumbotron ul div.animation li:nth-child(1) a img { animation: jumbotronChange1 9s infinite; }
+#jumbotron ul div.animation li:nth-child(2) a img { animation: jumbotronChange2 9s infinite; }
+#jumbotron ul div.animation li:nth-child(3) a img { animation: jumbotronChange3 9s infinite; }
+#jumbotron ul div.animation li:nth-child(4) a img { animation: jumbotronChange4 9s infinite; }
+#jumbotron ul div.animation li:nth-child(5) a img { animation: jumbotronChange5 9s infinite; }
+#jumbotron ul div.animation li:nth-child(6) a img { animation: jumbotronChange6 9s infinite; }
+/*#jumbotron ul:hover div.animation li a { animation-play-state: paused; }
+#jumbotron ul:hover div.animation li a img { animation-play-state: paused; }*/
+
+
+
+
+
+
+
+
+
+@keyframes aaa {
+
+}
+
+@keyframes jumbotronChange1 {
+      0% { opacity: 1; }  /* opacity 대신에 visibility 속성을 써도 동일함, 가독성상 opacity를 사용함 */
+  16.6666% { opacity: 1; }
+  16.6667% { opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes jumbotronChange11 {
+      0% { background-position: -198px -64px; }
+  16.6666% { background-position: -198px -64px; }
+  16.6667% { background-position: 0px -64px;  }
+  100% { background-position: 0px -64px;  }
+}
+@keyframes jumbotronChange2 {
+      0% { opacity: 0; }
+  16.6666% { opacity: 0; }
+  16.6667% { opacity: 1; }
+  33.3222% { opacity: 1; }
+  33.3223% { opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes jumbotronChange22 {
+      0% { background-position: 0px -64px; }
+  16.6666% { background-position: 0px -64px; }
+  16.6667% { background-position: -198px -64px; }
+  33.3222% { background-position: -198px -64px; }
+  33.3223% { background-position: 0px -64px; }
+  100% { background-position: 0px -64px; }
+}
+@keyframes jumbotronChange3 {
+      0% { opacity: 0; }
+  33.3222% { opacity: 0; }
+  33.3223% { opacity: 1; }
+  49.9888% { opacity: 1; }
+  49.9889% { opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes jumbotronChange33 {
+      0% { background-position: 0px -64px; }
+  33.3222% { background-position: 0px -64px; }
+  33.3223% { background-position: -198px -64px; }
+  49.9888% { background-position: -198px -64px; }
+  49.9889% { background-position: 0px -64px; }
+  100% { background-position: 0px -64px; }
+}
+@keyframes jumbotronChange4 {
+      0% { opacity: 0; }
+  49.9888% { opacity: 0; }
+  49.9889% { opacity: 1; }
+  66.6444% { opacity: 1; }
+  66.6445% { opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes jumbotronChange44 {
+      0% { background-position: 0px -64px; }
+  49.9888% { background-position: 0px -64px; }
+  49.9889% { background-position: -198px -64px; }
+  66.6444% { background-position: -198px -64px; }
+  66.6445% { background-position: 0px -64px; }
+  100% { background-position: 0px -64px; }
+}
+@keyframes jumbotronChange5 {
+      0% { opacity: 0; }
+  66.6444% { opacity: 0; }
+  66.6445% { opacity: 1; }
+  83.3000% { opacity: 1; }
+  83.3001% { opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes jumbotronChange55 {
+      0% { background-position: 0px -64px; }
+  66.6444% { background-position: 0px -64px; }
+  66.6445% { background-position: -198px -64px; }
+  83.3000% { background-position: -198px -64px; }
+  83.3001% { background-position: 0px -64px; }
+  100% { background-position: 0px -64px; }
+}
+@keyframes jumbotronChange6 {
+      0% { opacity: 0; }
+  83.3000% { opacity: 0; }
+  83.3001% { opacity: 1; }
+  100% { opacity: 1; }
+}
+@keyframes jumbotronChange66 {
+      0% { background-position: 0px -64px; }
+  83.3000% { background-position: 0px -64px; }
+  83.3001% { background-position: -198px -64px; }
+  100% { background-position: -198px -64px; }
+}

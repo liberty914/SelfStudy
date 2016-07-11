@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Style Property Basic</title>
+  <style>
+    /*   <opacity 속성>
+         0.0.부터 1.0 사이의 숫자를 입력.
+         0.0은 투명한 상태, 1.0은 불투명한 상태.      */
+    
+    #box {
+      background-color: black; 
+      color: orange; 
+      opacity: 0.2;  /* color, background-color속성 모두에게 적용된다. */
+    }
+  </style>
+</head>
+
+<body>
+  <span>Dummy</span>
+  <div id="box">
+    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+  </div>
+  <span>Dummy</span>
+</body>
+</html>

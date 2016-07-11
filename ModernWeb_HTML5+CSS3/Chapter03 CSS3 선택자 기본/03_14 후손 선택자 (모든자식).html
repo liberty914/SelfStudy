@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Selector Basic Page</title>
+  <style>
+    /* 자손 : 대상 태그의 직계자식을 말함.
+       후손 : 대상 태그의 모든자식을 말함. (직계자식 포함) */
+    /* 선택자A 선택자B  ==>  선택자A의 후손에 위치하는 "선택자B"를 선택합니다. */
+    
+    #header h1 {color: red; }
+    #section h1 {color: orange; }
+    /* id속성값으로 header를 가지는 태그의, 후손 위치에 있는 h1태그의 color속성에 red키워드를 적용합니다. */
+    
+    /* 주의사항 : 여러개의 선택자를 함께 사용할 경우. */
+    #header h1, h2 {color: blue; }          /* ==> header의 후손중 h1과, 일반 h2태그를 선택 ==> 컴마를 만나면 초기화된다. */
+    #header h1, #header h2 {color: lime; }  /* ==> header의 후손중 h1과 h2를 모두 선택. */
+  </style>
+</head>
+
+<body>
+  <div id="header">                     <!-- div가 기준이라면 -->
+    <h1 class="title">Lorem ipsum</h1>  <!-- h1은 자손 (red) -->
+    <div id="nav">                      <!-- 여기 div도 자손 -->
+      <h1>Navigation</h1>               <!-- 여기 h1은 후손! (red) -->
+    </div>
+  </div>
+  <div id="section">
+    <h1 class="title">Lorem ipsum</h1>  <!-- 자손 (orange) -->
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>  <!-- 자손 -->
+  </div>
+</body>
+</html>

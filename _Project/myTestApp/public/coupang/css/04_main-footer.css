@@ -1,0 +1,40 @@
+
+footer { margin: 20px 0 0 0; background-color: #dfdfdf; border-top: 1px solid #c9c9c9; }
+footer article { border-bottom: 1px solid #c8c8c8; }
+footer article ul { width: 980px; margin: 0 auto; overflow: hidden; padding: 15px 0; }
+footer article ul li { float: left; text-align: center; padding: 0 20px; border-right: 1px solid gray; }
+footer article ul li strong { font-weight: bold; }
+footer article ul li:last-child { border: 0; }
+footer article ul li a { font-family: "godic"; }
+
+footer section { width: 980px; margin: 0 auto; overflow: hidden; }
+footer section h1 { float: left; margin: 30px 0 0 0; width: 150px; font: bold 32px "godic"; color: gray; }
+
+footer section .section1 { float: left; box-sizing: border-box; padding: 20px; width: 590px; overflow: hidden; }
+footer section .section1 address { font-size: 13px; color: #707070; line-height: 18px; }
+footer section .section1 address a { color: inherit; }
+
+footer section .section1 .section1-1 { overflow: hidden; }
+footer section .section1 .section1-1 strong { font-weight: bold; }
+footer section .section1 .section1-1 div:first-of-type { float: left; box-sizing: border-box; padding: 10px; width: 230px; }
+footer section .section1 .section1-1 div:nth-of-type(2) { float: left; box-sizing: border-box; padding: 10px; width: 310px; }
+
+footer section .section1 .section1-2 { overflow: hidden; }
+footer section .section1 .section1-2 ul { float: left; background: url("../img/bg_footer_sprite_150909.png") 0px -204px; width: 525px; height: 36px; }
+footer section .section1 .section1-2 ul li { text-indent: -999px; float: left; }
+footer section .section1 .section1-2 ul li a { display: block; width: 100px; height: 35px; margin: 0 5px 0 0; box-sizing: border-box; }
+
+footer section .section2 { float: left; box-sizing: border-box; padding: 15px 20px 20px 0; width: 220px; }
+footer section .section2 h3 { font: bold 24px "godic"; }
+footer section .section2 h4 { font: bold 30px "godic"; margin: 0 0 20px 0; }
+footer section .section2 p:first-of-type { color: skyblue; font-weight: bold; display: inline-block; line-height: 20px; }
+footer section .section2 p:nth-of-type(2) { font-weight: bold; display: inline-block; }
+footer section .section2 p:last-of-type { color: #707070; line-height: 16px; }
+
+footer .coupangAward ul { margin: 30px 0 0 0; overflow: hidden; background: url("../img/bg_footer_sprite_150909.png") 0 -133px; width: 975px; height: 61px; }
+footer .coupangAward ul li { float: left; }
+footer .coupangAward ul li a { display: block; width: 162px; height: 31px; }
+
+footer .immunity { margin-top: 20px; border-top: 1px solid #c9c9c9; }
+footer .immunity strong { display: block; margin: 20px 0; font-weight: bold; }
+

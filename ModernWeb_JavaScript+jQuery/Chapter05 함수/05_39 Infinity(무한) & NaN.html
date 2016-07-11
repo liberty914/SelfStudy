@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title></title>
+</head>
+<body>
+  <header>
+    <h2>JavaScript 함수</h2>
+  </header>
+  
+<!--
+    <숫자 확인 함수>
+  isFinite()  ==> number가 무한한 값인지 확인합니다. (유한한(finite)값이면 true, 무한이면 false를 리턴.)
+  isNaN()     ==> number가 NaN(Not a Number)인지 확인합니다.
+-->
+<script>
+  var number = 1/0;
+  alert(number + ' : ' + isFinite(number));
+  alert(number + ' : ' + isNaN(number));
+  
+  if(number == Infinity) {
+    alert('Infinity입니다. ' + Infinity);
+  } else {
+    alert('Infinity가 아닙니다. ' + -Infinity);
+  }
+</script>
+  
+</body>
+</html>

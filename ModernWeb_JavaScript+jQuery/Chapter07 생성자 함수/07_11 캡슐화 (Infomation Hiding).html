@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title></title>
+</head>
+
+<!--
+  캡슐화(Encapsulation)
+  ==> 잘못 사용될 수 있는 객체의 특정 부분을, 사용자가 사용할 수 없게 막는 기술. (클로저함수의 특성을 활용)
+  ==> 자바에서 객체의 Field를 private 로 선언하는것과 동일함. (Encapsulation, Information Hiding, 정보은닉)
+-->
+<body>
+  <script>
+    function Rectangle(w, h) {
+      var width = w;   //외부에서 접근할 수 없는 Field
+      var height = h;  //가지고있지는 않지만, 클로저로 인해 존재만 하는 변수.
+      
+      this.getWidth = function() { return width; };  //Information Hiding된 Field는 Getter/Setter로 접근이 가능하다!
+      this.getHeight = function() { return height; };
+      this.setWidth = function(w) {
+        if (w < 0) {
+          throw '너비는 음수일 수 없습니다.';  //예외를 발생시킴!
+        } else {
+          width = w;
+        }
+      };
+      this.setHeight = function(h) {
+        if (h < 0) {
+          throw '높이는 음수일 수 없습니다.';  //예외를 발생시킴!
+        } else {
+          height = h;
+        }
+      };
+      
+      Rectangle.prototype.getArea = function() {
+        return this.getWidth() * this.getHeight();
+      };
+    }
+    
+    var rectangle = new Rectangle(5, 7);
+    try {  //자바와 사용법이 똑같다.
+      rectangle.setWidth(-2);
+    } catch(e) {
+      
+    }
+    
+    alert('AREA: ' + rectangle.getArea());
+  </script>
+</body>
+</html>

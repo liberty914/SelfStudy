@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html ng-app='demo'>
+<head>
+  <script src='../resources/js/core/LiveReload.js'></script>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />  <!--이게 없으면 한글이 깨진다-->
+  <title>자바스크립트 기초</title>
+  <link href='../resources/css/core/bootstrap-3.3.5.css' rel='stylesheet' />
+  <link href='../resources/css/core/bootstrap-theme-3.3.5.css' rel='stylesheet' />
+  <!--<link href='../resources/css/core/bootstrap-4.0.0-alpha.css' rel='stylesheet' />-->
+
+  <script src='../resources/js/core/angular.js'></script>
+  <script>
+    var myApp = angular.module('demo', []);
+    console.log(myApp);
+    
+    myApp.controller('demoCtrl', function($scope, $http) {  //AJAX요청을 받을것임!
+      /*  <<<예제 5-42, 간단한 AngularJS 애플리케이션 구현>>>
+      var promise = $http.get('todo.json');  //해당 URL로 get요청을 보내고, 결과를 Promise객체로 return받는다.
+      promise.success(function(data) {
+        //요청의 결과는 Object 배열이다.
+        console.log(data);
+        $scope.todos = data;
+      });
+      */
+
+
+      /*  Promise 객체가 정의하는 메서드
+      success(callback)  ==> 프로미스에서 나타내는 작업을 완료했을 때 호출할 콜백함수를 지정한다.
+      error(callback)    ==> 프로미스에서 나타내는 작업을 완료할 수 없을 때 호출할 콜백함수를 지정한다.
+      then(success, error)  ==> 프로미스가 성공하든 실패하든 호출할 콜백 함수를 지정한다.    */
+
+      /*  <<<예제 5-43, 프로미스 체인>>>
+      var 프로미스객체 = $http.get('todo.json').then(function(response) {  //1번째인자, 성공했을 경우의 콜백함수
+        $scope.todos = response.data;  //요청의 결과는 Object배열이다.
+      }, function(response) {                           //2번째인자, 실패했을 경우의 콜백함수
+        $scope.todos = [{action: 'ERROR'}];
+      }).then(function() {                              //1번째인자, 성공했을 경우의 콜백함수
+        $scope.todos.push({action: 'Request Complete', done: '하하하'});
+      });  //실패했을경우는 넣지않았으나, 앞에 요청이 어찌되었건, "두번째 then메소드"는 무조건 성공이라고 감지하는 듯 하다.
+
+      console.log(프로미스객체.$$state.status);  //상태가 0으로나온다. 이상하다.
+      */
+
+
+      /*  <<<예제 5-44, JSON 데이터 인코딩/디코딩>>>
+        JSON은 Number, String, Boolean, Array, Object 및 특수타입인 null 같은 기본 데이터타입을 지원한다.  */
+      $http.get('todo.json').success(function(data) {
+        console.log(data);        //Object배열이 넘어왔다. [Object, Object, Object, Object]
+        var jsonString = angular.toJson(data);  //넘어온 data(Object배열)을 JSON String으로 인코딩한다.
+        console.log(jsonString);  //[{"action":"꽃 구매하기","done":false},{"action":"신발 받기","done":false},{"action":"티켓 모으기","done":true},{"action":"전화하기","done":false}]
+        var objectArray = angular.fromJson(jsonString);  //JSON String을 Object배열로 디코딩한다.
+        console.log(objectArray);  //[Object, Object, Object, Object]
+        $scope.todos = objectArray;
+      });
+      
+    });
+  </script>
+</head>
+
+<body ng-controller='demoCtrl'>
+  <div class='panel'>
+    <h1>To Do</h1>
+    <table class='table'>
+      <tr><td>Action</td><td>Done</td></tr>
+      <tr ng-repeat='item in todos'>
+        <td>{{item.action}}</td>
+        <td>{{item.done}}</td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
+
+
+
+
+
+<!--
+   * 지역변수 : 함수 내에 정의한 변수
+   * 전역변수 : script엘리먼트 안에 직접 정의한 변수, 같은 HTML문서 내에 다른 스크립트를 비롯해 어디에서나 접근할 수 있다.
+   * AngularJS 개발을 할 때는 전역변수 사용을 지양해야한다.
+     ==> 관심사의 분리를 저해할수 있고, 단위 테스트를 어렵게한다.
+
+  angular.isFunction(Object); ==> 함수 판단
+  angular.isString(Object);  ==> 문자열 판단
+  angular.isNumber(Object);  ==> 숫자 판단
+  angular.isArray(Object);  ==> 배열 판단
+  angular.isObject(Object);  ==> 객체 판단
+  angular.lowercase(string);  ==> 문자열을 소문자로 변환
+  angular.uppercase(string);  ==> 문자열을 대문자로 변환
+  angular.extend(자식/하위/SubObject, 부모/상위/SuperObject);  ==> 객체 상속 메소드
+  angular.copy(Object);  ==> 객체의 복사본을 생성하고 리턴한다. (동일속성이지만, 다른참조값을 가진 새로운 객체)
+  angular.forEach(반복할객체, function(value, key) {})
+  angular.equals(Object1, Object2)  ==> 항등성검사(===)를 통과하거나 or 두 인자가 모두 객체이고, 모든 속성이 항등성 검사를 통과할 경우 true리턴 (copy의 경우 해당)
+
+  toString()  ==> 형변환이 아닌, 객체의 string형 return
+  Number(Object)     ==> number형으로 형변환 (정수 또는 실수로 변환)
+  parseInt(Object)   ==> number형으로 형변환 (정수 형태)
+  parseFloat(Object) ==> number형으로 형변환 (정수 또는 실수로 변환)
+-->

@@ -1,0 +1,134 @@
+도움이 되는 링크 : 
+https://backlogtool.com/git-guide/kr/  (누구나 쉽게 이해할수 있는 Git입문)
+http://ecogeo.tistory.com/276  (에코지오 블로그)
+
+핵심 git 명령어 모음
+
+- 반드시 UTF-8 로 인코딩되어야만 한글이 깨지지 않는다.
+
+
+
+	<최초로 저장소를 만들기>
+
+1. 웹에서 저장소(Repository)를 만든다.
+
+
+2. 작업공간으로 사용할 폴더를 만들 위치에서 아래의 명령어를 입력한다.
+   로컬저장소와 원격저장소가 master로 연결됨.
+   .git 이라는 숨김폴더가 만들어짐.
+	git clone https://github.com/liberty914/SelfStudy.git 
+
+
+3. 저장소에 넣을 로컬의 파일들을 해당 폴더로 copy/paste하고 아래의 명령어를 입력
+   버전관리(Tracking)할 파일을 추가한다.
+	git add .
+
+
+4. 원격저장소에 올릴 파일들을 확정(약속)짓고, 무엇이 수정되었는지 메세지를 남긴다.
+   (커밋메세지는 공백이 불가능함, 가장 깔끔한게 점(.)이다)
+	git commit -m "메세지"
+
+
+5. 확정된 파일들을 원격저장소에 올린다. (그냥 git push 만 써도됨.)
+	git push origin master
+	git push --set-upstream https://github.com/liberty914/SelfStudy.git master
+
+
+
+================================================================================
+
+<작업한 이후 수정사항을 올리기 - master 로 연결되어있는 상태에서>
+
+1. git status
+==> 상태 점검
+
+2. git add .
+==> 버전관리(Tracking) 할 파일을 추가한다. (.은 현재폴더부터 하위폴더까지 모두 추가)
+
+3. git commit -m "메세지"
+==> 원격저장소에 올릴 파일들을 확정(약속함)짓고, 무엇이 수정되었는지 메세지를 남긴다.
+
+4. git push
+==> 작업한 파일들을 원격으로 올림
+
+5. git pull  
+==> 내가 가진 버전보다 상위버전이 있을경우 가져오고, 자동으로 merge(병합)해준다. 
+   (commit하기전에 반드시 해보는것이 좋다. 안정성을 위하여)
+
+6. git log
+==> 지금까지 커밋된 로그를 출력
+
+
+================================================================================
+
+
+
+외부 참조링크
+http://cafe.naver.com/openrt/2303
+
+    < 팁 >
+
+1. 현재 워킹디렉토리를 git에 처음으로 올릴 준비를 하기
+    git init
+    git remote add origin https://Dong-Ho@bitbucket.org/Dong-Ho/clientfire.git
+    이후에 add, commit, push 작업 진행
+
+
+
+2. git remote repository의 주소 변경하기
+    git remote -v  —>  현재 저장소의 주소 출력됨
+    git remote set-url origin https://Dong-Ho@bitbucket.org/Dong-Ho/clientfire.git
+    이후에 add, commit, push 작업 진행
+
+
+
+3. 현재 프로젝트의 수정사항이 있을경우, 모두 다 지워버리고 최신버전을 pull 하고싶을 때
+    git fetch --all
+    git reset --hard origin/master
+
+
+4. 커밋 메세지 수정하기
+    git commit —-amend
+
+
+5. 커밋을 취소하기
+git reset HEAD^ : 최종 커밋을 취소. 워킹트리는 보존됨. (커밋은 했으나 push하지 않은 경우 유용)
+git reset HEAD~2 : 마지막 2개의 커밋을 취소. 워킹트리는 보존됨.
+git reset --hard HEAD~2 : 마지막 2개의 커밋을 취소. index 및 워킹트리 모두 원복됨.
+
+
+
+6. 프로젝트를 특정 commit 상태로 되돌리고 싶을 때, 3가지 방법이 있다. (checkout 권장)
+http://stackoverflow.com/questions/8358035/whats-the-difference-between-git-revert-checkout-and-reset
+    git checkout commitId  (권장)
+        - 해당 브랜치나 태그로 작업트리를 변경한다.
+        - 과거의 커밋내용을 현재의 작업공간에 복사한다고 보면 된다.
+    git reset commitId
+        - 이전 커밋을 수정하기 위해서 사용된다.
+          --soft 옵션을 사용하면 이전 커밋을 스테이징하고 커밋은 하지 않는다.
+          --hard 옵션은 현재 작업공간의 수정된 데이터를 모두 날려버리고 해당 커밋으로 완전히 되돌린다. (위험, 싫행전에 commit 을 해주는걸 권장함)
+          git reset HEAD^ 와 같이 입력하면 최근 1개의 커밋을 취소할 수 있습니다.
+    git revert commitId
+        - 기존의 커밋에서 변경한 내용을 취소해서 새로운 커밋을 만든다.
+          -n 옵션을 사용하면 바로 커밋하지 않기 때문에 revert를 여러 번 한 다음에 커밋할 수 있다. (항상 최신의 커밋부터 revert 해야 한다.)
+        - 이 명령어는 새로운 커밋을 만들고 과거의 커밋으로부터 가져온다.
+        - 이 명령어는 프로젝트의 새로운 히스토리를 만든다. (이미 존재하던 히스토리는 수정하지않는다.)
+
+
+
+7. Automatic merge가 failed 되었을 때, merge가 실패한 파일을 열어보면 아래의 형식으로 나온다.
+<<<<<<< HEAD
+written by local (내가 작성한 부분)
+=======
+written by remote (원격 레포지토리에 충돌난 부분)
+>>>>>>> fb51122d60d93319ccb4a69005b07635444a5ff0
+
+======= 를 기준으로 위쪽이 내가 작업한 내용, 아래쪽이 원격에 있던 내용이다.
+내용을 적당히 수정하여 저장하고 ADD, COMMIT, PUSH 의 작업을 다시 해주면 된다.
+
+
+
+8. .gitignore 파일에 기존에 없던것이 추가되었을 경우, tracking을 취소하는방법
+    git rm -r --cached DIRECTORY_NAME
+    git commit -m ''
+    git push origin master

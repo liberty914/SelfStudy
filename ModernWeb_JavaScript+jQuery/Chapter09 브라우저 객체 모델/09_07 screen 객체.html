@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>Chapter09 브라우저 객체 모델</title>
+  <script src='./../common/common.js'></script>
+</head>
+
+<body>
+  <script src='./../common/includeBody.js'></script>
+</body>
+</html>
+
+
+<!--==========================================================================================================-->
+
+
+<!--
+    screen 객체  ==>  http://www.w3schools.com/jsref/obj_screen.asp
+    - 웹 브라우저의 화면이 아니라, "운영체제 화면"의 속성을 가지는 객체
+    
+    <screen 객체의 속성>
+    width  ==> 화면의 너비
+    height ==> 화면의 높이
+    availWidth  ==> 실제 화면에서 사용 가능한 너비
+    availHeight ==> 실제 화면에서 사용 가능한 높이
+    colorDepth  ==> 사용 가능한 색상 수
+    pixelDepth  ==> 한 픽셀당 비트 수
+-->
+
+<script>
+  'use strict';  //엄격하게 문법을 검사
+  
+  var child = window.open('', '', 'width=300, height=200', false);
+  var scWidth = screen.width;
+  var scHeight = screen.height;
+
+  var aaaInterval = function() {
+    child.moveTo(0, 0);
+    child.resizeTo(scWidth, scHeight);  //크기를 전체화면에 맞춤
+  };
+  
+  var bbbInterval = function() {  //인터벌 함수 설정, 크기를 변환하고, 이동해서 점점 가운데로 수렴
+    child.resizeBy(-20, -20);
+    child.moveBy(10, 10);
+  };
+
+  var aaa = setInterval(aaaInterval, 1000);
+  var bbb = setInterval(bbbInterval, 1000/60);  //60프레임속도로 해당함수 실행
+
+  //clearInterval(aaa);  //변수aaa에 담긴 인터벌을 없앰
+  //clearInterval(bbb);  //변수bbb에 담긴 인터벌을 없앰
+</script>

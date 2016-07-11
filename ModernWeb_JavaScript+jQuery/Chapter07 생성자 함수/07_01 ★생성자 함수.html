@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title></title>
+</head>
+
+<!--
+  new 키워드 ==> 해당 함수를 객체화 시킴.
+                함수의 내용을 Object형으로 변환시켜, Object를 return
+                내부에 Property를 설정해주려면 반드시 this키워드를 사용해야한다.
+                this키워드를 사용하지 않으면, 결코 Property로 설정되지않는다.
+                (==> 객체로 쓸수없다)
+  toString 속성 ==> toString속성은 반드시 function형이어야 한다. 그렇지않으면 호출되지도 않는다.
+  
+  * this키워드는 일반적으로 window객체를 나타낸다.
+    그러므로 new키워드를 사용하지 않으면, 함수를 실행하는 동안, window객체에 속성을 추가한것이 된다.
+    new키워드로 함수를 호출하면, 객체를 위한 공간을 만들고, this키워드가 해당 공간을 의미한다.
+-->
+<body>
+  <header><h1></h1></header>
+  
+  <script>
+    function Student(name, kor, mat, eng, sci) {  //★학생 생성자함수
+      ///Field
+      this.이름 = name;
+      this.국어 = kor;  //객체의 Property(Field)를 형성함.
+      this.수학 = mat;
+      this.영어 = eng;
+      this.과학 = sci;
+      
+      ///Method
+      this.getSum = function() {
+        return this.국어 + this.수학 + this.영어 + this.과학;  //여기에서도 this를 사용하지 않으면 "is not defined 에러발생함."
+      };
+      this.getAvg = function() {
+        return this.getSum() / 4;
+      };
+      this.toString = function() {  //toString메소드는 반드시 function형이어야 한다.
+        return '\n' + this.이름 + '   ' + this.getSum() + '   ' + this.getAvg();
+      };
+    }
+    var student = new Student('양동호1', 101, 102, 103, 104);  //학생객체 생성
+    alert(student);
+    
+    
+    var students = [];  //학생 배열
+    students.push(new Student('양동호2', 201, 202, 203, 204));
+    students.push(new Student('양동호3', 301, 302, 303, 304));
+    alert(students);
+    
+    
+    
+    function Aaa(name, good) {  //테스트용 생성자함수
+      toString = function() {  //this키워드를 사용하지않으면 절대 property로 등록되지않는다. ==> 객체로 쓸수없다. 
+        return name + '   ' + good;  //toString메소드는 반드시 function형이어야 한다.
+      };
+      return name + good;
+    }
+    var test = new Aaa("aaa", "bbb");
+    alert(test);
+    
+    console.log(student);  //콘솔창도 확인해보자.
+    console.log(test);
+  </script>
+</body>
+</html>

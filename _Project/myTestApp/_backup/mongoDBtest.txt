@@ -1,0 +1,61 @@
+mongo --port 9999
+
+mongo --port 9999 admin -u root -p <root 계정 암호>
+mongo --port 9999 admin -u rex -p <root 계정 암호>
+mongo --port 9999 mongoDBtest
+
+  /* 정리를 하자면, mongod를 인스톨 한 뒤에, mongo를 실행하게 되는데,
+    mongo --port 9999 로 바로 접속하면 /test 로 접속이 되고,
+    mongo --port 9999 admin 으로 접속하면 /admin 으로 접속이 된다.
+    거기에서 db.createUser() 메소드를 이용해서 관리자권한의 계정을 하나 생성해 준 뒤에,
+    mongo --port 9999 admin -u rex -p 1234 로 로그인을 한다.
+    그 뒤에 원하는 db에 인서트를 하면 된다. (use mongoDBtest 로 들어가서)  */
+
+use admin
+db.createUser( {
+  user:"root",
+  pwd: "root",
+  roles: ["readWriteAnyDatabase", "userAdminAnyDatabase", "dbAdminAnyDatabase", "clusterAdmin", { role: "root", db: "admin" } ]
+} )
+db.createUser( {
+  user:"rex",
+  pwd: "1234",
+  roles: ["readWriteAnyDatabase", "userAdminAnyDatabase", "dbAdminAnyDatabase", "clusterAdmin", { role: "root", db: "admin" } ]
+} )
+
+use admin
+db.system.version.insert({ "_id" : "authSchema", "currentVersion" : 3 });
+
+
+
+
+use mongoDBtest
+
+db.users.insert( {
+    user_id: "abc123",
+    age: 55,
+    status: "A"
+ } )
+
+db.createCollection("testCollection");
+
+
+
+
+
+
+
+db.testCollection.insert({
+  name: "aaa01",
+  age: 12,
+  status: "A",
+  groups: ["news", "sports"]
+});
+db.testCollection.insert({  name: "aaa02",  age: 22,  status: "B",  groups: ["news", "sports"] });
+db.testCollection.insert({  name: "aaa03",  age: 32,  status: "C",  groups: ["news", "sports"] });
+db.testCollection.insert({  name: "aaa04",  age: 42,  status: "D",  groups: ["news", "sports"] });
+db.testCollection.insert({  name: "aaa05",  age: 52,  status: "E",  groups: ["news", "sports"] });
+db.testCollection.insert({  name: "aaa06",  age: 62,  status: "F",  groups: ["news", "sports"] });
+
+db.testCollection.find();
+

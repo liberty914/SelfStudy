@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Style Property Basic</title>
+  <style>
+    /*   <폰트 속성>
+         font-size    ==> 글자 크기
+         font-family  ==> 글씨체. (폰트)
+         font-style   ==> 폰트 기울기
+         font-weight  ==> 폰트 두께        */
+    
+    .font_big { font-size: 2em; }
+    .font_italic { font-style: italic; }
+    .font_bold { font-weight: bold; }
+    .font_center { text-align: center; }
+    
+    .button {
+      width: 150px; 
+      height: 70px; 
+      background-color: #FF6A00; 
+      border: 10px solid #ffffff;
+      border-radius: 30px; 
+      box-shadow: 5px 5px 5px #a9a9a9;  /* box에 그림자를 부여 (좌우, 상하, 흐림도, 색상) */
+    }
+    
+    .button > a {  /* 오타때문에 1시간을 고생했다. 오타 조심하자. 이상할땐 드래그를 해보자. */
+      display: block;  /* ★★★ a속성을 block으로 만들어주지 않으면 text-align으로 정렬이 불가능하다!!!   */
+      line-height: 70px;  /* 문자열 자체에 높이를 지정한다! (세로 가운데정렬 가능해짐!) */
+    }
+    /* 신기한건 a태그에서 정렬기능을 넣어서 아무것도 안이루어질줄 알았는데,
+       text-align속성은 "자기를 감싸고있는 영역"을 기준으로 정렬해주는가 보다.  --> 일단 이건 맞음.
+       근데 div태그에다가 정렬클래스를 추가해도 잘 된다. 뭐가 기준인지 잘 모르겠다... */
+  </style>
+</head>
+
+<body>
+  <div class="button">
+    <a href="#" class="font_big font_italic font_bold font_center">Click</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title></title>
+  <script>
+    "use strict";  //엄격하게 문법을 검사
+    
+    function test() {  //화면 출력, 콘솔창, 경고창띄우기용 모듈
+      for(var i=0; i<arguments.length; i++) {
+        document.getElementById('main_footer').innerHTML 
+          = document.getElementById('main_footer').innerHTML
+            +'<p>test['+i+'] ==> '+arguments[i]+'</p>';  //화면출력
+          console.log(arguments[i]);                     //콘솔창
+          alert(arguments[i]);                           //경고창
+      }
+      document.getElementById('main_footer').innerHTML 
+        = document.getElementById('main_footer').innerHTML+'<br/>';  //한줄 추가
+    }
+  </script>
+</head>
+
+<body>
+  <header id="main_header">
+    <div id="main_title">
+      <h1></h1>
+    </div>
+    <nav id="main_gnb">
+      <ul>
+        <li><a href="#"></a></li>
+      </ul>
+    </nav>
+    <nav id="main_lnb">
+      <ul>
+        <li><a href="#"></a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div id="content">
+    <section id="main_section">
+      <header>
+        <h1></h1>
+      </header>
+      <article class="main_article">
+      </article>
+    </section>
+  </div>
+  
+  <aside id="main_aside">
+    <a href="#"></a>
+  </aside>
+  
+  <footer id="main_footer">
+    <h3></h3>
+    <address></address>
+  </footer>
+</body>
+</html>
+
+
+
+<!--==========================================================================================================-->
+
+<!--
+    Date객체 ==> 날짜와 시간을 표시하는 객체
+    Getter, Setter메소드와 to~~String()메소드 를 활용한다.
+-->
+<script>
+  "use strict";  //엄격하게 문법을 검사
+  
+  var date0 = new Date();  //생성자함수에 어떤 매개변수도 입력하지 않으면, 현재시간으로 초기화
+  var date1 = new Date('June 1');                 //2001년, 00시가 디폴트
+  var date2 = new Date('June 1, 2012');           //00시가 디폴트
+  var date3 = new Date('June 1, 2012 15:33:27');  //전체 입력됨.
+  var date4 = new Date(1990, 5, 1);                 //00시가 디폴트 (월-1을 입력해야 됨.)
+  var date5 = new Date(1990, 5, 1, 15, 23, 24);     //전체 입력됨.
+  var date6 = new Date(1990, 5, 1, 15, 23, 24, 1);  //전체 입력됨.
+  test(date0, date1, date2, date3, date4, date5, date6);
+  
+  var date = new Date();
+  date.setDate(date.getDate() + 7);  //현재날짜에서 7일을 더함. (일주일 후의 시간 구하기)
+  test(date, 
+       date.toLocaleDateString(),  //연월일
+       date.toLocaleTimeString(),  //시분초
+       date.toLocaleString());  //연월일 + 시분초 (Date + Time)
+  
+  
+  Date.prototype.getInterval = function(otherDate) {  //프로토타입에 날짜 간격을 구하는 메소드 추가!
+    var interval;  //날짜간격 변수선언
+    if (this > otherDate) {  //호출하는 함수가 더 미래면,
+      interval = this.getTime() - otherDate.getTime();
+    } else {
+      interval = otherDate.getTime() - this.getTime();
+    }
+    return Math.floor(interval / (1000 * 60 * 60 * 24));  //==> 초, 분, 시, 일 단위로 변환시키고, 나머지 버림!
+  };
+  
+  var now = new Date();
+  var before = new Date(2012, 6, 1);
+  test('우리 여보랑 만난지 '+now.getInterval(before)+'일 이 되었어요! 축하하고 사랑해요!^^♡');
+</script>
+
+
+
+
+
+<!--
+    < "use strict"; (엄격모드) 에서 사용할수 없는 구문 (Not Allowed in Strict Mode) >
+  
+  
+  1. x = 3.14;  ==> var 키워드로 선언하지 않고 변수를 사용하는것은 허용되지 않습니다.
+  
+  2. delete x;  ==> 변수/함수/인수의 삭제가 허용되지 않습니다.
+  
+  3. var x = { p1:10, 
+               p1:20 };  ==> 똑같은 Property의 재정의는 허용되지 않습니다.
+  
+  4. function x(p1, p1) {};   ==> Parameter이름의 중복사용이 허용되지 않습니다.
+  
+  5. var x = 010;
+     var y = \010;  ==> 진수 숫자 리터럴 탈출 문자는 허용되지 않습니다.
+  
+  6. var obj = {};
+     obj.defineProperty(obj, "x", {value:0, writable:false});
+     obj.x = 3.14;  ==> 읽기 전용 속성을 초기화시키는 것은 허용되지 않습니다.
+  
+  7. var obj = {get x() {return 0} };
+     obj.x = 3.14;  ==> GET 전용 속성을 초기화시키는 것은 허용되지 않습니다
+  
+  8. delete Object.prototype;  ==> 삭제할수 없는 속성을 삭제하는 것은 허용되지 않습니다
+  
+  9. var eval = 3.14;  ==> 문자열 "eval"은 변수명으로 사용할 수 없습니다.
+  
+  10. var arguments = 3.14;  ==> 문자열 "arguments"는 변수명으로 사용할 수 없습니다.
+  
+  11. with (Math){x = cos(2)};  ==> with문은 허용되지 않습니다.
+  
+  12. eval ("var x = 2");
+      alert (x)  ==> 보안상의 이유로, eval()함수가 호출된 범위(scope)에서 변수를 만들 수 없습니다.
+  
+  13. 미래에 예약어(키워드)는 허용되지 않습니다.
+    implements
+    interface
+    package
+    private
+    protected
+    public
+    static
+    field
+-->

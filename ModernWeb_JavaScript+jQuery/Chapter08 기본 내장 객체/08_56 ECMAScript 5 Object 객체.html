@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title></title>
+  <script>
+    "use strict";  //엄격하게 문법을 검사
+    
+    function test() {  //화면 출력, 콘솔창, 경고창띄우기용 모듈
+      for(var i=0; i<arguments.length; i++) {
+        document.getElementById('main_footer').innerHTML 
+          = document.getElementById('main_footer').innerHTML
+            +'<p>test['+i+'] ==> '+arguments[i]+'</p>';  //화면출력
+          console.log(arguments[i]);                     //콘솔창
+          alert(arguments[i]);                           //경고창
+      }
+      document.getElementById('main_footer').innerHTML 
+        = document.getElementById('main_footer').innerHTML+'<br/>';  //한줄 추가
+    }
+  </script>
+</head>
+
+<body>
+  <header id="main_header">
+    <div id="main_title">
+      <h1></h1>
+    </div>
+    <nav id="main_gnb">
+      <ul>
+        <li><a href="#"></a></li>
+      </ul>
+    </nav>
+    <nav id="main_lnb">
+      <ul>
+        <li><a href="#"></a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div id="content">
+    <section id="main_section">
+      <header>
+        <h1></h1>
+      </header>
+      <article class="main_article">
+      </article>
+    </section>
+  </div>
+  
+  <aside id="main_aside">
+    <a href="#"></a>
+  </aside>
+  
+  <footer id="main_footer">
+    <h3></h3>
+    <address></address>
+  </footer>
+</body>
+</html>
+
+
+
+<!--==========================================================================================================-->
+
+<!--
+  Object 객체에 추가된 메소드
+  
+  객체 속성 추가 메소드
+  Object.defineProperty(o,p,a) ==> 객체에 속성을 추가합니다. (1개)
+  Object.defineProperties()    ==> 객체에 속성들을 추가합니다. (여러개)
+  
+  Object.create(originObj, addProperty)  ==> 기본에 있는 객체를 복제하고, 새로운 속성을 추가하여 객체를 생성.
+-->
+<script>
+  //"use strict";  //엄격하게 문법을 검사
+  
+  var object = {};
+  Object.defineProperty(object, 'name', {
+    value: '양동호',     //옵션을 입력하지 않으면 자동으로 false또는 undefined가 입력됨.
+    writable: false,     //객체의 속성 값을 변경할 수 있는지 의미 (false면 변경불가)
+    enumerable: false,   //for in 반복문으로 검사할 수 있는지 의미 (false면 for in같은 반복문 사용불가)
+    configurable: false  //속성의 설정을 변경 할수 있는지 의미
+  });
+/*Object.defineProperty(object, 'name', {  //get, set옵션은 value옵션과 함께 사용할수 없으니 분리해야한다! ★
+    get: function() { return this.value; },
+    set: function(newValue) {  //Information Hiding 할때 사용하는것!
+      if(newValue < 0) {
+        alert("에러발생! 음수는 사용할수없음!");
+      } else {
+        this.hidden.value = newValue;  //hidden은 위에서 선언해줄때, hidden변수안에 key안에 key:value를 만들어야한다.
+      }
+    }
+  });*/
+  test(object);
+  
+  Object.defineProperties(object, {  //여러개 속성지정 가능!
+    직업: { value: 'iRex대표이사' },
+    region: { value: '서울특별시' }
+  });
+  
+  object.name = 'aaa';    //작동안됨.
+  for(var i in object) {  //작동안됨.
+    test(i + ' : ' + object[i]);
+  }
+  test(object);
+  
+  
+  var obj2 = Object.create(object, {
+    name: { value: '재사용2 하하하' },
+    region: { value: '서울특별시 청담동' }
+  });
+  test(obj2);  //근데 직업이 빠져있는데? ...뭥미
+</script>
+
+
+
+
+
+<!--
+    < "use strict"; (엄격모드) 에서 사용할수 없는 구문 (Not Allowed in Strict Mode) >
+  
+  
+  1. x = 3.14;  ==> var 키워드로 선언하지 않고 변수를 사용하는것은 허용되지 않습니다.
+  
+  2. delete x;  ==> 변수/함수/인수의 삭제가 허용되지 않습니다.
+  
+  3. var x = { p1:10, 
+               p1:20 };  ==> 똑같은 Property의 재정의는 허용되지 않습니다.
+  
+  4. function x(p1, p1) {};   ==> Parameter이름의 중복사용이 허용되지 않습니다.
+  
+  5. var x = 010;
+     var y = \010;  ==> 진수 숫자 리터럴 탈출 문자는 허용되지 않습니다.
+  
+  6. var obj = {};
+     obj.defineProperty(obj, "x", {value:0, writable:false});
+     obj.x = 3.14;  ==> 읽기 전용 속성을 초기화시키는 것은 허용되지 않습니다.
+  
+  7. var obj = {get x() {return 0} };
+     obj.x = 3.14;  ==> GET 전용 속성을 초기화시키는 것은 허용되지 않습니다
+  
+  8. delete Object.prototype;  ==> 삭제할수 없는 속성을 삭제하는 것은 허용되지 않습니다
+  
+  9. var eval = 3.14;  ==> 문자열 "eval"은 변수명으로 사용할 수 없습니다.
+  
+  10. var arguments = 3.14;  ==> 문자열 "arguments"는 변수명으로 사용할 수 없습니다.
+  
+  11. with (Math){x = cos(2)};  ==> with문은 허용되지 않습니다.
+  
+  12. eval ("var x = 2");
+      alert (x)  ==> 보안상의 이유로, eval()함수가 호출된 범위(scope)에서 변수를 만들 수 없습니다.
+  
+  13. 미래에 예약어(키워드)는 허용되지 않습니다.
+    implements
+    interface
+    package
+    private
+    protected
+    public
+    static
+    field
+-->

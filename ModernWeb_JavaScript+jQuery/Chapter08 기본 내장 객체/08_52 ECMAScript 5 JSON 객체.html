@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title></title>
+  <script>
+    "use strict";  //엄격하게 문법을 검사
+    
+    function test() {  //화면 출력, 콘솔창, 경고창띄우기용 모듈
+      for(var i=0; i<arguments.length; i++) {
+        document.getElementById('main_footer').innerHTML 
+          = document.getElementById('main_footer').innerHTML
+            +'<p>test['+i+'] ==> '+arguments[i]+'</p>';  //화면출력
+          console.log(arguments[i]);                     //콘솔창
+          //alert(arguments[i]);                           //경고창
+      }
+      document.getElementById('main_footer').innerHTML 
+        = document.getElementById('main_footer').innerHTML+'<br/>';  //한줄 추가
+    }
+  </script>
+</head>
+
+<body>
+  <header id="main_header">
+    <div id="main_title">
+      <h1></h1>
+    </div>
+    <nav id="main_gnb">
+      <ul>
+        <li><a href="#"></a></li>
+      </ul>
+    </nav>
+    <nav id="main_lnb">
+      <ul>
+        <li><a href="#"></a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div id="content">
+    <section id="main_section">
+      <header>
+        <h1></h1>
+      </header>
+      <article class="main_article">
+      </article>
+    </section>
+  </div>
+  
+  <aside id="main_aside">
+    <a href="#"></a>
+  </aside>
+  
+  <footer id="main_footer">
+    <h3></h3>
+    <address></address>
+  </footer>
+</body>
+</html>
+
+
+
+<!--==========================================================================================================-->
+
+<!--
+  JSON (JavaScript Object Notation) ==> 자바스크립트 객체의 형태를 가지는 '문자열' ★★★
+  
+  JSON객체의 메소드
+  JSON.stringify(obj) : string  ==> 자바스크립트 객체를 JSON 문자열로 변환합니다.
+  JSON.parse(string) : obj      ==> JSON 문자열을 자바스크립트 객체로 변환합니다.
+  
+  JSON.stringify() 메서드의 매개변수에 넣은 객체에 toJSON()메서드가 없다면, 객체 전체를 JSON으로 변환한다.
+  반면 toJSON() 메서드가 있다면, toJSON() 메서드에서 리턴한 객체만 JSON으로 변환합니다.
+  ==> alert()함수에서 내부적으로 객체의 toString()메소드를 호출하는것과 동일하다.
+      JSON.stringify()메소드는 내부적으로 객체의 toJSON()메소드를 호출한다.
+-->
+<script>
+  "use strict";  //엄격하게 문법을 검사
+  
+  var object = {
+    name: '양동호',
+    region: '서울특별시'
+  };
+  var jsonData = JSON.stringify(object);  //for in을 쓸필요없이 JSON의 static메소드를 쓰면 간편함.
+  test(jsonData);  //{"name":"양동호","region":"서울특별시"}
+  
+  var obj = JSON.parse(jsonData);  //string --> object로 변환
+  test(obj);  //Object {name: "양동호", region: "서울특별시"}
+  test(obj.name+' : '+obj.region);
+  
+  object.toJSON = function() {  //toJSON메소드 추가!
+    return {
+      custom: 'custom',
+      뭘까: '하하하'
+    };
+  };
+  test(JSON.parse(JSON.stringify(object)));  //Object {custom: "custom", 뭘까: "하하하"}
+  //toJSON메소드가 있을경우, 그 return값만 JSON데이터로 바꿀수 있다.
+</script>
+
+
+
+
+
+<!--
+    < "use strict"; (엄격모드) 에서 사용할수 없는 구문 (Not Allowed in Strict Mode) >
+  
+  
+  1. x = 3.14;  ==> var 키워드로 선언하지 않고 변수를 사용하는것은 허용되지 않습니다.
+  
+  2. delete x;  ==> 변수/함수/인수의 삭제가 허용되지 않습니다.
+  
+  3. var x = { p1:10, 
+               p1:20 };  ==> 똑같은 Property의 재정의는 허용되지 않습니다.
+  
+  4. function x(p1, p1) {};   ==> Parameter이름의 중복사용이 허용되지 않습니다.
+  
+  5. var x = 010;
+     var y = \010;  ==> 진수 숫자 리터럴 탈출 문자는 허용되지 않습니다.
+  
+  6. var obj = {};
+     obj.defineProperty(obj, "x", {value:0, writable:false});
+     obj.x = 3.14;  ==> 읽기 전용 속성을 초기화시키는 것은 허용되지 않습니다.
+  
+  7. var obj = {get x() {return 0} };
+     obj.x = 3.14;  ==> GET 전용 속성을 초기화시키는 것은 허용되지 않습니다
+  
+  8. delete Object.prototype;  ==> 삭제할수 없는 속성을 삭제하는 것은 허용되지 않습니다
+  
+  9. var eval = 3.14;  ==> 문자열 "eval"은 변수명으로 사용할 수 없습니다.
+  
+  10. var arguments = 3.14;  ==> 문자열 "arguments"는 변수명으로 사용할 수 없습니다.
+  
+  11. with (Math){x = cos(2)};  ==> with문은 허용되지 않습니다.
+  
+  12. eval ("var x = 2");
+      alert (x)  ==> 보안상의 이유로, eval()함수가 호출된 범위(scope)에서 변수를 만들 수 없습니다.
+  
+  13. 미래에 예약어(키워드)는 허용되지 않습니다.
+    implements
+    interface
+    package
+    private
+    protected
+    public
+    static
+    field
+-->

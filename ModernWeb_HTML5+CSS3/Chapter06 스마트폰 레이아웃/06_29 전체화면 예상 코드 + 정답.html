@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>SMART Phone Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <style>
+    * { margin: 0; padding: 0; }
+    #background {
+      height: 100%; 
+      background: red; 
+    }
+    
+    html, body { height: 100%; }
+    /* ★★★ 이 스타일이 없을경우 div부분만 red색상으로 변한다.
+       #background태그가 body태그 안에 있으므로, body태그의 높이에 맞추기 때문에 나타나는 현상.
+       html태그와 body태그 모두에게 height: 100% 속성을 사용해야 한다.  */
+  </style>
+</head>
+
+<body>
+  <div id="background">
+    <h1>Full Screen</h1>
+  </div>
+  <!-- 이 방법에 대한 주의점!
+       스마트폰에서 사용자의 위치정보동의를 묻는 대화상자, 또는 키보드가 켜져있을때는 높이가 제한된다.
+       이는 스타일시트로 해결할 수 없으며,
+       자바스크립트의 resize 이벤트를 사용해만 해결가능하다! -->
+</body>
+</html>

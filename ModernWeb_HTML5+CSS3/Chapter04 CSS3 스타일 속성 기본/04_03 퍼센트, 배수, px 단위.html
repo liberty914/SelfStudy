@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Style Property Basic</title>
+  <!--  % 단위 : 상대적으로 크기를 지정하는 단위 (100%, 200%, 300%)
+       em 단위 : 상대적으로 크기를 지정하는 단위 (1.0em, 2.0em, 3.0em)
+       px 단위 : 절대크기, 픽셀수를 단위로 사용. (10px, 20px, 30px)  -->
+  <style>
+    p:nth-child(1) { }
+    p:nth-child(2) { font-size: 100%; }  /* 100%는 기본값이다. */
+    p:nth-child(3) { font-size: 150%; }
+    p:nth-child(4) { font-size: 200%; }
+    
+    p:nth-child(5) { }
+    p:nth-child(6) { font-size: 1.0em; }  /* 1.0em은 기본값이다. */
+    p:nth-child(7) { font-size: 1.5em; }
+    p:nth-child(8) { font-size: 2.0em; }
+    
+    p:nth-child(9) { }
+    p:nth-child(10) { font-size: 16px; }  /* 16px은 기본값이다. */
+    p:nth-child(11) { font-size: 24px; }
+    p:nth-child(12) { font-size: 32px; }
+  </style>
+</head>
+
+<body>
+  <p>01. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  <p>02. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  <p>03. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  <p>04. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  
+  <p>05. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  <p>06. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  <p>07. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  <p>08. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  <!-- %와 em단위는 동일하게 움직인다. -->
+  
+  <p>09. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  <p>10. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  <p>11. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  <p>12. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+</body>
+</html>

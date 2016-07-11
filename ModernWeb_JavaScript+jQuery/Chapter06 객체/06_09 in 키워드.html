@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title></title>
+</head>
+
+<!--
+  in 키워드 ==> 해당 키가 객체 안에 있는지 확인 (true, false 리턴)
+  with 키워드 ==> 객체를 넣어주면 괄호 안에서 객체를 명시할 필요 없이 속성을 쉽게 사용.
+-->
+<body>
+  <header><h1></h1></header>
+  
+  <script>
+    var student = {
+      이름 : 'Rex',
+      국어: 92, 
+      수학: 98, 
+      영어: 100, 
+      과학: 98
+    }
+    
+    var output = '';
+    output += '"이름" in student: ' + ('이름' in student) + '\n';  //존재하므로 true를 리턴
+    output += '"이름" in student: ' + ('성별' in student) + '\n';  //존재하지않으므로 false를 리턴
+    alert(output);
+  </script>
+    
+</body>

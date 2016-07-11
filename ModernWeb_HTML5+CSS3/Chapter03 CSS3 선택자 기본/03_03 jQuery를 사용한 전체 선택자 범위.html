@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Selector Basic Page</title>
+  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+  <script>
+    $(document).ready(function() {              //웹 페이지가 모두 준비되면
+      $('*').css('border', '1px solid black');  //모든 태그의 border속성에 1px solid black을 적용합니다.
+    });
+    // * 선택자는 html과 body태그에도 border속성이 모두 적용된다!
+  </script>
+</head>
+
+<body>
+  <h1>Lorem ipsum</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+</body>
+</html>

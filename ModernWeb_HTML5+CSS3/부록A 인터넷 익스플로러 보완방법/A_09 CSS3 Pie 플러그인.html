@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Style Property Basic</title>
+  <!--   CSS3 Pie 플러그인
+         ==> CSS3가 지원하는 border-radius, box-shadow, linear-gradient 속성을 사용할 수 있게 만들어줌.
+             모든 CSS3 속성을 사용할 수 있는 것은 아니지만, 굉장히 유용하다!
+         http://css3pie.com/ (공식홈페이지)         -->
+         
+  <style>
+    * { margin: 0; padding: 0; }
+    div {
+      width: 120px; height: 60px; 
+      text-align: center; 
+      line-height: 60px; 
+      -pie-border-radius: 5px; 
+      -pie-background: linear-gradient(#0094FF, #004F89); 
+      behavior: url(./PIE-1.0.0/PIE.htc);   /* 여기까지만 입력하면 구 버전의 IE에서만 사용가능. */
+      
+      /* 여기부터 입력하면 모든 브라우저에서 사용가능. */
+      border-radius: 10px; 
+      background: #0094FF; 
+      background: -webkit-linear-gradient(#0094FF, #004F89);
+      background: -moz-linear-gradient(#0094FF, #004F89);
+      background: -ms-linear-gradient(#0094FF, #004F89);
+      background: -o-linear-gradient(#0094FF, #004F89);
+      background: linear-gradient(#0094FF, #004F89);
+    }
+  </style>
+</head>
+  
+  <!-- 구 버전의 IE에서 2차원 변환을 가능하게 해주려면?
+       ==> cssSandpaper 플러그인 (http://www.useragentman.com/blog/csssandpaper-a-css3-javascript-library/)
+           변환을 가능하게는 하지만, 성능이 그다지 안좋으므로 책에서도 설명하지 않음, 비추천...   -->
+
+<body>
+  <div>
+    <h1>Button</h1>
+  </div>
+</body>
+</html>

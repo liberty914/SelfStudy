@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Selector Basic Page</title>
+  <style>
+    /* 자손 : 대상 태그의 직계자식을 말함.
+       후손 : 대상 태그의 모든자식을 말함. (직계자식 포함) */
+    /* 선택자A > 선택자B  ==>  선택자A의 자손에 위치하는 "선택자B"를 선택합니다. */
+    table > th > th {
+      color: red; 
+    }
+  </style>
+</head>
+
+<body>
+  <table border="1px">
+    <tr>
+      <th>Name</th>
+      <th>Region</th>
+    </tr>
+    <tr>
+      <th>윤인성</th>
+      <th>서울특별시 강서구 내발산동</th>
+    </tr>
+  </table>
+  
+  <p> th태그에 빨간색이 적용되는 것을 예상했지만, 스타일이 적용되지 않았다.
+    그 이유는, 요소검사를 해보면 table태그 속에 tbody태그가 자동으로 추가되었기 때문이다.
+    이래서 table 엘리먼트에는 직계자식 선택자를 사용하는것은 좋지않다. </p>
+  <p> 따라서, table > tbody > tr > th 선택자를 사용해야 색상을 적용할 수 있다. </p>
+  <p> 결론은, 사용하지 않는 것을 추천한다. </p>
+</body>
+</html>

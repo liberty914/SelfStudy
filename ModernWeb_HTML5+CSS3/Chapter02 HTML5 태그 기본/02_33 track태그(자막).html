@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>HTML TEXT Basic Page</title>
+
+  <!-- 웹 브라우저마다 표시되는 video태그의 형태가 일관적이지 않기 때문에 문제가 발생할 수 있다.
+       그런 크로스 브라우징문제를 해결해주는 간단한 플러그인을 삽입한다. -->
+  <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
+  <script src="http://vjs.zencdn.net/c/video.js"></script>
+</head>
+
+<body>
+  <p>track태그 : video 태그에 자막을 표시할 때 사용하는 태그 </p>
+  <p>srt파일은 HTML5에서 사용하는 자막파일 (메모장으로 코딩하고 확장자를 .srt로 저장)</p>
+
+  <video controls="controls" poster="../resources/img/이미지1.jpg" width="640" height="360"
+    class="video-js vjs-default-skin" data-setup="{}">
+    <source src="../resources/video/비디오1.mp4" type="video/mp4" />
+
+    <!-- 책에서는 자막파일을 이렇게 사용하면 된다고했는데 안나온다. -->
+    <!-- 2012년 6월이후에는 어떠한 웹 브라우저도 track태그를 지원하지 않는다.
+         track태그를 사용하려면 video.js 플러그인을 사용해야한다. -->
+    <track kind="subtitles" src="../resources/srt/track.srt" srclang="ko" label="Korean" />
+    <track kind="subtitles" src="../resources/srt/track.srt" srclang="en" label="English" />
+    <track kind="subtitles" src="../resources/srt/track.srt" srclang="jp" label="Japanese" />
+    <track kind="subtitles" src="../resources/srt/track.srt" srclang="ch" label="chinese" />
+  </video>
+
+</body>
+</html>

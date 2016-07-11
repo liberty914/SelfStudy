@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Selector Basic Page</title>
+  <!--   <반응 문자 선택자>
+         ::selection  ==> 사용자가 드래그한 글자를 선택합니다.
+         (콜론을 1번만 써도 되지만, 2개를 쓰는것이 표준이다.) -->
+  <style>
+    p::selection { background: black; color: red; } 
+    /* 드래그로 선택하면, 배경은 black, 글자는 red색이 된다. */
+  </style>
+</head>
+
+<body>
+  <h1>Lorem Ipsum is simply dummy text</h1>
+  <p>of the printing and typesetting industry. </p>
+  <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer</p>
+</body>
+</html>

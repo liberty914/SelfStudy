@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Style Property Basic</title>
+    <!--    <위치 속성>
+          절대 위치 좌표  ==>  요소의 x, y좌표를 설정해서 절대 위치를 지정한다.
+          상대 위치 좌표  ==>  요소를 입력한 순서를 통해 상대적으로 위치를 지정.
+
+            <position 속성에 사용할 수 있는 키워드>
+          static    ==> 태그가 위에서 아래로 순서대로 배치.
+          relative  ==> 초기 위치상태에서 상하좌우로 위치를 이동.
+          absolute  ==> 절대 위치 좌표를 설정.
+          fixed     ==> 화면을 기준으로 절대 위치 좌표를 설정.
+
+            <기본 공식>
+          자손의 position속성에 absolute키워드를 적용하면,
+          부모의 position속성에 relative키워드를 적용합니다!
+
+          ========================================================================
+
+          주제 : absolute layout
+          ==> absolute, fixed, relative 타입을 가진 조상을 기준으로 위치를 지정한다.
+              만약 위의 타입을 가진 조상이 없다면, body 를 기준으로 위치를 잡는다.
+          ==> 방법 : left, top, right, bottom
+
+          1. absolute
+          ==> 공중부양한다.
+          ==> 웹 브라우저 위치 제어(왼쪽에서 오른쪽, 위에서 아래, 순서대로 출력)에서 벗어난다.
+          ==> left, right, top, bottom 을 사용하여, 위치를 마음대로 조정할 수 있다!
+          ==> 기준은, 조상 중에 absolute, fixed, relative 를 갖는 엘리먼트이다.
+
+          2. fixed
+          ==> 공중부양한다.
+          ==> 웹 브라우저 창의 '좌표' 를 기준으로 위치를 지정한다.
+          ==> 화면 스크롤에 영향을 받지 않는다.
+
+          3. relative
+          ==> 웹 브라우저의 위치 제어에 순응(현재 자리 고수)하면서, 위/아래/좌/우로 이동한다.
+              "들어오지마, 여긴 내 자리야!"
+
+          4. float
+          ==> 공중부양한다. (그 다음 순서에 대기하고있던 엘리먼트가 그 자리로 치고올라온다는 것!)          -->
+
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+    }
+
+    .red {
+      background-color: red;
+      top: 10px;
+      left: 10px;  /* position: absolute일 경우에만 사용할 수 있는 속성들. */
+    }
+
+    .green {
+      background-color: green;
+      top: 50px;
+      left: 50px;  /* position: absolute일 경우에만 사용할 수 있는 속성들. */
+    }
+
+    .blue {
+      background-color: blue;
+      top: 90px;
+      left: 90px;  /* position: absolute일 경우에만 사용할 수 있는 속성들. */
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Lorem ipsum dolor amet</h1>
+  <div>
+    <div class="box red"></div>
+    <div class="box green"></div>
+    <div class="box blue"></div>
+  </div>
+  <h1>Lorem ipsum dolor amet</h1>
+</body>
+</html>

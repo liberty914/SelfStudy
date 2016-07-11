@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Style Property Basic</title>
+  <!--   CSS3 MediaQueries.js 플러그인
+         ==> 구형 IE는 미디어쿼리(반응형 웹?) 을 사용할수 없으나, 사용하고싶다면 이 플러그인을 사용.
+             자바스크립트를 사용해서, 화면크기 변환 이벤트가 발생할 경우 스타일을 적용시키는 원리.
+         
+         공식홈페이지 ==> http://code.google.com/p/css3-mediaqueries-js/       -->
+  <script src="css3-mediaqueries.js"></script>
+  <style>
+    @media screen and (max-width: 767px) {  /* 너비가 최대 767px 까지 */
+      html {
+        background: red; 
+        color: white; 
+      }
+    }
+    @media screen and (min-width: 768px) and (max-width: 959px) {  /* 너비가 768px ~ 969px 일 경우 */
+      html {
+        background: green; 
+        color: white; 
+      }
+    }
+    @media screen and (min-width: 960px) {  /* 너비가 최소 960px 부터 (960px 이상) */
+      html {
+        background: blue; 
+        color: white; 
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>CSS3 MediaQuery.js</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+</body>
+</html>

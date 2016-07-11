@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Style Property Basic</title>
+  <style>
+    /*   <박스 속성>
+         width, height 속성 ==> 내부데이터의 너비(가로), 높이(세로) 를 나타냄. (border, padding, margin 제외)
+         margin 속성   ==> 외부 여백
+         padding 속성  ==> 내부 여백
+         box-sizing 속성  ==> width, height속성이 차지하는 범위를 지정.       */
+    
+    div {
+      width: 100px; height: 100px; 
+      background-color: red; 
+      
+      border: 20px solid black; 
+      margin: 10px; padding: 30px;
+      
+      margin-bottom: 10px; 
+      margin-left: 10px;        /* 이런식으로 따로 줄수도 있고, 한번에 줄수도 있다. */
+      margin: 1px 3px 5px 7px;  /* 4개쓰면 ==> 12시, 3시, 6시, 9시 */
+      margin: 0 30px;           /* 2개쓰면 ==> 상하, 좌우 */
+    }
+    /* 전체 가로길이 =  width + (2 * (margin + border + padding))
+       전체 세로길이 = height + (2 * (margin + border + padding))
+       ==> margin, border, padding은 네방향이므로, 양쪽에 2개씩 있다.   */
+  </style>
+</head>
+
+<body>
+  <div>
+    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+    <!-- 글자가 div의 넓이보다 길면, 아래로 삐져나온다. -->
+  </div>
+</body>
+</html>

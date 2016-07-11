@@ -1,0 +1,348 @@
+div {
+  height: 10px;
+}
+div:nth-child(1) {
+  background: #ff0000;
+}
+div:nth-child(2) {
+  background: #cc0000;
+}
+div:nth-child(3) {
+  background: #990000;
+}
+div:nth-child(4) {
+  background: #660000;
+}
+div:nth-child(5) {
+  background: #330000;
+}
+div:nth-child(6) {
+  background: #000000;
+}
+
+
+/*========================================================================================================================================*/
+
+
+div {
+  height: 5px;
+}
+div:nth-child(1) {
+  background: #ff0000;
+}
+div:nth-child(2) {
+  background: #ff2b00;
+}
+div:nth-child(3) {
+  background: #ff5500;
+}
+div:nth-child(4) {
+  background: #ff8000;
+}
+div:nth-child(5) {
+  background: #ffaa00;
+}
+div:nth-child(6) {
+  background: #ffd500;
+}
+div:nth-child(36) {
+  background: #ff002b;
+}
+div:nth-child(37) {
+  background: #ff0000;
+}
+
+
+/*========================================================================================================================================*/
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+div {
+  margin: 10px;
+  float: left;
+}
+div:nth-child(1) {
+  background: #0094ff;
+  background: -moz-linear-gradient(top, #0094ff 0%, #004f89 100%);
+  background: -webkit-linear-gradient(top, #0094ff 0%, #004f89 100%);
+  background: -o-linear-gradient(top, #0094ff 0%, #004f89 100%);
+  background: -ms-linear-gradient(top, #0094ff 0%, #004f89 100%);
+  background: linear-gradient(top, #0094ff 0%, #004f89 100%);
+  width: 200px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  border-radius: 10px;
+}
+div:nth-child(2) {
+  background: #cc94ff;
+  background: -moz-linear-gradient(top, #cc94ff 0%, #cc4f89 100%);
+  background: -webkit-linear-gradient(top, #cc94ff 0%, #cc4f89 100%);
+  background: -o-linear-gradient(top, #cc94ff 0%, #cc4f89 100%);
+  background: -ms-linear-gradient(top, #cc94ff 0%, #cc4f89 100%);
+  background: linear-gradient(top, #cc94ff 0%, #cc4f89 100%);
+  width: 200px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  border-radius: 10px;
+}
+div:nth-child(3) {
+  background: #ff94ff;
+  background: -moz-linear-gradient(top, #ff94ff 0%, #ff4f89 100%);
+  background: -webkit-linear-gradient(top, #ff94ff 0%, #ff4f89 100%);
+  background: -o-linear-gradient(top, #ff94ff 0%, #ff4f89 100%);
+  background: -ms-linear-gradient(top, #ff94ff 0%, #ff4f89 100%);
+  background: linear-gradient(top, #ff94ff 0%, #ff4f89 100%);
+  width: 200px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+/*
+    공식홈페이지         ==> http://lesscss.org/
+    온라인 Less 컴파일러 ==> http://winless.org/online-less-compiler
+    SimpLess 컴파일러   ==> http://wearekiss.com/simpless
+    
+    책 집필 당시에는 로컬 환경에서도 디자인이 변경되었으나...
+    출판된 이후 웹 호스팅 환경에서만 볼 수 있도록 변경되었음.
+    그러니 반드시 온라인 Less컴파일러를 사용해서 .css 파일에 붙여넣는 방식으로 사용해야한다.
+
+*/
+/*========================================================================================================================================*/
+/* C_02 LessStyleSheet.less */
+header {
+  width: 800px;
+  margin: 0 auto;
+}
+header hgroup h1 {
+  color: red;
+}
+header hgroup h2 {
+  color: blue;
+}
+header nav ul {
+  overflow: hidden;
+}
+header nav li {
+  float: left;
+}
+/*========================================================================================================================================*/
+/* C_03 변수 생성 */
+body {
+  color: #ff0000;
+  /* #4d926f */
+  font-size: 16px;
+  /* 16px */
+}
+/*========================================================================================================================================*/
+/* C_05 연산자 사용 */
+div {
+  width: 180px;
+  /* 180px */
+  padding: 10px;
+  /* 10px */
+  margin: 10px;
+  /* 10px */
+}
+/*========================================================================================================================================*/
+/* C_07 내장 선택자(1) */
+a:hover {
+  /* &은 '자기자신(this)'를 가리키는 선택자. */
+}
+a:active {
+  /* a:active 와 완전히 동일함. */
+}
+/*========================================================================================================================================*/
+/* C_08 내장 선택자(2) */
+div {
+  background: black;
+  /* div:hover */
+}
+div:hover {
+  background: white;
+}
+div a {
+  /* div태그의 자손태그 a 를 선택 */
+  background: red;
+  color: white;
+  /* a:hover */
+  /* a:active */
+}
+div a:hover {
+  background: blue;
+}
+div a:active {
+  background: green;
+}
+/*========================================================================================================================================*/
+/* C_10 색상 관련 내장함수
+   lighten(색상단위, %단위)    ==> 색상을 밝게 만듭니다. 
+   darken(색상단위, %단위)     ==> 색상을 어둡게 만듭니다.
+   saturate(색상단위, %단위)   ==> 색이 두드러지게 만듭니다.
+   desaturate(색상단위, %단위) ==> 색을 두드러지지 않게 만듭니다.
+   fadein(색상단위, %단위)     ==> 색상을 투명하지 않게 만듭니다. 
+   fadeout(색상단위, %단위)    ==> 색상을 투명하게 만듭니다.
+   fade(색상단위, %단위)       ==> 색상을 반투명하게 만듭니다. (50%)
+   spin(색상단위, %단위)       ==> 색상 속성을 변경합니다.
+   mix(색상단위, 색상단위)     ==> 색상을 섞습니다.          */
+div {
+  height: 10px;
+}
+div:nth-child(1) {
+  background: #ff0000;
+}
+div:nth-child(2) {
+  background: #cc0000;
+}
+div:nth-child(3) {
+  background: #990000;
+}
+div:nth-child(4) {
+  background: #660000;
+}
+div:nth-child(5) {
+  background: #330000;
+}
+div:nth-child(6) {
+  background: #000000;
+}
+/*========================================================================================================================================*/
+/* C_13 색상 속성 추출 내장함수 
+   hue(색상단위)  ==> 색상의 Hue 속성을 추출합니다. 
+   saturation(색상단위) ==> 색상의 Saturation 속성을 추출합니다.
+   lightness(색상단위) ==> 색상의 Lightness 속성을 추출합니다.
+   alpha(색상단위) ==> 색상의 Alpha 속성을 추출합니다.        */
+div {
+  height: 5px;
+}
+div:nth-child(1) {
+  background: #ff0000;
+}
+div:nth-child(2) {
+  background: #ff2b00;
+}
+div:nth-child(3) {
+  background: #ff5500;
+}
+div:nth-child(4) {
+  background: #ff8000;
+}
+div:nth-child(5) {
+  background: #ffaa00;
+}
+div:nth-child(6) {
+  background: #ffd500;
+}
+div:nth-child(36) {
+  background: #ff002b;
+}
+div:nth-child(37) {
+  background: #ff0000;
+}
+/*  수학함수도 제공된다. 
+    round(숫자)  ==> 숫자를 반올림
+    cell(숫자)  ==> 숫자를 올림
+    floor(숫자)  ==> 숫자를 내림(버림)
+    percentage(숫자)  ==> 숫자를 %단위로 변경   */
+/*========================================================================================================================================*/
+/* C_14 믹스인 ==> 사용자 정의 스타일시트 함수(function) */
+div {
+  background: red;
+  border-radius: 5px;
+  width: 200px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  border-radius: 10px;
+}
+/*========================================================================================================================================*/
+/* C_16 .linearGradient() 믹스인함수 */
+/*========================================================================================================================================*/
+/* C_17 믹스인 복합 사용 */
+* {
+  margin: 0;
+  padding: 0;
+}
+div {
+  margin: 10px;
+  float: left;
+}
+div:nth-child(1) {
+  background: #0094ff;
+  background: -moz-linear-gradient(top, #0094ff 0%, #004f89 100%);
+  background: -webkit-linear-gradient(top, #0094ff 0%, #004f89 100%);
+  background: -o-linear-gradient(top, #0094ff 0%, #004f89 100%);
+  background: -ms-linear-gradient(top, #0094ff 0%, #004f89 100%);
+  background: linear-gradient(top, #0094ff 0%, #004f89 100%);
+  width: 200px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  border-radius: 10px;
+}
+div:nth-child(2) {
+  background: #cc94ff;
+  background: -moz-linear-gradient(top, #cc94ff 0%, #cc4f89 100%);
+  background: -webkit-linear-gradient(top, #cc94ff 0%, #cc4f89 100%);
+  background: -o-linear-gradient(top, #cc94ff 0%, #cc4f89 100%);
+  background: -ms-linear-gradient(top, #cc94ff 0%, #cc4f89 100%);
+  background: linear-gradient(top, #cc94ff 0%, #cc4f89 100%);
+  width: 200px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  border-radius: 10px;
+}
+div:nth-child(3) {
+  background: #ff94ff;
+  background: -moz-linear-gradient(top, #ff94ff 0%, #ff4f89 100%);
+  background: -webkit-linear-gradient(top, #ff94ff 0%, #ff4f89 100%);
+  background: -o-linear-gradient(top, #ff94ff 0%, #ff4f89 100%);
+  background: -ms-linear-gradient(top, #ff94ff 0%, #ff4f89 100%);
+  background: linear-gradient(top, #ff94ff 0%, #ff4f89 100%);
+  width: 200px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  border-radius: 10px;
+}
+/*========================================================================================================================================*/
+/* C_19 매개변수 자료형 확인 
+   자료형 확인 내장함수
+   iscolor(변수) ==> 변수가 색상 단위인지 확인
+   isnumber(변수) ==> 변수가 숫자 단위인지 확인
+   isstring(변수) ==> 변수가 문자열 단위인지 확인
+   iskeyword(변수) ==> 변수가 키워드인지 확인 
+   isurl(변수) ==> 변수가 URL인지 확인
+   ispixel(변수) ==> 변수가 pixel단위인지 확인
+   ispercentage(변수) ==> 변수가 %단위인지 확인
+   isem(변수) ==> 변수가 배수 단위인지 확인           */
+/*========================================================================================================================================*/
+/* C_20 when 키워드 */
+/*========================================================================================================================================*/
+/* C_21 기본 변수 */
+div {
+  border-radius: 5px;
+  width: 200px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  border-radius: 10px;
+}
+/*========================================================================================================================================*/
+/* C_22 Node.js 를 사용한 서버에서 Less스타일시트 변환하는 내용.
+   ==> Node.js 를 배우게되면 하도록 하자. */

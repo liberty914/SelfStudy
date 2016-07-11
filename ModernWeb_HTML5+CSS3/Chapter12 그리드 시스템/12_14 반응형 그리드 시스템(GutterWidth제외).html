@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>Responsive Grid System(GutterWidth제거)</title>
+
+<!--  <동적 그리드 시스템의 공식>
+      공식 1 : (ColumnWidth + GutterWidth) * ColumnCount - CutterWidth = 100
+      공식 2 : ColumnWidth = (100 - (ColumnCount - 1) * GutterWidth) / ColumnCount  ==> 일반적인 공식
+
+      @GutterWidth변수에 2%를 적용하면,
+      @ColumnWidth = (100 - (12-1) * 2) / 12 == 6.5%                       -->
+
+  <style>
+    /* 화면너비 0px ~ 767px : 그리드를 해제 */
+    @media screen and (max-width: 767px) {
+      .container { text-align: center; border: 1px solid red; }
+    }
+
+    /* 화면너비 768px ~ 959px : 동적 그리드 시스템 */
+    @media screen and (min-width: 768px) and (max-width: 959px) {
+      .container { margin: 0; padding: 0; border: 1px solid green; }
+      .row { overflow: hidden; }
+      .row [class*=span_] { float: left; }
+
+      .span_1  { width: 8.33%; }
+      .span_2  { width: 16.66%; }
+      .span_3  { width: 24.99%; }
+      .span_4  { width: 33.32%; }
+      .span_5  { width: 41.65%; }
+      .span_6  { width: 49.98%; }
+      .span_7  { width: 58.31%; }
+      .span_8  { width: 66.64%; }
+      .span_9  { width: 74.97%; }
+      .span_10 { width: 83.3%; }
+      .span_11 { width: 91.63%; }
+      .span_12 { width: 99.96%; }
+    }
+
+    /* 화면너비 960px ~ 무한px : 정적 그리드 시스템 */
+    @media screen and (min-width: 960px) {
+      .container { width: 960px; margin: 0 auto; padding: 0; border: 1px solid blue; }
+      .row { overflow: hidden; }
+      .row [class*=span_] { float: left; }  /* 고수들의 방법 (클래스속성에 span_가 포함되는 모든 태그를 선택) */
+
+      .span_1  { width: 80px; }
+      .span_2  { width: 160px; }
+      .span_3  { width: 240px; }
+      .span_4  { width: 320px; }
+      .span_5  { width: 400px; }
+      .span_6  { width: 480px; }
+      .span_7  { width: 560px; }
+      .span_8  { width: 640px; }
+      .span_9  { width: 720px; }
+      .span_10 { width: 800px; }
+      .span_11 { width: 880px; }
+      .span_12 { width: 960px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="row">
+      <div class="span_12">
+        <h1>span_12</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta accusantium, reprehenderit quod blanditiis quibusdam, aut aperiam, nostrum illo dolorem odit earum sint, excepturi esse! Laboriosam inventore facere autem quia nihil.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="span_6">
+        <h1>span_6</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum doloribus voluptatem dolore necessitatibus dolores qui pariatur aliquid eos blanditiis quasi rerum labore eaque, deleniti non dolor nulla aut error accusamus.</p>
+      </div>
+      <div class="span_6">
+        <h1>span_6</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum quo in autem quisquam quasi, minus eligendi atque vitae laudantium, repellat quod reiciendis ipsum accusamus illum veniam fugit voluptates hic perferendis!</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="span_4">
+        <h1>span_4</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit quo quisquam quis dignissimos maiores, dicta eligendi, ipsam, et illum impedit eveniet sequi alias voluptas! Quis vero cum tenetur commodi nam.</p>
+      </div>
+      <div class="span_4">
+        <h1>span_4</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque iure rerum consequatur aliquid suscipit sunt, quaerat facilis alias. Excepturi cumque repellat harum nemo culpa nisi earum voluptas at ullam nostrum?</p>
+      </div>
+      <div class="span_4">
+        <h1>span_4</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus esse, fugiat sit nostrum, dolorem labore saepe officiis accusamus suscipit ipsa qui eligendi nesciunt, iusto soluta facilis. Unde cum perferendis quis?</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="span_3">
+        <h1>span_3</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, eius, sapiente! Nesciunt velit ad doloremque minus aspernatur dolores optio sunt, ea. Culpa reiciendis laboriosam doloremque modi adipisci, aut, iusto dicta.</p>
+      </div>
+      <div class="span_3">
+        <h1>span_3</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis sit, porro. Minus, harum veniam maiores reprehenderit odit eos consequuntur mollitia dolores! Quod unde velit animi explicabo reiciendis eius, labore aliquam?</p>
+      </div>
+      <div class="span_3">
+        <h1>span_3</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam enim accusantium sit quasi, voluptates, officiis fugiat atque distinctio itaque libero ex ipsam voluptatibus. Quidem dicta repellat aliquid commodi quaerat at.</p>
+      </div>
+      <div class="span_3">
+        <h1>span_3</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quas repudiandae doloribus cum quam iure totam unde aliquam aperiam explicabo ea soluta, laboriosam, nostrum, voluptatibus laudantium at. Maiores, sit molestias!</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="span_2">
+        <h1>span_2</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem reiciendis nemo magnam, accusantium, ipsam, temporibus, cupiditate rerum nisi veritatis quas cumque. Possimus ipsam corporis adipisci, reprehenderit eligendi dicta cumque deserunt?</p>
+      </div>
+      <div class="span_2">
+        <h1>span_2</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint cum quia tempora praesentium repudiandae vel nostrum voluptate voluptatibus tempore est voluptatum nesciunt, in vero, molestiae, rem nisi perferendis quae veritatis.</p>
+      </div>
+      <div class="span_2">
+        <h1>span_2</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, error rerum quibusdam aperiam tempore optio natus porro expedita commodi atque molestias hic, nulla reprehenderit qui. Voluptates sequi, repudiandae quas quam!</p>
+      </div>
+      <div class="span_2">
+        <h1>span_2</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consequuntur ratione dolore voluptate beatae animi illum, aperiam iste, exercitationem dolor mollitia delectus distinctio nobis voluptates alias quis ab totam corrupti?</p>
+      </div>
+      <div class="span_2">
+        <h1>span_2</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates reprehenderit minima veritatis cumque tenetur sapiente deleniti saepe. Nesciunt mollitia velit harum similique at commodi aliquid, laudantium perspiciatis, delectus optio repellendus.</p>
+      </div>
+      <div class="span_2">
+        <h1>span_2</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate laboriosam voluptatum rerum ex omnis tenetur illum aperiam necessitatibus magnam dolor, accusamus est eligendi sint! Quisquam temporibus maxime vel ratione, vitae!</p>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>HTML TEXT Basic Page</title>
+</head>
+
+<body>
+  <p>audio태그 : 음악파일을 재생할수 있게 해주는 태그 </p>
+  <p>src속성 : 음악파일의 경로 지정 </p>
+  <p>preload속성 : 음악재생 전에 모두 불러올지 지정 </p>
+  <p>autoplay속성 : 음악을 자동 재생할지 지정 </p>
+  <p>loop속성 : 음악을 반복할지 지정 </p>
+  <p>controls속성 : 음악 재생도구를 출력할지 지정 </p>
+  
+  <audio src="../resources/audio/SleepAway.mp3" controls="controls" autoplay="autoplay"></audio> <!-- XHTML5 표기방법 -->
+  <audio src="../resources/audio/SleepAway.mp3" controls autoplay></audio> <!-- HTML5 표기방법 -->
+  
+  
+  <audio controls="controls"> <!-- 브라우저별 호환가능한 음악파일을 재생가능하도록 해주는 방법 -->
+    <source src="../resources/audio/SleepAway.mp3" type="audio/mp3" />
+    <source src="../resources/audio/SleepAway.ogg" type="audio/ogg" />
+  </audio>
+    <!-- 이렇게 type속성으로 확장자를 명시적으로 표시해주면 웹 트래픽을 줄여줄 수 있으니, 웬만하면 사용해주자. -->
+    <!-- HTML5에서 mp3파일이 5000번 이상 재생되면, 재생한 mp3파일은 2500달러를 내야하는 어처구니없는 일도 있다.
+         많이 재생되는 음악을 반드시 ogg를 사용하자. -->
+         
+</body>
+</html>

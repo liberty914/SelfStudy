@@ -1,0 +1,132 @@
+﻿
+	< 설치 (expressJS 4.13.3 버전 기준)>
+
+
+0. NodeJS가 설치되어있다는 가정하에 아래의 흐름을 진행한다.
+
+1. 작업할 디렉토리에서 cmd창을 연다.
+
+2. 아래의 명령어를 입력한다.
+	mkdir myTestApp
+	cd myTestApp
+	npm init  <-- myapp폴더에 패키지를 만듦.
+  ==> 내 project를 위한 package.json 파일을 만드는 과정이 진행될 것임.
+      https://docs.npmjs.com/files/package.json 여기에서 참조할것.
+
+3. 아래의 정보들을 입력하면 package.json 파일이 생성된다.
+    name: mytestapp (대문자 불가능)
+    version: 1.0.0
+    description: 익스프레스 테스트입니다.
+    entry point: index.js
+    test command: ?
+    git repository: http://www.github.com/liberty914
+    keywords: ?
+    author: ?
+    license: ?
+
+4. 아래의 명령어를 입력한다.
+	npm install express --save
+	==> 현재디렉토리에 express.js를 설치하고,
+	    package.json 파일의 의존성 목록(dependencies)에 저장함.
+	    (의존성 목록에 추가하지 않으려면 --save만 빼주면된다.)
+
+
+
+==============================================================================
+
+
+
+	< Hello World 찍어보기 >
+
+
+1. 위의 설치가 된 "myTestApp" 디렉토리로 들어가서
+   "app.js" 파일을 생성하고, 아래의 코드를 집어넣는다.
+
+-------------------------------------
+var express = require('express');
+var app = express();
+
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+var server = app.listen(3000, function () {
+  var host = server.address().address;
+  var port = server.address().port;
+
+  console.log('Example app listening at http://%s:%s', host, port);
+  console.log('예제 앱이 우측 URL에서 수신대기중입니다. http://%s:%s', host, port);
+});
+-------------------------------------
+
+2. app.js가 존재하는 폴더에서 cmd창을 열고,
+	"node app.js" 라는 명령을 입력한다.
+
+http://127.0.0.1:3000/
+루트경로로 접속하면 "Hello World!" 를 볼수있고,
+다른 찾을수 없는 경로로 접속한다면 404 에러가 나온다.
+
+
+
+==============================================================================
+
+
+
+	< Express Application Generator (4.13.1ver) >
+
+
+Application 제네레이터를 사용함으로서,
+Express의 Application skeleton을 빠르게 생성할 수 있다.
+
+
+1. Express 설치를 완료했으면, 작업공간(위의 폴더아님)에서 아래의 명령어를 입력한다.
+	npm install express-generator -g
+	==> 제네레이터를 명령어를 실행할 수 있도록 global로 설치한다.
+
+2. 이제 "express -h" 명령어로 커맨드 옵션을 볼수 있게됐다.
+
+3. "express myTestApp" 명령어로 제네레이터를 실행한다!
+   (그냥 express 만 타이핑하면 현재폴더에다가 생성함.)
+
+		아래의 폴더구조가 생기게 됨
+	.
+	├── app.js
+	├── bin
+	│   └── www
+	├── package.json
+	├── public
+	│   ├── images
+	│   ├── javascripts
+	│   └── stylesheets
+	│       └── style.css
+	├── routes
+	│   ├── index.js
+	│   └── users.js
+	└── views
+	    ├── error.jade
+	    ├── index.jade
+	    └── layout.jade
+
+	7 directories, 9 files
+
+4. 그리고, 아래의 명령어로 의존성을 설치할수 있다.
+	cd myTestApp
+	npm install
+
+5. 최종적으로, 아래의 명령어로 Express 서버를 실행할 수 있다.
+	Windows 의 경우
+	==>  set DEBUG=myapp:* & npm start
+
+	Mac OS 또는 Linux 의 경우
+	==>  DEBUG=myapp:* npm start
+
+6. http://localhost:3000/ 로 접속해서 "Express" 가 뜨면 성공!
+
+
+
+
+
+
+
+
+

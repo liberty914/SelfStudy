@@ -1,0 +1,75 @@
+
+/*====================================================================================================================*/
+/* 09_06 스타일 사용 */
+
+#graph { width: 95%; border: 3px solid black; }
+.bar { width: 10px; height: 50px; background-color: orange; margin: 5px; 
+       transition-duration: 1.2s; }
+#graph:hover > .bar { width: 95%; }
+
+
+/*====================================================================================================================*/
+/* 09_07 transition-delay 속성 */
+
+/*.bar:nth-child(1) { transition-delay: 0s; }
+.bar:nth-child(2) { transition-delay: 1s; }
+.bar:nth-child(3) { transition-delay: 2s; }
+.bar:nth-child(4) { transition-delay: 3s; }
+.bar:nth-child(5) { transition-delay: 4s; }*/
+
+
+/*====================================================================================================================*/
+/* 09_08 transition-timing-function 속성 */
+
+.bar:nth-child(1) { transition-timing-function: linear; }
+.bar:nth-child(2) { transition-timing-function: ease; }
+.bar:nth-child(3) { transition-timing-function: ease-in; }
+.bar:nth-child(4) { transition-timing-function: ease-in-out; }
+.bar:nth-child(5) { transition-timing-function: ease-out; }
+
+/* linear (일정속도)
+   ease (빠름-느림-빠름) - 디폴트값
+   ease-in (느림-점점빠름)
+   ease-in-out (느림-빠름-느림)
+   ease-out (빠름-느림)
+   http://cubic-bezier.com/ 에서 원하는대로 조정도 가능함.            */
+
+
+/*====================================================================================================================*/
+/* 09_09 cubic-bezier() 함수 */
+
+.bar:nth-child(1) { transition-timing-function: cubic-bezier(1,-0.67,.74,1.55); }
+
+
+/*====================================================================================================================*/
+/* 09_10 transition-property 속성(1) */
+
+#graph:hover > .bar:nth-child(1) { background-color: red; width: 100px; }
+#graph:hover > .bar:nth-child(2) { background-color: blue; width: 300px; }
+#graph:hover > .bar:nth-child(3) { background-color: green; width: 400px; }
+#graph:hover > .bar:nth-child(4) { background-color: yellow; width: 200px; }
+#graph:hover > .bar:nth-child(5) { background-color: pink; width: 400px; }
+
+
+/*====================================================================================================================*/
+/* 09_11 transition-property 속성(2) */
+
+/*.bar { width: 10px; height: 50px; background-color: orange; margin: 5px;
+       transition-property: background-color, width;
+       transition-duration: 1s, 5s; }*/
+       /* background-color 속성과 width속성만 변화시킬것이며,
+          배경색은 1초동안, 너비는 5초동안 변화시킨다.  */
+
+
+/*====================================================================================================================*/
+/* 09_12 transition 속성 */
+
+.bar { width: 10px; height: 50px; background-color: orange; margin: 5px;
+       transition: background-color 1s ease, width 3s linear 1s; }
+       /* transition속성으로 한번에 다 쓰기 */
+       /* property duration function delay 순서로 입력한다. */
+
+
+
+
+

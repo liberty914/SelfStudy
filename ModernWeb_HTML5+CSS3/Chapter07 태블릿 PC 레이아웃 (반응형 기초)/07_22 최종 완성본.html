@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>Tablet PC Layout (Responsive Basic)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  <!--태블릿PC도 뷰포트meta태그가 필요함 -->
+  
+  <!--초기화-->
+  <style>
+    * { margin: 0; padding: 0; }
+    body { font-family: 'Arial, Helvetica, sans-serif'; }
+    li { list-style: none; }
+    a { text-decoration: none; }
+  </style>
+  
+  <!--헤더-->
+  <style>
+    #main_header {
+      height: 60px; 
+      line-height: 60px; 
+      padding-left: 10px; 
+      border-bottom: 1px solid black; 
+      
+      background: #1D4088;
+      color: white; 
+    }
+  </style>
+  
+  <!--네비게이션-->
+  <style>
+    #main_gnb { overflow: hidden; background: #32394A; }
+    #main_gnb > ul.left { overflow: hidden; float: left; }  /* width속성이 없으니 계속 옆으로 깔린다 */
+    #main_gnb > ul.right { overflow: hidden; float: right; }
+    #main_gnb > ul.left > li { float: left; }
+    #main_gnb > ul.right > li { float: left; }  /* 부모가 right에 붙었으니, 왜 left냐고 착각하지 말자. */
+    
+    #main_gnb a {
+      display: block;  /* 레이아웃 설정 */
+      padding: 10px 20px; 
+      
+      border-left: 1px solid #5F6673;  /* 색상 설정 */
+      border-right: 1px solid #242A37; 
+      color: white; 
+      font-weight: bold; 
+    }
+    body { min-width: 760px; }  /* ★반응형 웹을 안배웠으니, body가 760px아래로 줄어들수 없게 강제지정한다 */
+  </style>
+  
+  <!--콘텐츠-->
+  <style>
+    #wrap { overflow: hidden; }
+    #wrap > #main_lnb { float: left; width: 198px; }  /* width: 20%로 설정하면 네비게이션이 쓸데없이 커지기때문에 고정시킨것! */
+    #wrap > #content_wrap { float: left; width: 100%; margin-right: -200px; }  /* #main_lnb의 너비만큼, 오른쪽으로 당기고, (데이터가 오른쪽 화면을 뚫고감) */
+    #wrap > #content_wrap > #content { padding-right: 200px; }  /* 왼쪽으로 밀어준다. (뚫고나간걸 다시 돌아오게함, 다시 말하면 오른쪽패딩이 너무 두꺼워서 패딩이 오른쪽화면을 뚫고감), 데이터만 안나가면 #main_lnb옆에 붙는다. */
+    /*  #content_wrap 밑에 #content 를 둔 이유는,
+        부모태그에게 width를 100%로 설정하면, navbar와 나란히 정렬될 수가 없다.
+        
+        그래서 그 100%를 유지하는 방법(꼼수?)으로,
+        부모태그의 위치 자체를 navbar의 width너비만큼 화면 바깥쪽으로 margin-right로 밀어버린 후, 
+        자식태그(실제데이터)의 바깥쪽에 잘린부분을 padding-right로 당겨오려는 것이다.
+        그렇게되면 부모의 width: 100%를 유지하면서, 화면을 늘리면 반응형웹처럼 content부분이 자동으로 화면을 가득차게 변경되게된다.     */
+  </style>
+  
+  <!--수직 목록-->
+  <style>
+    #wrap { background: #71B1D1; }
+    #main_lnb > ul > li > a {
+      display: block;                   /* 층층이 쌓이게 만들고, */
+      height: 40px; line-height: 40px;  /* 높이를 준다. (클릭영역 증가) */
+      text-align: center;               /* 글자 가운데정렬 */
+      
+      border-top: 1px solid #96D6F6;     /* 입체감을 주는 색깔! (빛을 받은듯) */
+      border-bottom: 1px solid #6298B2;  /* 입체감을 주는 색깔! (그림자가 진듯) 정말 신기하다! */
+      color: white; 
+      font-weight: bold; 
+    }
+    #content { background: white; border-left: 1px solid black; }  /* 본문은 흰색으로 설정하기위함 */
+    article { padding: 10px; }  /* 가독성을 위해 */
+  </style>
+  
+  <!--푸터-->
+  <style>
+    #main_footer {
+      padding: 10px; 
+      border-top: 3px solid black; 
+      text-align: center; 
+    }
+  </style>
+  
+</head>
+
+<!--=======================================================================================================================================-->
+
+<body>
+  <header id="main_header">  <!--헤더 생성, #main_header-->
+    <h1>Fluid</h1>  <!--내용입력-->
+  </header>
+  
+  <nav id="main_gnb">  <!--Global Navigation Bar생성, #main_gnb-->
+    <ul class="left">  <!--내용입력-->
+      <li><a href="#">Nav1</a></li>
+      <li><a href="#">Nav2</a></li>
+      <li><a href="#">Nav3</a></li>
+      <li><a href="#">Nav4</a></li>
+      <li><a href="#">Nav5</a></li>
+      <li><a href="#">Nav6</a></li>
+    </ul>
+    <ul class="right">
+      <li><a href="#">Nav7</a></li>
+      <li><a href="#">Nav8</a></li>
+    </ul>
+  </nav>
+  
+  <div id="wrap">  <!--#wrap태그 생성-->
+    <nav id="main_lnb">  <!--Local Navigation Bar생성, #main_lnb (왼쪽)-->
+      <ul>
+        <li><a href="#">Local Nav1</a></li>
+        <li><a href="#">Local Nav2</a></li>
+        <li><a href="#">Local Nav3</a></li>
+        <li><a href="#">Local Nav4</a></li>
+        <li><a href="#">Local Nav5</a></li>
+      </ul>
+    </nav>
+    <div id="content_wrap">  <!--콘텐츠공간 생성, #content_wrap (오른쪽)-->
+      <div id="content">
+        <article>
+          <h1>Lorem ipsum dolor sit amet</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </article>
+        <article>
+          <h1>Lorem ipsum dolor sit amet</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </article>
+        <article>
+          <h1>Lorem ipsum dolor sit amet</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+  
+  <footer id="main_footer">
+    <h3>HTML5 + CSS Basic</h3>
+    <address>Website Layout Basic</address>
+  </footer>
+  
+</body>
+</html>

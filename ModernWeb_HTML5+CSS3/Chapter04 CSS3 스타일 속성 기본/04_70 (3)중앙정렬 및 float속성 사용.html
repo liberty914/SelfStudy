@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Style Property Basic</title>
+    <!--    <float 속성을 사용한 레이아웃 구성> ★★★
+          자손에 float속성을 적용하면,
+          부모의 overflow속성에 hidden 키워드를 적용한다!
+          ==> One True Layout 방식                              -->
+          
+  <style>
+    body {  /* (2)body태그를 중앙정렬함. */
+      width: 960px; 
+      margin: 0 auto;  /* (2)상하 0, 좌우마진 auto */
+    }
+    #aside {  /* (3)#wrap 태그 내부의 영역을 왼쪽과 오른쪽으로 구분하기 */
+      width: 200px; 
+      float: left; 
+    }
+    #section {  /* (3)#wrap 태그 내부의 영역을 왼쪽과 오른쪽으로 구분하기 */
+      width: 760px; 
+      float: left; 
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header"><h1>Header</h1></div>
+  <div id="navigation"><h1>Navigation</h1></div>
+  <div id="wrap">
+    <div id="aside">
+      <h1>Aside</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <div id="section">
+      <h1>Section</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </div>
+  <div id="footer"><h1>Footer</h1></div>
+</body>
+</html>

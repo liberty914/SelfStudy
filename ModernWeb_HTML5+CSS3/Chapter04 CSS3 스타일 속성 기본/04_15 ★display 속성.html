@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Style Property Basic</title>
+  <style>
+    /*   display 속성에 사용 가능한 키워드
+         none    ==> 태그를 화면에서 보이지 않게 만듬.
+         block   ==> 태그를 block 형식으로 지정. (층층이 쌓임)
+         inline  ==> 태그를 inline 형식으로 지정. (옆옆으로 연결됨)
+         inline-block  ==> 태그를 inline-block 형식으로 지정.    */
+         
+    #box {
+      display: none; 
+      display: block;  /* ==> div태그는 원래 block속성을 갖는다. */
+      display: inline;  /* ==> inline속성으로 바뀌면서, 각각의 inline속성들 사이에는 공백(space)이 생긴다. */
+      display: inline-block; 
+      /* inline       ==> width, height속성이 적용되지 않으며, margin속성도 좌우로만 지정된다.
+         inline-block ==> 위의 속성을 모두 사용할수 있다. (상하부분이 자유로운듯?) 
+                           ==> block 형식도 위의 속성을 모두 적용할 수 있다. 
+                           아주 중요한내용!! ★★★★★     */
+      
+      background-color: red; 
+      width: 300px; 
+      height: 50px; 
+      margin: 30px; 
+    }
+  </style>
+</head>
+
+<body>
+  <span>Dummy</span>
+  <div id="box">
+    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+  </div>
+  <span>Dummy</span>
+</body>
+</html>

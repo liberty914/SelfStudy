@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>부록B_부트스트랩 (Bootstrap)</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- 6장에서 설명 -->
+  <link rel="stylesheet" href="./bootstrap-3.3.2-dist/css/bootstrap.min.css" />
+  <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script> <!-- jQuery 임포트 ★반드시 부트스트랩보다 먼저 선언되어야 한다.  -->
+  <script src="./bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+  
+  <style>
+    body {  /* 고정형 (fixed) 툴바를 사용하면, 툴바에 내용의 일부분이 가려지는 현상이 발생한다. */
+      padding-top: 70px;  /* 내용의 위치를 마진top 50px 을 줌으로서 해결! */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navbar navbar-fixed-top navbar-inverse">  <!-- 고정형(fixed) 툴바, inverse는 색상반전(검은색) -->
+    <div class="container">  <!-- Fixed Layout, 부트스트랩의 기본 화면 너비는 960px -->
+      <a class="navbar-brand" href="#">Bootstrap</a>
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#target"> <!--메뉴버튼-->
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>  <!--한줄 한줄 표시-->
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="target">  <!--이 div태그에 메뉴버튼의 실제메뉴를 만듬.-->
+        <ul class="nav navbar-nav">  <!--메뉴버튼이 열리면 보여줄 메뉴를 생성-->
+          <li class="dropdown">  <!-- HTML5 메뉴를 드롭다운메뉴로 변경! -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <span>HTML5</span>  <!--부모 가지-->
+              <span class="caret"></span>  <!--삼각형모양-->
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Geolocation</a></li>
+              <li><a href="#">Drag and Drop</a></li>
+              <li class="divider"></li>  <!-- <hr>태그같은 줄을 하나 만듬 -->
+              <li><a href="#">Motion</a></li>
+            </ul>
+          </li>
+      <!--<li><a href="#">HTML5</a></li>-->
+          <li><a href="#">CSS3</a></li>
+          <li><a href="#">ECMAScript5</a></li>
+          <li><a href="#">Node.js</a></li>
+          <li><a href="#">API</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">  <!--메뉴를 오른쪽에 붙이고 싶을경우-->
+          <li><a href="#">Node.js</a></li>
+          <li><a href="#">API</a></li>
+        </ul>
+        <form class="navbar-form navbar-right">
+          <input type="text" class="form-control" placeholder="검색어를 입력하세요." />
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- navigation bar 코드 끝 -->
+  
+  
+  
+  <!-- col-xs-12  ==> Extra small devices (모바일 레이아웃, 768px미만)
+       col-sm-12  ==> Small devices Tablets (태블릿 레이아웃, 768px이상)
+       col-md-12  ==> Medium devices Desktops (PC 레이아웃, 992px이상)
+       col-lg-12  ==> Large devices Desktops (PC 큰화면 레이아웃, 1200px이상)
+       
+       만약 xs 하나만 사용한다면, 모든 레이아웃은 xs의 그리드 비율에 맞게 분할되며,
+       xs와 sm을 사용한다면, 모바일에서는 xs, 그 외에는 sm의 그리드비율에 맞게 분할되고,
+       md 하나만 사용한다면, 992px 이상에서는 md의 그리드비율로 분할되지만, xs, sm에는 그리드비율이 적용되지않는다.
+       
+       모바일에서도 그리드를 반드시 나눠야한다면 xs와 sm을 둘다 써주면 좋으나,
+       너비가 작을때 그리드를 나누면 보기좋지 않다.. 적당하게 sm 또는 md클래스를 쓰길 바란다.     -->
+       
+  <div class="container">  <!-- Fixed Layout, 부트스트랩의 기본 화면 너비는 960px -->
+    <div class="row">  <!-- 1개의 row클래스는 12줄의 열을 가진다. -->
+      <div class="col-md-3">  <!--총 12개의 열중 3개의 열을 차지함.-->
+        <div class="panel panel-primary">  <!--파란색 패널-->
+          <div class="panel-heading">  <!--패널 (목록요소들의 제목달기)-->
+            <h3 class="panel-title">
+              <i class="glyphicon glyphicon-heart"></i>  <!--메뉴버튼에 아이콘 넣기 (http://getbootstrap.com/components/#glyphicons) -->
+              <span>Panel Title primary</span>
+            </h3>
+          </div>
+          <ul class="list-group">  <!--ul태그나 div태그나 모양은 똑같다.-->
+            <li class="list-group-item"><a href="#">HTML5</a></li>
+            <li class="list-group-item"><a href="#">CSS3</a></li>
+            <li class="list-group-item"><a href="#">ECMAScript5</a></li>
+          </ul>
+        </div>
+        <div class="panel panel-default">  <!--회색 패널-->
+          <div class="panel-heading">  <!--패널 (목록요소들의 제목달기)-->
+            <h3 class="panel-title">
+              <i class="glyphicon glyphicon-star"></i>  <!--메뉴버튼에 아이콘 넣기 (http://getbootstrap.com/components/#glyphicons) -->
+              <span>Panel Title default</span>
+            </h3>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item"><a href="#">jQuery</a></li>
+            <li class="list-group-item"><a href="#">HTML5 API</a></li>
+          </ul>
+        </div>
+        <div class="panel panel-info">  <!--하늘색 패널-->
+          <div class="panel-heading">  <!--패널 (목록요소들의 제목달기)-->
+            <h3 class="panel-title">
+              <i class="glyphicon glyphicon-leaf"></i>  <!--메뉴버튼에 아이콘 넣기 (http://getbootstrap.com/components/#glyphicons) -->
+              <span>Panel Title info</span>
+            </h3>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item"><a href="#">About</a></li>
+            <li class="list-group-item"><a href="#">Help</a></li>
+          </ul>
+        </div>
+      </div>
+    <!-- 반응형 웹은 11장에서 다시 배우게됨 -->
+    <!-- Fixed 레이아웃과 Fluid 레이아웃은 5장과 7장에서 직접 만들어볼 것. (용어 기억해두기)  -->
+    
+      <div class="col-md-9">  <!--총 12개의 열중 9개의 열을 차지함.-->
+        <div class="jumbotron">  <!-- jumbotron : 점보트론. 도로 따위에 자리를 잡고 광고를 내보내는 대형 광고용 차량. -->
+          <h1>HTML5 + CSS3 Basic</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <a class="btn btn-primary btn-large" href="#">Learn More</a>
+        </div>
+        <h1>Lorem ipsum</h1>
+        <p>The standard Lorem Ipsum passage, used since the 1500s
+      
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          
+          Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
+          
+          "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+          
+          1914 translation by H. Rackham
+          
+          "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
+          </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

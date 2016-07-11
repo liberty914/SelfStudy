@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title></title>
+</head>
+<body>
+  <header>
+    <h2>JavaScript 함수</h2>
+  </header>
+  
+<!--
+  ★ 콜백함수 ★
+   자바스크립트에서는 함수도 하나의 자료형이므로, 매개변수로 전달할 수 있다. → 이를 콜백함수라고 한다.
+   → 함수를 매개변수로 전달할 수 있다는 것은, 함수를 리턴하는 함수도 만들 수 있다라는 뜻! (클로저함수 기본!)
+-->
+<script>
+  function returnFunction() {  //함수를 매개변수로 전달할 수 있다는 것은,
+    return function() {        //함수를 리턴하는 함수도 만들수 있다는 뜻.
+      alert('리턴된 함수');
+    };  //(이것이 클로저함수 기본!)
+  }
+  
+  //var sss = returnFunction();  //FactoryFunction(팩토리함수)도 만들수 있겠다?!
+  //sss();  //리턴받은 함수를 실행!
+  returnFunction()();  //이렇게도 사용 가능하다! ㅋㅋ
+</script>
+  
+</body>
+</html>

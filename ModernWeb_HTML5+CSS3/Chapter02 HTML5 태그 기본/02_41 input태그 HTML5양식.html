@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>HTML TEXT Basic Page</title>
+</head>
+
+<body>
+  <p>form태그 : 입력양식을 Server로 전송하도록 지원하는 태그 </p>
+  <p>action속성 : 입력 데이터의 전달 위치를 지정 ("/app/user/addUser", "/addUser.do") </p>
+  <p>method속성 : 입력 데이터의 전달 방식을 선택 (GET, POST ==> 디폴트는 GET방식) </p>
+
+  <p>★★★ 아래의 태그들은 HTML5에서 지원하는 태그들 </p>
+
+  <hr/>
+
+  <form action="#" method="GET">
+    <label> color          <input type="color"/>          </label><br/>
+    <label> date           <input type="date"/>           </label><br/>
+    <label> datetime       <input type="datetime"/>       </label><br/>
+    <label> datetime-local <input type="datetime-local"/> </label><br/>
+    <label> email          <input type="email"/>          </label><br/>
+    <label> month          <input type="month"/>          </label><br/>
+    <label> number         <input type="number"/>         </label><br/>
+    <label> range          <input type="range"/>          </label><br/>
+    <label> search         <input type="search"/>         </label><br/>
+    <label> tel            <input type="tel"/>            </label><br/>
+    <label> url            <input type="url"/>            </label><br/>
+    <label> week           <input type="week"/>           </label><br/>
+
+    <input type="submit"/>
+  </form>
+  <!-- input태그는 일반적으로 form태그 안에 있어야하지만,
+    최근 Ajax 기술의 활성화로인해 이 규칙을 지키지 않는 경우가 늘고있다. -->
+
+  <hr/>
+
+  <p>input태그 : 사용자로부터 데이터를 입력받기위한 태그 </p>
+  <p>type="text"     : 글자 입력양식 </p>
+  <p>type="password" : 비밀번호 입력양식 </p>
+  <p>type="hidden"   : 숨겨진정보 </p>
+  <p>type="image"    : 이미지형태 생성 </p>
+  <p>type="checkbox" : 체크박스 </p>
+  <p>type="radio"    : 라디오버튼 </p>
+  <p>type="file"     : 파일입력양식 </p>
+  <p>type="reset"    : 초기화버튼 </p>
+  <p>type="submit"   : 제출(전송)버튼 </p>
+  <p>type="button"   : 버튼 </p>
+
+</body>
+</html>

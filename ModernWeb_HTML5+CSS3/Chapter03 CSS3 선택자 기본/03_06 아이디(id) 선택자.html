@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Selector Basic Page</title>
+  <style>
+    #header {
+      width: 800px; margin: 0 auto;  /* 상하 0px, 좌우 auto */
+      background: red; 
+    }
+    
+    #wrap {
+      width: 800px; margin: 0 auto; 
+      background: hidden; 
+    }
+    
+    #aside {
+      width: 200px; float: left; 
+      background: blue; 
+    }
+    
+    #content {
+      width: 600px; float: left; 
+      background: green; 
+    }
+    
+  </style>
+</head>
+
+<body>
+  <!-- 동일한 id를 여러개 사용할 수는 있으나, 그것은 웹표준에 위배된다. 그렇게 사용하지말것! -->
+  <div id="header">
+    <h1>Header</h1>
+  </div>
+  <div id="wrap">
+    <div id="aside">
+      <h1>Aside</h1>
+    </div>
+    <div id="content">
+      <h1>content</h1>
+    </div>
+  </div>
+</body>
+</html>

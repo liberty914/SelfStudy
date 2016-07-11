@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>Chapter09 브라우저 객체 모델</title>
+  <script src='./../common/common.js'></script>
+</head>
+
+<body>
+  <script src='./../common/includeBody.js'></script>
+</body>
+</html>
+
+
+<!--==========================================================================================================-->
+
+
+<!--
+    navigator 객체  ==>  http://www.w3schools.com/jsref/obj_navigator.asp
+    - 웹 페이지를 실행하고 있는 브라우저에 대한 정보가 있음
+    
+    <navigator 객체의 속성>
+    appCodeName  ==>  브라우저의 코드명
+    appName      ==>  브라우저의 이름
+    appVersion   ==>  브라우저의 버전
+    platform     ==>  사용중인 운영체제의 시스템 환경
+    userAgent    ==>  브라우저의 전체적인 정보 ★ --> 모바일 장치 구분하는데 사용됨!
+-->
+
+<script>
+  'use strict';  //엄격하게 문법을 검사
+  
+  var output ='';
+  for (var index in navigator) {
+    output += index + ': ' + navigator[index] + '\n<br/>\n<br/>';
+  }
+  test(output);
+</script>

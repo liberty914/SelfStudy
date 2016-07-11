@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 회전목마 Transform Basic</title>
+  <link rel="stylesheet" href="../resources/css/ch10_04Merry-Go-RoundStyleSheet.css" />
+  <script src="../resources/js/prefixfree.min.js"></script>
+  <!--아직 모든 버전의 웹브라우저에서 지원하는것이 아니기때문에 벤더 프리픽스 플러그인 사용해야함-->
+  
+  <style>
+    header { position: absolute; left: 0; top: 0; right: 0; height: 50px; 
+             background: black; color: hotpink; text-align: center; }
+    
+    #wheel { position: absolute; left: 50%; top: 50%; 
+             transform-style: preserve-3d; animation: bbbbb 6s infinite linear normal; }
+             
+    .item { position: absolute; margin-left: -100px; margin-top: -100px; 
+            width: 190px; height: 190px; border: 5px solid black; background: pink; }
+            
+    .item:nth-child(1) { transform: rotateY(  0deg) translateZ(-200px); }
+    .item:nth-child(2) { transform: rotateY( 60deg) translateZ(-200px); }
+    .item:nth-child(3) { transform: rotateY(120deg) translateZ(-200px); }
+    .item:nth-child(4) { transform: rotateY(180deg) translateZ(-200px); }
+    .item:nth-child(5) { transform: rotateY(240deg) translateZ(-200px); }
+    .item:nth-child(6) { transform: rotateY(300deg) translateZ(-200px); }
+    
+    @keyframes bbbbb {
+      from { transform: rotateX(-70deg) rotateY(  0deg); }
+      50%  { transform: rotateX( 70deg) rotateY(360deg); }
+      to   { transform: rotateX(-70deg) rotateY(720deg); }
+    }
+  </style>
+</head>
+
+<!--  <3차원 변환 함수>
+      translate3d(translateX, translateY, translateZ)  ==> 특정 크기만큼 이동
+      translateX(translateX)  ==> X축으로 특정 크기만큼 이동
+      translateY(translateY)  ==> Y축으로 특정 크기만큼 이동
+      translateZ(translateZ)  ==> Z축으로 특정 크기만큼 이동
+      
+      scale3d(scaleX, scaleY, scaleZ)  ==> 특정 크기만큼 확대 및 축소함
+      scaleX(scaleX)  ==> X축으로 특정 크기만큼 확대 및 축소
+      scaleY(scaleY)  ==> Y축으로 특정 크기만큼 확대 및 축소
+      scaleZ(scaleZ)  ==> Z축으로 특정 크기만큼 확대 및 축소
+      
+      rotate3d(angleX, angleY, angleZ)  ==> 특정 각도만큼 회전
+      rotateX(angleX)  ==> X축으로 특정 각도만큼 회전 (시계방향)
+      rotateY(angleY)  ==> Y축으로 특정 각도만큼 회전 (시계방향)
+      rotateZ(angleZ)  ==> Z축으로 특정 각도만큼 회전 (시계방향)               -->
+
+<body>
+  <header><h1>회전목마 간단예제</h1></header>
+  <!--header태그가 위에있으면 viewport회전목마보다 z-index가 낮아진다. (나중선언 우선)
+      이 경우엔, header태그의 z-index속성을 높이거나, 회전목마 뒤에 위치하게 만들면 된다. -->
+  <div id="viewport">  <!--회전목마-->
+    <div id="wheel">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+  </div>
+</body>
+</html>

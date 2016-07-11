@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title></title>
+</head>
+
+<!--
+-->
+<body>
+  <header><h1></h1></header>
+  
+  <script>
+    function makeStudent(name, kor, mat, eng, sci) {  //객체를 생성하는 함수 (Factory Method)
+      var returnStudent = {
+        이름: name,
+        국어: kor,
+        수학: mat,
+        영어: eng,
+        과학: sci,
+        총점: function() {
+          return this.국어 + this.수학 + this.영어 + this.과학;
+        },
+        평균: function() {
+          return this.총점() / 4;
+        },
+        toString: function() {
+          return '\n' + this.이름 + '  ' + this.총점() + '  ' + this.평균();  //컴마를 위로 올리기위해 \n을 앞에다가 씀.
+        }
+      };
+      return returnStudent;
+    }
+    
+    var students = [];
+    students.push(makeStudent('양동호1', 101, 102, 103, 104));
+    students.push(makeStudent('양동호2', 201, 202, 203, 204));
+    students.push(makeStudent('양동호3', 301, 302, 303, 304));
+    students.push(makeStudent('양동호4', 401, 402, 403, 404));
+    students.push(makeStudent('양동호5', 501, 502, 503, 504));
+    alert(students);
+    
+    /* 사실 이 방식은 공부하려고 잠시 살펴본 것 뿐.
+       실제로 이런 방법은 사용하지 않는다.
+       생성자 함수를 사용하면 기능이 많은 객체를 쉽게 만들수 있기 때문!  */
+  </script>
+    
+</body>

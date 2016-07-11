@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Style Property Basic</title>
+  <!--   <색상 단위>
+         #000000  ==> HEX 코드 단위
+         rgb(red, green, blue)  ==> RGB 색상 단위
+         rgba(red, green, blue, alpha)  ==> RGBA 색상 단위
+         hsl(hue, saturation, lightness)  ==> HSL 색상 단위
+         hsla(hue, saturation, lightness, alpha)  ==> HSLA 색상 단위
+         ==> a는 투명도를 의미하는 알파값. 0.0부터 1.0사이의 숫자를 입력. 0.0은 완전 투명, 1.0은 불투명 -->
+  <style>
+    h1 {background-color: red; }  /* 키워드를 이용한 색상 단위 */
+    h2 {background-color: orange; }
+    h3 {background-color: blue; }
+    h4 {background-color: green; }
+    h5 {background-color: brown; }
+    h6 {background-color: purple; }
+    
+    h1 {background-color: rgb(255, 255, 255); }  /* rgb를 이용한 색상 단위 */
+    
+    h1 {background-color: #0094ff; }  /* HEX코드를 이용한 색상 단위 */
+    
+    h1 {background-color: hsl(33, 100%, 50%); }  /* HSL을 이용한 색상 */
+  </style>
+</head>
+
+<body>
+  <h1>Lorem ipsum dolor sit amet</h1>
+  <h2>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
+  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</body>
+</html>

@@ -1,0 +1,44 @@
+/*
+      정적 그리드시스템을 만들때의 공식
+      Container 너비 = (ColumnWidth + GutterWidth) * 12
+      예) 960px = (60px + 20px) * 12
+      
+      각 컬럼의 너비 = (ColumnWidth * Column) + (GutterWidth * (Column-1))
+      1번째 컬럼 너비 = (60px * 1) + (20px * 0) == 60px
+      2번째 컬럼 너비 = (60px * 2) + (20px * 1) == 120+20 == 140px
+      3번째 컬럼 너비 = (60px * 3) + (20px * 2) == 180+40 == 220px
+*/
+
+
+//변수
+@ColumnWidth: 60px;
+@GutterWidth: 20px;
+
+
+//믹스인 (function, 함수)
+.span(@column) {
+  width: (@ColumnWidth * @column) + (@GutterWidth * (@column - 1));
+}
+
+
+//스타일 사용
+.container { width: 960px; margin: 0 auto; }
+.row { overflow: hidden; margin-left: 10px; margin-right: 10px; }
+
+.span_1, .span_2, .span_3, .span_4, .span_5,
+.span_6, .span_7, .span_8, .span_9, .span_10,
+.span_11, .span_12 { float: left; }
+
+.span_1  { .span(1); }
+.span_2  { .span(2); }
+.span_3  { .span(3); }
+.span_4  { .span(4); }
+.span_5  { .span(5); }
+.span_6  { .span(6); }
+.span_7  { .span(7); }
+.span_8  { .span(8); }
+.span_9  { .span(9); }
+.span_10 { .span(10);}
+.span_11 { .span(11);}
+.span_12 { .span(12);}
+

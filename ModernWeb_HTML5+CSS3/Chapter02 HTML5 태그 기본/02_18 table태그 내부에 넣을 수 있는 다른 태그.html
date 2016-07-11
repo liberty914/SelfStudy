@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>HTML TEXT Basic Page</title>
+</head>
+
+<body>
+  <p>table태그 : 표를 만들때 사용하는 태그. 
+    과거에는 테이블태그로 레이아웃도 구성했으나, 현대에는 div태그를 사용하므로 사용빈도가 줄어듬.</p>
+  <p>tr : 표 내부의 행 (table row)</p>
+  <p>th : 행 내부의 제목 셀 (table header)</p>
+  <p>td : 행 내부의 일반 셀 (table data)</p>
+  
+  <table border="1" >
+    <caption>Caption(테이블 제목)</caption> <!--테이블태그의 제목을 설정함-->
+    <colgroup>
+      <col span="1" style="background: red" /> <!--첫번째 열까지는 red색상-->
+      <col style="background: blue" /> <!--그 다음 열은 blue색상-->
+      <!--여기서 하나 더 선언해주면 3번째 열을 설정할 수 있다. 디폴트는 white색상-->
+    </colgroup>
+    <thead style="background: green"> <!--테이블의 첫째줄은 green색-->
+      <tr>
+        <th>Table Header1</th>
+        <th>Table Header2</th>
+        <th>Table Header3</th>
+      </tr>
+    </thead>
+    <tbody> <!--테이블의 두번째 줄부터 마지막줄 전까지-->
+      <tr>
+        <td>Table Data1-1</td>
+        <td>Table Data1-2</td>
+        <td>Table Data1-3</td>
+      </tr>
+      <tr>
+        <td>Table Data2-1</td>
+        <td>Table Data2-2</td>
+        <td>Table Data2-3</td>
+      </tr>
+      <tr>
+        <td>Table Data3-1</td>
+        <td>Table Data3-2</td>
+        <td>Table Data3-3</td>
+      </tr>
+    </tbody>
+    <tfoot style="background: yellow"> <!--테이블의 마지막 줄은 yellow색-->
+      <tr>
+        <td>Table Foot1</td>
+        <td>Table Foot2</td>
+        <td>Table Foot3</td>
+      </tr>
+    </tfoot>
+  </table>
+  
+</body>
+</html>

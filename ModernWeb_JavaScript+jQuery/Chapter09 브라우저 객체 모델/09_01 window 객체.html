@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>Chapter09 브라우저 객체 모델</title>
+  <script src='./../common/common.js'></script>
+</head>
+
+<body>
+  <script src='./../common/includeBody.js'></script>
+</body>
+</html>
+
+
+<!--==========================================================================================================-->
+
+
+<!--
+    window 객체  ==>  http://www.w3schools.com/jsref/obj_window.asp
+    - 브라우저 기반 자바스크립트의 최상위 객체
+    - var 키워드로 선언한 모든 일반변수는 윈도우객체의 속성(Field)이 된다.
+      ==> var aaa;   window.aaa = 10;
+    - open(URL, name, specs, replace);
+-->
+
+<script>
+  'use strict';  //엄격하게 문법을 검사
+  
+//  var output ='';
+//  for (var key in window) {
+//    output += '* '+key+': '+window[key]+'\n<br>\n<br>---------------------------------\n<br>\n<br>';
+//  }
+//  test(output);
+  
+  var childPopup = window.open('', '이름이라는데..?', 'width=600px height=400px toolbar=yes', false);
+  //크롬에서는 3번째인자의 Field가 제대로 작동하지 않는다... ==> http://www.w3schools.com/jsref/met_win_open.asp
+  if (childPopup) {
+  } else {
+    alert('팝업 차단을 해제해주세요!');
+  }
+  
+  //~~To() 메소드 ==> 절대적인 기준으로 속성을 변화
+  //~~By() 메소드 ==> 현재 윈도우를 기준으로 상대적으로 속성을 변화
+  childPopup.moveTo(0, 0);  //화면의 절대좌표를 사용
+  
+  setInterval(function() {
+    childPopup.moveBy(10, 10);  //현재위치에서 10, 10이동
+  }, 1000/60);  //60프레임으로 실행하는 인터벌함수
+</script>

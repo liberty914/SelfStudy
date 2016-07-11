@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title></title>
+</head>
+
+<body>
+  <header id="main_header">
+    <div id="main_title">
+      <h1></h1>
+    </div>
+    <nav id="main_gnb">
+      <ul>
+        <li><a href="#"></a></li>
+      </ul>
+    </nav>
+    <nav id="main_lnb">
+      <ul>
+        <li><a href="#"></a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div id="content">
+    <section id="main_section">
+      <header>
+        <h1></h1>
+      </header>
+      <article class="main_article">
+      </article>
+    </section>
+  </div>
+  
+  <aside id="main_aside">
+    <a href="#"></a>
+  </aside>
+  
+  <footer id="main_footer">
+    <h3></h3>
+    <address></address>
+  </footer>
+<!--==========================================================================================================-->
+
+<!--
+-->
+  <script>
+    var numberFromLiteral = 273;             //기본 자료형과 
+    var numberFromObject = new Number(273);  //객체는 다르다.
+    console.log(numberFromLiteral == numberFromObject);  //true
+    
+    console.log(typeof numberFromLiteral);  //number
+    console.log(typeof numberFromObject);   //object
+    console.log(typeof numberFromLiteral == typeof numberFromObject);  //false ==> 자료형 검사에 문제가 발생.
+    
+    console.log(numberFromLiteral.constructor);  //function Number() { [native code] }
+    console.log(numberFromObject.constructor);   //function Number() { [native code] }
+    console.log(numberFromLiteral.constructor == numberFromObject.constructor);  //true ==> 해결
+  </script>
+</body>
+</html>

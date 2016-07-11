@@ -1,0 +1,78 @@
+
+/*====================================================================================================================*/
+/* 10_12 정육면체 생성 */
+
+/* <3차원 변환 함수>
+   translate3d(translateX, translateY, translateZ)  ==> 특정 크기만큼 이동
+   translateX(translateX)  ==> X축으로 특정 크기만큼 이동
+   translateY(translateY)  ==> Y축으로 특정 크기만큼 이동
+   translateZ(translateZ)  ==> Z축으로 특정 크기만큼 이동
+   
+   scale3d(scaleX, scaleY, scaleZ)  ==> 특정 크기만큼 확대 및 축소함
+   scaleX(scaleX)  ==> X축으로 특정 크기만큼 확대 및 축소
+   scaleY(scaleY)  ==> Y축으로 특정 크기만큼 확대 및 축소
+   scaleZ(scaleZ)  ==> Z축으로 특정 크기만큼 확대 및 축소
+   
+   rotate3d(angleX, angleY, angleZ)  ==> 특정 각도만큼 회전
+   rotateX(angleX)  ==> X축으로 특정 각도만큼 회전 (시계방향)
+   rotateY(angleY)  ==> Y축으로 특정 각도만큼 회전 (시계방향)
+   rotateZ(angleZ)  ==> Z축으로 특정 각도만큼 회전 (시계방향)        */
+
+body { width: 200px; margin: 200px auto; }
+section { width: 200px; height: 200px; position: relative; }  /*정육면체 객체*/
+div { width: 200px; height: 200px; position: absolute; left: 0; top: 0; opacity: 0.3; }
+
+/* 옆면 */
+div:nth-child(1) { transform: rotateY(  0deg) translate3d(0px, 0px, 100px); background: red; }
+div:nth-child(2) { transform: rotateY( 90deg) translate3d(0px, 0px, 100px); background: green; }
+div:nth-child(3) { transform: rotateY(180deg) translate3d(0px, 0px, 100px); background: blue; }
+div:nth-child(4) { transform: rotateY(270deg) translate3d(0px, 0px, 100px); background: yellow; }
+
+/* 윗면, 아랫면 */
+div:nth-child(5) { transform: rotateX( 90deg) translate3d(0px, 0px, 100px); background: brown; }
+div:nth-child(6) { transform: rotateX(270deg) translate3d(0px, 0px, 100px); background: pink; }
+
+
+/*====================================================================================================================*/
+/* 10_14 transform-style 속성
+         ==> 변환을 적용할 때, 그 영향력이 자신에게만 적용될지, 자손에게도 적용될지 정하는 속성
+             상속할지 말지 정함.  */
+
+@keyframes aaaaa {
+  from { transform: rotateX(  0deg) rotateY(  0deg) rotateZ(  0deg); }
+  50%  { transform: rotateX(720deg) rotateY(720deg) rotateZ(720deg); }
+  to   { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+}
+
+section { animation: aaaaa 16s linear 0s infinite alternate;  /*name, duration, function, delay, count, direct 순서*/
+          transform-style: preserve-3d; }
+          /* preserve-3d : ★★★ 후손의 3차원속성을 유지한 채로, 부모를 회전시키게 해주는 키워드!
+             flat : 후손의 3차원 속성을 유지합니다. */
+
+
+/*====================================================================================================================*/
+/* 10_16 backface-visibility 속성 
+         ==> 3차원 공간에서 평면의 후면을 보이거나 보이지 않게 만드는 스타일 속성
+             hidden : opacity와는 별개로, 3차원공간의 후면을 투과하지않도록 함.
+             visible : 디폴트(opacity속성이 3d의 전면에도 적용됨)               */
+
+div { backface-visibility: visible; }
+
+
+/*====================================================================================================================*/
+/* 10_17 perspective(원근법) 속성 
+         ==> 화면에 얼마나 많은 3차원 픽셀을 놓을 것인지 정의.
+             일반적으로 perspective 속성에는 400px ~ 2000px 사이의 숫자를 입력함.
+         예제 ==> http://www.hanbit.co.kr/exam/2161/perspective.html   */
+
+body { perspective: 400px; }
+
+
+
+
+
+
+
+
+
+

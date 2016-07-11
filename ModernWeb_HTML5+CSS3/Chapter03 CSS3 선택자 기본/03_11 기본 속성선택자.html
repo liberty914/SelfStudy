@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Selector Basic Page</title>
+  <style>
+    /* 선택자[속성]              ==> 특정한 속성이 있는 태그를 선택
+       선택자[속성=값][속성=값]   ==> 특정한 속성안의 값이 특정값과 같은 문서객체를 선택. */
+    input[type=text] {background: red; }
+    input[type=password] {background: blue; }
+    /* input태그중에서 type속성값을 text,password로 가지는 태그의
+       background속성에 red,blue 키워드를 적용합니다. */
+  </style>
+</head>
+
+<body>
+  <form>
+    <input type="text" />
+    <input type="password" />
+    <input />  <!-- input태그에 type속성을 적용하지 않으면, default로 text속성값을 적용한다. -->
+               <!-- 명시적으로 type이 text인것만 적용시킨다. 디폴트는 속성선택자에서 제외된다. -->
+  </form>
+</body>
+</html>

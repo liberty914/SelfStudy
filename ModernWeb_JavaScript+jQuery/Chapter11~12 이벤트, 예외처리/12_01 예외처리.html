@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>Chapter12 예외처리</title>
+  <script>
+    "use strict";  //엄격하게 문법을 검사
+    
+    function test() {  //화면 출력, 콘솔창, 경고창띄우기용 모듈
+      for(var i=0; i<arguments.length; i++) {
+        document.getElementById('main_footer').innerHTML 
+          = document.getElementById('main_footer').innerHTML
+            +'<p>test['+i+'] ==> '+arguments[i]+'</p>';  //화면출력
+          console.log(arguments[i]);                     //콘솔창
+          alert(arguments[i]);                           //경고창
+      }
+      document.getElementById('main_footer').innerHTML 
+        = document.getElementById('main_footer').innerHTML+'<br/>';  //한줄 추가
+    }
+  </script>
+</head>
+
+<body>
+  <header id="main_header">
+    <div id="main_title">
+      <h1></h1>
+    </div>
+    <nav id="main_gnb">
+      <ul>
+        <li><a href="#"></a></li>
+      </ul>
+    </nav>
+    <nav id="main_lnb">
+      <ul>
+        <li><a href="#"></a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div id="content">
+    <section id="main_section">
+      <header>
+        <h1></h1>
+      </header>
+      <article class="main_article">
+      </article>
+    </section>
+  </div>
+  
+  <aside id="main_aside">
+    <a href="#"></a>
+  </aside>
+  
+  <footer id="main_footer">
+    <h3></h3>
+    <address></address>
+  </footer>
+</body>
+</html>
+
+
+
+<!--==========================================================================================================-->
+
+<!--
+  예외처리 (Exception Handling, try - catch - finally - throw)
+  ==> Java 와 문법이 완벽하게 똑같다.
+-->
+
+<script>
+try {
+  if(aaa === 0) {
+    throw '뭔가 잘못되었어요! 다시 입력해요!';
+  } else {
+    return aaa/10;
+  }
+
+} catch (e) {
+  e.message;      //예외 메세지
+  e.description;  //예외 설명
+  e.name;         //예외 이름
+
+} finally {
+  console.log('이건 무조건 실행되는 문장임';
+}
+
+</script>

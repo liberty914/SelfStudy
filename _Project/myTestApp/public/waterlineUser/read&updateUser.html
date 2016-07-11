@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>워터라인]내정보보기 및 수정 및 제거페이지</title>
+</head>
+<body>
+  <header>
+    <h1>워터라인]내정보보기 및 수정 및 제거 페이지</h1>
+    <span>남은 세션 시간 : </span><span id="remainSession">초</span>
+    <button id="sessionReset">세션 연장하기</button>
+    <a href="/waterlineLogin/getUser/logout">로그아웃</a>
+  </header>
+
+  <main>
+    <section>
+      <h2>내 정보 보기 및 수정</h2>
+      <form method="post" action="/waterlineLogin/getUser/update">
+        <label>_id : <input type="text" id="_id" name="_id" disabled /></label><br/>
+        <label>아이디 : <input type="text" id="아이디" name="아이디" disabled /></label><br/>
+        <label>pw : <input type="text" id="pw" name="pw" /></label><br/>
+        <label>email : <input type="email" id="email" name="email" /></label><br/>
+        <label>like : <input type="text" id="like" name="like" /></label><br/>
+        <label>가입일 : <input type="text" id="가입일" name="가입일" disabled /></label><br/>
+        <button>정보 수정하기</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <button id="userRemoveButton">회원 탈퇴하기</button>
+  </footer>
+</body>
+</html>
+
+<script>
+window.addEventListener("load", function() {
+  var xHttp = new XMLHttpRequest();
+  xHttp.onreadystatechange = function (e) {
+    if (xHttp.readyState === 4 && xHttp.status === 200) {  //유저의 정보를 가져오는 ajax
+      var resultJson = JSON.parse(xHttp.responseText);
+      console.log("AJAX 성공. 결과물은?");
+      console.log(resultJson);
+      document.getElementById("_id").value = resultJson.id;
+      document.getElementById("아이디").value = resultJson.아이디;
+      document.getElementById("pw").value = resultJson.pw;
+      document.getElementById("email").value = resultJson.email;
+      document.getElementById("like").value = resultJson.like;
+      document.getElementById("가입일").value = resultJson.가입일;
+    }
+  };
+  xHttp.open("GET", "/waterlineLogin/getUser/getCurrentUser", true);
+  xHttp.send();
+
+  //====================================================================
+
+  var sessionRemain = 0;
+  var timer = document.getElementById("remainSession");
+  document.getElementById("sessionReset").onclick = function(e) {
+    var xHttp = new XMLHttpRequest();
+    xHttp.onreadystatechange = function() {
+      if (xHttp.readyState === 4 && xHttp.status === 200) {
+        sessionRemain = Number(xHttp.responseText);  //문자열을 숫자로 형변환
+      }
+    };
+    xHttp.open("get", "/waterlineLogin/sessionReset", true);
+    xHttp.send();
+  };
+  document.getElementById("sessionReset").onclick();  //최초에는 이벤트를 강제로 실행
+
+  var frame = 25;
+  setInterval(function() {
+    sessionRemain -= 1000/frame/1000;
+    if (sessionRemain < 0) {
+      location.href = "/waterlineLogin/getUser";
+    }
+    timer.innerHTML = sessionRemain.toFixed(2) + "초";
+  }, 1000/frame);
+
+  //=====================================================================
+
+  document.getElementById("userRemoveButton").onclick = function() {
+    if (confirm("진짜 탈퇴하시겠어요? 절대 되돌릴수 없으며,\n 모든 정보가 순식간에 사라집니다!!!\n 후회해도 소용없습니다...ㅜㅜ")) {
+      alert("진짜 탈퇴하다니... 잘가게 친구.");
+      xHttp.open("get", "/waterlineLogin/getUser/deleteUser", true);
+      xHttp.send();  //콜백 로직 없이 그냥 접속만하면됨. 그럼 알아서 모두 삭제하고 Redirect 해줌
+    }
+  };
+
+});
+</script>

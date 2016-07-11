@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Selector Basic Page</title>
+  <!--   <시작 문자 선택자>
+         ::first-letter  ==> 첫 번째 글자를 선택.
+         ::first-line    ==> 첫 번째 줄을 선택.  
+         
+         <전후 문자 선택자>
+         ::after   ==> 태그 뒤에 위치하는 공간을 선택.
+         ::before  ==> 태그 앞에 위치하는 공간을 선택 
+         (콜론을 1번만 써도 되지만, 2개를 쓰는것이 표준이다.)   -->
+         
+  <style>
+    p { counter-increment: rint; }
+    p::before {content: counter(rint) "."; }  /* counter()는 숫자를 나타내는 내장메소드? */
+    p::after {content: " - " attr(data-page) " page"; }  /* attr()은 attribute를 나타냄 */
+    p::first-letter {font-size: 3em; }
+    /* content속성은 콘텐츠를 빈공간에 삽입하겠다는 의미이다.
+       그 뒤에 세미콜론까지 그대로 출력해준다. 마치 System.out.print()메소드 처럼 말이다. */
+  </style>
+</head>
+
+<body>
+  <h1>Lorem Ipsum is simply dummy text</h1>
+  <p data-page="52">of the printing and typesetting industry. </p>
+  <p data-page="273">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer</p>
+</body>
+</html>

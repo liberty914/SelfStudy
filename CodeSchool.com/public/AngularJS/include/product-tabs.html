@@ -1,0 +1,27 @@
+<!--
+<section class="tab" ng-controller="TabController as tab"> -->
+<section class="tab">
+  <ul class="nav nav-pills">
+    <li ng-class="{active: tab.isTab(1)}"><a href="" ng-click="tab.setTab(1)">Description</a></li>
+    <li ng-class="{active: tab.isTab(2)}"><a href="" ng-click="tab.setTab(2)">Specs</a></li>
+    <li ng-class="{active: tab.isTab(3)}"><a href="" ng-click="tab.setTab(3)">Reviews</a></li>
+
+    <!--제품 설명 탭 (ng-include 사용법 1번, 내장디렉티브)-->
+    <div class="panel" ng-show="tab.isTab(1)"
+      ng-include="'include/product-description.html'">
+    </div>
+    <!-- ★★★ ng-include 내장디렉티브를 사용할때, 반드시 경로를 따옴표로 감싸야한다는것을 절대 잊어서는 안된다!!! ★★★-->
+    <!-- ng-include 디렉티브는 XmlHttpRequest를 사용하므로, 서버환경에서만 테스트가 가능하다. -->
+
+    <!--제품 스펙 탭 (ng-include 사용법 2번, Element 디렉티브(커스텀 디렉티브))-->
+    <!-- include/product-specs.html -->
+    <product-specs>
+    </product-specs>
+
+    <!--리뷰 탭 (ng-include 사용법 3번, Attribute 디렉티브)-->
+    <!-- include/product-reviews.html -->
+    <div class="panel" ng-show="tab.isTab(3)" product-reviews>
+      <!--감싸는 태그를 직관적으로 볼수있다는 장점이 있으려나?-->
+    </div>
+  </ul>
+</section>

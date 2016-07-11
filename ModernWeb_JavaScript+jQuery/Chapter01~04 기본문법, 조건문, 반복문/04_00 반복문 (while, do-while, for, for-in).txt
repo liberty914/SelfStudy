@@ -1,0 +1,8 @@
+자바와 사용법이 거의 동일함으로 코드생략.
+
+자바의 Enhance for문 대신, for in 문을 사용. 
+ → 배열이나 List객체의 모든 index를 참조가능.
+
+for(var i in arrayAndList) { 
+  console.log(arrayAndList[i]);
+}

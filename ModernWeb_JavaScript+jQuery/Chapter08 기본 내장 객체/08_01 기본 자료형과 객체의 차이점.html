@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title></title>
+</head>
+
+<body>
+  <header id="main_header">
+    <div id="main_title">
+      <h1></h1>
+    </div>
+    <nav id="main_gnb">
+      <ul>
+        <li><a href="#"></a></li>
+      </ul>
+    </nav>
+    <nav id="main_lnb">
+      <ul>
+        <li><a href="#"></a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div id="content">
+    <section id="main_section">
+      <header>
+        <h1></h1>
+      </header>
+      <article class="main_article">
+      </article>
+    </section>
+  </div>
+  
+  <aside id="main_aside">
+    <a href="#"></a>
+  </aside>
+  
+  <footer id="main_footer">
+    <h3></h3>
+    <address></address>
+  </footer>
+<!--==========================================================================================================-->
+
+<!--
+  
+-->
+  <script>
+    var primitiveNumber = 200;
+    var objectNumber = new Number(200);     //기본자료형과 객체는 분명 자료형이 다르지만, 모두 같은 값을 출력함. 
+    alert(primitiveNumber + objectNumber);  //연산도 가능
+    primitiveNumber.toFixed();  //기본자료형도 객체와 마찬가지로 속성과 메소드를 사용가능. (순간적으로 객체로 변환)
+    //==> 기본 자료이 객체로 변환할 때, 일회용 옷을 입는다는 개념. (한번 입고 바로 버림)
+    //따로 특별한 메소드가 필요하다면, Number()생성자의 prototype에 메소드를 추가하면 된다.
+    
+    Number.prototype.addMethod = function(a, b) { return a+b; };  //메소드 추가!
+    alert(primitiveNumber.addMethod(1, 2));  //추가된 메소드 사용!
+    
+    
+  </script>
+</body>
+</html>

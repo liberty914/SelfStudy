@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Selector Basic Page</title>
+  <style>
+    /*  선택자A + 선택자B  ==>  선택자A 바로 뒤에 위치하는 선택자B를 선택합니다. (첫번째 형제, 첫번째가 아니면 효과없음)
+        선택자A ~ 선택자B  ==>  선택자A 뒤에 위치하는 선택자B를 선택합니다. (모든 형제)    */
+    h1 + h2 {color: red; }
+    h1 ~ h2 {background-color: orange; }
+  </style>
+</head>
+
+<body>
+  <h1>Header - 1</h1>
+  <!-- <p>aaa</p> 이런 코드가 들어가면 효과없음 -->
+  <h2>Header - 2</h2>
+  <h2>Header - 2</h2>
+  <h2>Header - 2</h2>
+  <h2>Header - 2</h2>
+  <h2>Header - 2</h2>
+</body>
+</html>

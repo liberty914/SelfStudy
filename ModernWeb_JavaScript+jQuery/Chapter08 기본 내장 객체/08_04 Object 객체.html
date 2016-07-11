@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title></title>
+</head>
+
+<body>
+  <header id="main_header">
+    <div id="main_title">
+      <h1></h1>
+    </div>
+    <nav id="main_gnb">
+      <ul>
+        <li><a href="#"></a></li>
+      </ul>
+    </nav>
+    <nav id="main_lnb">
+      <ul>
+        <li><a href="#"></a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div id="content">
+    <section id="main_section">
+      <header>
+        <h1></h1>
+      </header>
+      <article class="main_article">
+      </article>
+    </section>
+  </div>
+  
+  <aside id="main_aside">
+    <a href="#"></a>
+  </aside>
+  
+  <footer id="main_footer">
+    <h3></h3>
+    <address></address>
+  </footer>
+<!--==========================================================================================================-->
+
+<!--
+  Object 객체는 자바스크립트 최상위 객체이다. (자바와 동일함)
+  ==> ★★★ JSON으로 쓸수 있는것 같다. 나중에 배우겠지?
+  ==> Object객체의 prototype에 메소드를 추가하면 모든 객체에서 사용할 수 있다!
+  
+    <Object 객체의 메소드>
+  toString() ==> 객체를 문자열로 바꿈
+  valueOf()  ==> 객체의 값을 나타냄.
+  constructor()    ==> 객체의 생성자 함수를 나타냅니다.
+  toLocaleString() ==> 객체를 호스트 환경에 맞는 언어의 문자열로 바꿈
+  hasOwnProperty(name)  ==> 객체에 parameter로 전달된 name의 속성이 있는지 확인
+  isPrototypeof(object) ==> 객체가 object의 프로토타입인지 검사
+  propertyIsEnumerable(name) ==> 반복문으로 열거할 수 있는지 확인
+-->
+  <script>
+    //Object 객체를 생성하는 두 가지 방법.
+    var object = {};
+    var object = new Object();
+    
+    var object = {  //★★★ key : value 의 형태로 생성 (JSON의 기본!)
+      property: 273,
+      name: '양동호',
+      grade: 'SSS', 
+      toString: function() {
+        return this.name + ': ' + this.grade;
+      }
+    };
+    
+    var output = '';
+    output += "HOP('property'): " + object.hasOwnProperty('property') + '\n';  //true
+    output += "HOP('aaa'): " + object.hasOwnProperty('aaa') + '\n';            //false
+    output += "PIE('property'): " + object.propertyIsEnumerable('property') + '\n';  //true
+    output += "PIE('aaa'): " + object.propertyIsEnumerable('aaa') + '\n';            //false
+    console.log(output);
+    
+    for(var key in object) {
+      console.log(object[key]);
+    }
+    
+    console.log(object);  //Object {property: 273, name: "양동호", grade: "SSS"}
+    alert(object);  //양동호: SSS
+    
+    Object.prototype.addMethod = function(a, b) {  //최상위 객체인 Object의 prototype에 메소드를 추가!
+      return a+b;
+    };
+    
+    var aaa = 20;  //그 어떤 변수라도 addMethod() 를 사용가능해짐.
+    console.log(aaa.addMethod(1, 2));  //3
+    console.log(aaa.addMethod("Java", "스크립트"));  //Java스크립트
+  </script>
+</body>
+</html>

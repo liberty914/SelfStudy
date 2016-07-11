@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>쿠팡메인 테스트</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8;" />
+
+  <link rel="stylesheet" href="css/00_common.css" />
+  <link rel="stylesheet" href="css/01_main-header.css" />
+  <link rel="stylesheet" href="css/02_main-jumbotron.css" />
+  <link rel="stylesheet" href="css/03_main-main.css" />
+  <link rel="stylesheet" href="css/04_main-footer.css" />
+  <link rel="stylesheet" href="css/05_main-aside.css" />
+  <link rel="stylesheet" href="css/99_test.css" />
+  <link rel="shortcut icon" href="/applicat.ico">
+</head>
+
+
+
+<body onselectstart="return false;">  <!--우클릭방지 : oncontextmenu="return false;"-->
+
+  <input type="checkbox" id="close" />
+  <div id="topBannerWrap">
+    <div id="topBanner">
+      <a href=""><img src="img/topBanner.jpg" alt="배너광고" /></a>
+      <label for="close"></label>
+    </div>
+  </div>
+
+
+
+  <section id="topBar">
+    <div>
+      <ul>
+        <li><a href="">즐겨찾기</a></li>
+        <li><a href="">구독하기</a></li>
+      </ul>
+      <ul>
+        <li><a href="">로그인</a></li>
+        <li><a href="">회원가입</a></li>
+        <li><a href="">모바일APP</a></li>
+        <li><a href="">입점신청</a></li>
+        <li><a href="">고객센터</a></li>
+        <li><a href="">마이쿠팡</a></li>
+        <li><a href="">장바구니</a></li>
+      </ul>
+    </div>
+  </section>
+
+
+
+  <header>
+    <h1>
+      <a href="">
+        <img src="img/pc_logo_coupang_20151014.png" alt="쿠팡, 내가 잘사는 이유" />
+      </a>
+    </h1>
+
+    <form id="searchBox" name="searchBox" method="get" action="javascript:">
+      <input type="checkbox" id="select-check" />
+      <label for="select-check">
+        <div class="selectCategory">
+          <input type="radio" name="sc" id="search-radio-전체" value="전체" checked />
+          <input type="radio" name="sc" id="search-radio-패션의류/잡화" value="패션의류/잡화" />
+          <input type="radio" name="sc" id="search-radio-뷰티" value="뷰티" />
+          <input type="radio" name="sc" id="search-radio-출산/유아동" value="출산/유아동" />
+          <input type="radio" name="sc" id="search-radio-식품" value="식품" />
+          <input type="radio" name="sc" id="search-radio-주방/생활용품" value="주방/생활용품" />
+          <input type="radio" name="sc" id="search-radio-가구/홈데코" value="가구/홈데코" />
+          <input type="radio" name="sc" id="search-radio-가전/디지털" value="가전/디지털" />
+          <input type="radio" name="sc" id="search-radio-스포츠/레저용품" value="스포츠/레저용품" />
+          <input type="radio" name="sc" id="search-radio-도서/문구/취미" value="도서/문구/취미" />
+          <input type="radio" name="sc" id="search-radio-반려/애완용품" value="반려/애완용품" />
+          <input type="radio" name="sc" id="search-radio-국내여행" value="국내여행" />
+          <input type="radio" name="sc" id="search-radio-해외여행" value="해외여행" />
+          <input type="radio" name="sc" id="search-radio-지역할인쿠폰" value="지역할인쿠폰" />
+          <input type="radio" name="sc" id="search-radio-공연/전시/체험" value="공연/전시/체험" />
+          <span>▼</span>
+          <span>▲</span>
+        </div>
+      </label>
+      <div id="select-cate-box">
+        <label for="select-check">
+          <ul>
+            <li><label for="search-radio-전체">전체</label></a></li>
+            <li><label for="search-radio-패션의류/잡화">패션의류/잡화</label></a></li>
+            <li><label for="search-radio-뷰티">뷰티</label></a></li>
+            <li><label for="search-radio-출산/유아동">출산/유아동</label></a></li>
+            <li><label for="search-radio-식품">식품</label></a></li>
+            <li><label for="search-radio-주방/생활용품">주방/생활용품</label></a></li>
+            <li><label for="search-radio-가구/홈데코">가구/홈데코</label></a></li>
+            <li><label for="search-radio-가전/디지털">가전/디지털</label></a></li>
+            <li><label for="search-radio-스포츠/레저용품">스포츠/레저용품</label></a></li>
+            <li><label for="search-radio-도서/문구/취미">도서/문구/취미</label></a></li>
+            <li><label for="search-radio-반려/애완용품">반려/애완용품</label></a></li>
+            <li><label for="search-radio-국내여행">국내여행</label></a></li>
+            <li><label for="search-radio-해외여행">해외여행</label></a></li>
+            <li><label for="search-radio-지역할인쿠폰">지역할인쿠폰</label></a></li>
+            <li><label for="search-radio-공연/전시/체험">공연/전시/체험</label></a></li>
+          </ul>
+        </label>
+      </div>
+      <input type="text" placeholder="상품을 검색하세요" />
+      <a class="button" href="javascript:">검색</a>
+    </form>
+
+    <div id="search-rank">
+      <div id="rank-animation">
+        <div id="ani-stop">
+          <h2>실시간 인기 검색어</h2>
+          <ol>
+            <li><a href=""><span>&nbsp;1</span><strong>제주항공</strong> <em class="rankUp">▲</em></a></li>
+            <li><a href=""><span>&nbsp;2</span><strong>오사카</strong>   <em class="rankUp">▲</em></a></li>
+            <li><a href=""><span>&nbsp;3</span><strong>젤리</strong>     <em class="rankNo">-</em></a></li>
+            <li><a href=""><span>&nbsp;4</span><strong>키보드</strong>   <em class="rankUp">▲</em></a></li>
+            <li><a href=""><span>&nbsp;5</span><strong>항공권</strong>   <em class="rankDown">▼</em></a></li>
+            <li><a href=""><span>&nbsp;6</span><strong>나노블럭</strong> <em class="rankNo">-</em></a></li>
+            <li><a href=""><span>&nbsp;7</span><strong>눈썰매</strong>   <em class="rankDown">▼</em></a></li>
+            <li><a href=""><span>&nbsp;8</span><strong>물티슈</strong>   <em class="rankDown">▼</em></a></li>
+            <li><a href=""><span>&nbsp;9</span><strong>기저귀</strong>   <em class="rankNo">-</em></a></li>
+            <li><a href=""><span>10</span><strong>하리보</strong>        <em class="rankUp">▲</em></a></li>
+            <li><a href=""><span>&nbsp;1</span><strong>제주항공</strong> <em class="rankUp">▲</em></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+
+
+  <nav id="gnb">
+    <h2 href="" class="button">카테고리</h2>
+    <ul class="topMenu">
+      <li><a href=""><span>로켓배송</span></a></li>
+      <li><a href=""><span>정기배송</span></a></li>
+      <li><a href=""><span>쿠팡 아웃렛</span></a></li>
+      <li><a href=""><span>쿠팡 글로벌</span></a></li>
+      <li><a href=""><span>신규상품</span></a></li>
+      <li><a href=""><span>오늘마감</span></a></li>
+      <li><a href=""><span>기획전</span></a></li>
+      <li><a href=""><span>쿠팡혜택</span></a></li>
+    </ul>
+    <ul class="categoryMenu">
+      <li class="cate-parent-li">
+        <a href="" class="cate-parent-a">
+          <span>패션의류/잡화</span>
+        </a>
+        <ul class="cate-child-ul">
+          <li class="cate-child-li"><a href=""><span>여성의류</span></a></li>
+          <li class="cate-child-li"><a href=""><span>남성의류</span></a></li>
+          <li class="cate-child-li"><a href=""><span>언더웨어/홈웨어</span></a></li>
+          <li class="cate-child-li"><a href=""><span>유아동패션</span></a></li>
+          <li class="cate-child-li"><a href=""><span>여성화</span></a></li>
+          <li class="cate-child-li"><a href=""><span>남성화</span></a></li>
+          <li class="cate-child-li"><a href=""><span>스포츠/운동화/러닝화</span></a></li>
+          <li class="cate-child-li"><a href=""><span>스포츠의류/잡화</span></a></li>
+          <li class="cate-child-li"><a href=""><span>가방/잡화/아이웨어</span></a></li>
+          <li class="cate-child-li"><a href=""><span>시계/쥬얼리</span></a></li>
+          <li class="cate-child-li"><a href=""><span>해외직구</span></a></li>
+          <li class="cate-child-li"><a href=""><span>명품관</span></a></li>
+          <img src="img/00category/01패션의류잡화.png" alt="" />
+          <a href="" class="cate-select"></a>
+        </ul>
+      </li>
+      <li class="cate-parent-li">
+        <a href="" class="cate-parent-a"><span>뷰티</span></a>
+        <ul class="cate-child-ul">
+          <li class="cate-child-li"><a href=""><span>기초화장품</span></a></li>
+          <li class="cate-child-li"><a href=""><span>클렌징</span></a></li>
+          <li class="cate-child-li"><a href=""><span>메이크업/네일</span></a></li>
+          <li class="cate-child-li"><a href=""><span>헤어/샴푸</span></a></li>
+          <li class="cate-child-li"><a href=""><span>바디/핸드</span></a></li>
+          <li class="cate-child-li"><a href=""><span>향수</span></a></li>
+          <li class="cate-child-li"><a href=""><span>남성화장품</span></a></li>
+          <li class="cate-child-li"><a href=""><span>자외선차단제</span></a></li>
+          <li class="cate-child-li"><a href=""><span>명품화장품</span></a></li>
+          <li class="cate-child-li"><a href=""><span>뷰티가전</span></a></li>
+          <li class="cate-child-li"><a href=""><span>해외직구</span></a></li>
+          <li class="cate-child-li"><a href=""><span>New! 쿠팡 단독</span></a></li>
+          <img src="img/00category/02뷰티.png" alt="" />
+          <a href="" class="cate-select"></a>
+        </ul>
+      </li>
+      <li class="cate-parent-li">
+        <a href="" class="cate-parent-a"><span>출산/유아동</span></a>
+        <ul class="cate-child-ul">
+          <li class="cate-child-li"><a href=""><span>임신/출산준비</span></a></li>
+          <li class="cate-child-li"><a href=""><span>기저귀/물티슈</span></a></li>
+          <li class="cate-child-li"><a href=""><span>분유/이유식</span></a></li>
+          <li class="cate-child-li"><a href=""><span>수유/이유</span></a></li>
+          <li class="cate-child-li"><a href=""><span>목욕/위생/스킨케어</span></a></li>
+          <li class="cate-child-li"><a href=""><span>건강/안전</span></a></li>
+          <li class="cate-child-li"><a href=""><span>완구/교구</span></a></li>
+          <li class="cate-child-li"><a href=""><span>카시트/유모차/아기띠</span></a></li>
+          <li class="cate-child-li"><a href=""><span>아이방 꾸미기</span></a></li>
+          <li class="cate-child-li"><a href=""><span>패션의류/잡화</span></a></li>
+          <li class="cate-child-li"><a href=""><span>돌잔치 용품</span></a></li>
+          <li class="cate-child-li"><a href=""><span>선물세트</span></a></li>
+          <li class="cate-child-li"><a href=""><span>해외직구</span></a></li>
+          <img src="img/00category/03출산유아동.png" alt="" />
+          <a href="" class="cate-select"></a>
+        </ul>
+      </li>
+      <li class="cate-parent-li">
+        <a href="" class="cate-parent-a"><span>식품</span></a>
+        <ul class="cate-child-ul">
+          <li class="cate-child-li"><a href=""><span>농/수/축산식품</span></a></li>
+          <li class="cate-child-li"><a href=""><span>가공식품</span></a></li>
+          <li class="cate-child-li"><a href=""><span>음료/간식</span></a></li>
+          <li class="cate-child-li"><a href=""><span>건강/다이어트식품</span></a></li>
+          <li class="cate-child-li"><a href=""><span>유아동식품</span></a></li>
+          <li class="cate-child-li"><a href=""><span>해외직구</span></a></li>
+          <img src="img/00category/04식품.png" alt="" />
+          <a href="" class="cate-select"></a>
+        </ul>
+      </li>
+      <li class="cate-parent-li">
+        <a href="" class="cate-parent-a"><span>주방/생활용품</span></a>
+        <ul class="cate-child-ul">
+          <li class="cate-child-li"><a href=""><span>주방용품</span></a></li>
+          <li class="cate-child-li"><a href=""><span>위생/세안/욕실용품</span></a></li>
+          <li class="cate-child-li"><a href=""><span>청소/세탁/세제</span></a></li>
+          <li class="cate-child-li"><a href=""><span>수납/공구/생활잡화</span></a></li>
+          <li class="cate-child-li"><a href=""><span>건강생활용품</span></a></li>
+          <li class="cate-child-li"><a href=""><span>주방가전</span></a></li>
+          <li class="cate-child-li"><a href=""><span>해외직구</span></a></li>
+          <img src="img/00category/05주방생활용품.png" alt="" />
+          <a href="" class="cate-select"></a>
+        </ul>
+      </li>
+      <li class="cate-parent-li">
+        <a href="" class="cate-parent-a"><span>가구/홈데코</span></a>
+        <ul class="cate-child-ul">
+          <li class="cate-child-li"><a href=""><span>침실/수납가구</span></a></li>
+          <li class="cate-child-li"><a href=""><span>거실/주방가구</span></a></li>
+          <li class="cate-child-li"><a href=""><span>유아동/학생가구</span></a></li>
+          <li class="cate-child-li"><a href=""><span>침구/카페트/커튼</span></a></li>
+          <li class="cate-child-li"><a href=""><span>인테리어소품</span></a></li>
+          <li class="cate-child-li"><a href=""><span>해외직구</span></a></li>
+          <img src="img/00category/06가구홈데코.png" alt="" />
+          <a href="" class="cate-select"></a>
+        </ul>
+      </li>
+      <li class="cate-parent-li">
+        <a href="" class="cate-parent-a"><span>가전/디지털</span></a>
+        <ul class="cate-child-ul">
+          <li class="cate-child-li"><a href=""><span>컴퓨터/게임/주변기기</span></a></li>
+          <li class="cate-child-li"><a href=""><span>카메라/빔</span></a></li>
+          <li class="cate-child-li"><a href=""><span>디지털/액세서리</span></a></li>
+          <li class="cate-child-li"><a href=""><span>계절가전</span></a></li>
+          <li class="cate-child-li"><a href=""><span>TV/오디오</span></a></li>
+          <li class="cate-child-li"><a href=""><span>생활가전</span></a></li>
+          <li class="cate-child-li"><a href=""><span>주방가전</span></a></li>
+          <li class="cate-child-li"><a href=""><span>이미용가전</span></a></li>
+          <li class="cate-child-li"><a href=""><span>건강가전</span></a></li>
+          <li class="cate-child-li"><a href=""><span>자동차용 전자기기</span></a></li>
+          <img src="img/00category/07가전디지털.png" alt="" />
+          <a href="" class="cate-select"></a>
+        </ul>
+      </li>
+      <li class="cate-parent-li">
+        <a href="" class="cate-parent-a"><span>스포츠/레저용품</span></a>
+        <ul class="cate-child-ul">
+          <li class="cate-child-li"><a href=""><span>스포츠/기능화</span></a></li>
+          <li class="cate-child-li"><a href=""><span>스포츠의류</span></a></li>
+          <li class="cate-child-li"><a href=""><span>유아동 의류/잡화</span></a></li>
+          <li class="cate-child-li"><a href=""><span>레포츠용품</span></a></li>
+          <li class="cate-child-li"><a href=""><span>자동차용품</span></a></li>
+          <li class="cate-child-li"><a href=""><span>해외직구</span></a></li>
+          <img src="img/00category/08스포츠레저용품.png" alt="" />
+          <a href="" class="cate-select"></a>
+        </ul>
+      </li>
+      <li class="cate-parent-li">
+        <a href="" class="cate-parent-a"><span>도서/문구/취미</span></a>
+        <ul class="cate-child-ul">
+          <li class="cate-child-li"><a href=""><span>유아동도서</span></a></li>
+          <li class="cate-child-li"><a href=""><span>일반도서</span></a></li>
+          <li class="cate-child-li"><a href=""><span>문구/팬시</span></a></li>
+          <li class="cate-child-li"><a href=""><span>취미</span></a></li>
+          <li class="cate-child-li"><a href=""><span>e쿠폰</span></a></li>
+          <img src="img/00category/09도서문구취미.png" alt="" />
+          <a href="" class="cate-select"></a>
+        </ul>
+      </li>
+      <li class="cate-parent-li">
+        <a href="" class="cate-parent-a"><span>반려/애완용품</span></a>
+        <ul class="cate-child-ul">
+          <li class="cate-child-li"><a href=""><span>강아지용품</span></a></li>
+          <li class="cate-child-li"><a href=""><span>고양이용품</span></a></li>
+          <li class="cate-child-li"><a href=""><span>관상어/소동물</span></a></li>
+          <img src="img/00category/10반려애완용품.png" alt="" />
+          <a href="" class="cate-select"></a>
+        </ul>
+      </li>
+      <hr/>
+      <li class="cate-parent-li">
+        <a href="" class="cate-parent-a"><span>여행</span></a>
+        <ul class="cate-child-ul">
+          <li class="cate-child-li"><a href=""><span>국내여행</span></a></li>
+          <li class="cate-child-li"><a href=""><span>해외여행</span></a></li>
+          <li class="cate-child-li"><a href=""><span>호텔</span></a></li>
+          <li class="cate-child-li"><a href=""><span>리조트</span></a></li>
+          <li class="cate-child-li"><a href=""><span>펜션</span></a></li>
+          <li class="cate-child-li"><a href=""><span>캠핑/글램핑</span></a></li>
+          <img src="img/00category/11여행.png" alt="" />
+          <a href="" class="cate-select"></a>
+        </ul>
+      </li>
+      <li class="cate-parent-li">
+        <a href="" class="cate-parent-a"><span>지역할인쿠폰</span></a>
+        <ul class="cate-child-ul">
+          <li class="cate-child-li"><a href=""><span>전국/서울</span></a></li>
+          <li class="cate-child-li"><a href=""><span>인천/경기/강원</span></a></li>
+          <li class="cate-child-li"><a href=""><span>대구/부산</span></a></li>
+          <li class="cate-child-li"><a href=""><span>대전/광주</span></a></li>
+          <li class="cate-child-li"><a href=""><span>제주</span></a></li>
+          <img src="img/00category/12지역할인쿠폰.png" alt="" />
+          <a href="" class="cate-select"></a>
+        </ul>
+      </li>
+      <li class="cate-parent-li">
+        <a href="" class="cate-parent-a"><span>공연/전시/체험</span></a>
+        <ul class="cate-child-ul">
+          <li class="cate-child-li"><a href=""><span>골든라운지</span></a></li>
+          <li class="cate-child-li"><a href=""><span>뮤지컬</span></a></li>
+          <li class="cate-child-li"><a href=""><span>연극/영화</span></a></li>
+          <li class="cate-child-li"><a href=""><span>콘서트/클래식</span></a></li>
+          <li class="cate-child-li"><a href=""><span>체험/전시</span></a></li>
+          <li class="cate-child-li"><a href=""><span>아동가족극</span></a></li>
+          <li class="cate-child-li"><a href=""><span>키즈카페</span></a></li>
+          <img src="img/00category/13공연전시체험.png" alt="" />
+          <a href="" class="cate-select"></a>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+
+
+  <section id="jumbotron">
+    <h2>Today's HOT</h2>
+    <div class="curtain"></div>
+    <ul>
+      <!--실질적으로 클릭가능한 점보트론 큰거 (img)-->
+      <!--실질적으로 클릭가능한 점보트론 작은거 (a태그)-->
+      <div class="clickAble">
+        <li><a href=""><img src="img/00today'S HOT/displayitem_1.jpg" /></a></li>
+        <li><a href=""><img src="img/00today'S HOT/displayitem_2.jpg" /></a></li>
+        <li><a href=""><img src="img/00today'S HOT/displayitem_3.jpg" /></a></li>
+        <li><a href=""><img src="img/00today'S HOT/displayitem_4.jpg" /></a></li>
+        <li><a href=""><img src="img/00today'S HOT/displayitem_5.jpg" /></a></li>
+        <li><a href=""><img src="img/00today'S HOT/displayitem_6.jpg" /></a></li>
+      </div>
+
+      <!--뒷단에서 애니메이션으로 돌아가고있는 것-->
+      <div class="animation">
+        <li><a href=""><img src="img/00today'S HOT/displayitem_1.jpg" /></a></li>
+        <li><a href=""><img src="img/00today'S HOT/displayitem_2.jpg" /></a></li>
+        <li><a href=""><img src="img/00today'S HOT/displayitem_3.jpg" /></a></li>
+        <li><a href=""><img src="img/00today'S HOT/displayitem_4.jpg" /></a></li>
+        <li><a href=""><img src="img/00today'S HOT/displayitem_5.jpg" /></a></li>
+        <li><a href=""><img src="img/00today'S HOT/displayitem_6.jpg" /></a></li>
+      </div>
+    </ul>
+  </section>
+
+
+
+  <aside id="main_aside">
+    <h1>Aside</h1>
+    <div class="coupangMan">
+      <img src="img/07aside/coupangMan.png" />
+    </div>
+    <div class="promotion">
+      <img src="img/07aside/01.jpg" />
+      <img src="img/07aside/02.jpg" />
+      <img src="img/07aside/03.jpg" />
+      <img src="img/07aside/04.jpg" />
+    </div>
+
+    <div class="myView">
+      <div class="side-cart">
+        <a href="">장바구니 </a><em>3</em>
+      </div>
+      <div class="recently-viewed-products">
+        <a href="">최근 본 상품 </a><em>6</em>
+      </div>
+      <div class="recently-viewed-list">
+        <input type="radio" id="rvl1" name="rvl" checked />
+        <input type="radio" id="rvl2" name="rvl" />
+        <ul>
+          <li>
+            <a href="">
+              <img src="img/07aside/11.jpg" alt="">
+              <div class="detail">
+                <h3>[전국] 도미노피자 세트 할인</h3>
+                <em>29,610원</em>
+              </div>
+            </a>
+          </li>
+          <li><a href=""><img src="img/07aside/22.jpg" alt=""><div class="detail">
+                <h3>[전국] 도미노피자 세트 할인</h3><em>29,610원</em></div></a></li>
+          <li><a href=""><img src="img/07aside/33.jpg" alt=""><div class="detail">
+                <h3>[전국] 도미노피자 세트 할인</h3><em>29,610원</em></div></a></li>
+          <li><a href=""><img src="img/07aside/44.jpg" alt=""><div class="detail">
+                <h3>[전국] 도미노피자 세트 할인</h3><em>29,610원</em></div></a></li>
+        </ul>
+        <ul>
+          <li><a href=""><img src="img/07aside/55.jpg" alt=""><div class="detail">
+                <h3>[전국] 도미노피자 세트 할인</h3><em>29,610원</em></div></a></li>
+          <li><a href=""><img src="img/07aside/66.jpg" alt=""><div class="detail">
+                <h3>[전국] 도미노피자 세트 할인</h3><em>29,610원</em></div></a></li>
+        </ul>
+        <div class="choiceBox">
+          <span class="currentPage"> /2 </span>
+          <div>
+            <label for="rvl1"><span> < </span></label>
+            <label for="rvl2"><span> < </span></label>
+            <label for="rvl1"><span> > </span></label>
+            <label for="rvl2"><span> > </span></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+
+
+  <main>
+    <section class="yourRecommand">
+      <input type="radio" name="yr" id="yourRecommand1" checked>
+      <input type="radio" name="yr" id="yourRecommand2">
+      <input type="radio" name="yr" id="yourRecommand3">
+      <h2>★ 당신을 위한 추천 상품</h2>
+      <div class='choiceSelector'>
+        <label for="yourRecommand1"><span class='choiceArrow'><!-- 1 --><</span></label>
+        <label for="yourRecommand2"><span class='choiceArrow'><!-- 2 --><</span></label>
+        <label for="yourRecommand3"><span class='choiceArrow'><!-- 3 --><</span></label>
+        <span>/3</span>
+        <label for="yourRecommand1"><span class='choiceArrow'><!-- 1 -->></span></label>
+        <label for="yourRecommand2"><span class='choiceArrow'><!-- 2 -->></span></label>
+        <label for="yourRecommand3"><span class='choiceArrow'><!-- 3 -->></span></label>
+      </div>
+      <ul>
+        <li class="yourRecommandList">
+          <a href="">
+            <img src="img/01yourRecommand/01.jpg" alt="김우빈의 SIEG/F 신년맞이 특가~81%">
+            <div>
+              <p>김우빈의 SIEG/F 신년맞이 특가~81%</p>
+              <strong>81%</strong>
+              <strong>8,900원</strong>
+              <span>9800원 무료배송</span>
+            </div>
+          </a>
+        </li>
+        <li class="yourRecommandList"><a hrEf=""><img src="img/01yourRecommand/02.jpg" alt="">
+            <div><p>김우빈의 SIEG/F 신년맞이 특가~81%</p><strong>81%</strong><strong>8,900원</strong><span>9800원 무료배송</span></div></a></li>
+        <li class="yourRecommandList"><a hrEf=""><img src="img/01yourRecommand/03.jpg" alt="">
+            <div><p>김우빈의 SIEG/F 신년맞이 특가~81%</p><strong>81%</strong><strong>8,900원</strong><span>9800원 무료배송</span></div></a></li>
+        <li class="yourRecommandList"><a hrEf=""><img src="img/01yourRecommand/04.jpg" alt="">
+            <div><p>김우빈의 SIEG/F 신년맞이 특가~81%</p><strong>81%</strong><strong>8,900원</strong><span>9800원 무료배송</span></div></a></li>
+        <li class="yourRecommandList"><a hrEf=""><img src="img/01yourRecommand/05.jpg" alt="">
+            <div><p>김우빈의 SIEG/F 신년맞이 특가~81%</p><strong>81%</strong><strong>8,900원</strong><span>9800원 무료배송</span></div></a></li>
+      </ul>
+      <ul>
+        <li class="yourRecommandList"><a hrEf=""><img src="img/01yourRecommand/06.jpg" alt="">
+            <div><p>김우빈의 SIEG/F 신년맞이 특가~81%</p><strong>81%</strong><strong>8,900원</strong><span>9800원 무료배송</span></div></a></li>
+        <li class="yourRecommandList"><a hrEf=""><img src="img/01yourRecommand/07.jpg" alt="">
+            <div><p>김우빈의 SIEG/F 신년맞이 특가~81%</p><strong>81%</strong><strong>8,900원</strong><span>9800원 무료배송</span></div></a></li>
+        <li class="yourRecommandList"><a hrEf=""><img src="img/01yourRecommand/08.jpg" alt="">
+            <div><p>김우빈의 SIEG/F 신년맞이 특가~81%</p><strong>81%</strong><strong>8,900원</strong><span>9800원 무료배송</span></div></a></li>
+        <li class="yourRecommandList"><a hrEf=""><img src="img/01yourRecommand/09.jpg" alt="">
+            <div><p>김우빈의 SIEG/F 신년맞이 특가~81%</p><strong>81%</strong><strong>8,900원</strong><span>9800원 무료배송</span></div></a></li>
+        <li class="yourRecommandList"><a hrEf=""><img src="img/01yourRecommand/10.jpg" alt="">
+            <div><p>김우빈의 SIEG/F 신년맞이 특가~81%</p><strong>81%</strong><strong>8,900원</strong><span>9800원 무료배송</span></div></a></li>
+      </ul>
+      <ul>
+        <li class="yourRecommandList"><a hrEf=""><img src="img/01yourRecommand/11.jpg" alt="">
+            <div><p>김우빈의 SIEG/F 신년맞이 특가~81%</p><strong>81%</strong><strong>8,900원</strong><span>9800원 무료배송</span></div></a></li>
+        <li class="yourRecommandList"><a hrEf=""><img src="img/01yourRecommand/12.jpg" alt="">
+            <div><p>김우빈의 SIEG/F 신년맞이 특가~81%</p><strong>81%</strong><strong>8,900원</strong><span>9800원 무료배송</span></div></a></li>
+        <li class="yourRecommandList"><a hrEf=""><img src="img/01yourRecommand/13.jpg" alt="">
+            <div><p>김우빈의 SIEG/F 신년맞이 특가~81%</p><strong>81%</strong><strong>8,900원</strong><span>9800원 무료배송</span></div></a></li>
+        <li class="yourRecommandList"><a hrEf=""><img src="img/01yourRecommand/14.jpg" alt="">
+            <div><p>김우빈의 SIEG/F 신년맞이 특가~81%</p><strong>81%</strong><strong>8,900원</strong><span>9800원 무료배송</span></div></a></li>
+        <li class="yourRecommandList"><a hrEf=""><img src="img/01yourRecommand/15.jpg" alt="">
+            <div><p>김우빈의 SIEG/F 신년맞이 특가~81%</p><strong>81%</strong><strong>8,900원</strong><span>9800원 무료배송</span></div></a></li>
+      </ul>
+    </section>
+
+
+
+    <section class="discoveryList">
+      <h2>오늘의 발견 | 오늘 쿠팡이 엄선한 가장 HOT한 상품!</h2>
+      <ul>
+        <li>
+          <a href="">
+            <img src="img/02discoverylist/01.jpg" alt="">
+            <div class="discovery-description">
+              <strong>46%</strong>
+              <strong>24,500원</strong>
+            </div>
+            <div class="buyButton">&nbsp;></div>
+          </a>
+        </li>
+        <li><a href=""><img src="img/02discoverylist/02.jpg" alt=""><div class="discovery-description">
+          <strong>46%</strong><strong>24,500원</strong></div><div class="buyButton">&nbsp;></div></a></li>
+        <li><a href=""><img src="img/02discoverylist/03.jpg" alt=""><div class="discovery-description">
+          <strong>46%</strong><strong>24,500원</strong></div><div class="buyButton">&nbsp;></div></a></li>
+        <li><a href=""><img src="img/02discoverylist/04.jpg" alt=""><div class="discovery-description">
+          <strong>46%</strong><strong>24,500원</strong></div><div class="buyButton">&nbsp;></div></a></li>
+        <li><a href=""><img src="img/02discoverylist/05.jpg" alt=""><div class="discovery-description">
+          <strong>46%</strong><strong>24,500원</strong></div><div class="buyButton">&nbsp;></div></a></li>
+        <li><a href=""><img src="img/02discoverylist/06.jpg" alt=""><div class="discovery-description">
+          <strong>46%</strong><strong>24,500원</strong></div><div class="buyButton">&nbsp;></div></a></li>
+        <li><a href=""><img src="img/02discoverylist/07.jpg" alt=""><div class="discovery-description">
+          <strong>46%</strong><strong>24,500원</strong></div><div class="buyButton">&nbsp;></div></a></li>
+        <li><a href=""><img src="img/02discoverylist/08.jpg" alt=""><div class="discovery-description">
+          <strong>46%</strong><strong>24,500원</strong></div><div class="buyButton">&nbsp;></div></a></li>
+        <li><a href=""><img src="img/02discoverylist/09.jpg" alt=""><div class="discovery-description">
+          <strong>46%</strong><strong>24,500원</strong></div><div class="buyButton">&nbsp;></div></a></li>
+      </ul>
+    </section>
+
+
+
+    <section class="newProduct">
+      <input type="radio" name="np" id="newProduct1" checked />
+      <input type="radio" name="np" id="newProduct2" />
+      <input type="radio" name="np" id="newProduct3" />
+      <div class="choiceBox">
+        <label for="newProduct1"><span> < </span></label>
+        <label for="newProduct2"><span> < </span></label>
+        <label for="newProduct3"><span> < </span></label>
+        <span class="currentPage">/3</span>
+        <label for="newProduct1"><span> > </span></label>
+        <label for="newProduct2"><span> > </span></label>
+        <label for="newProduct3"><span> > </span></label>
+      </div>
+      <h2>new 신규 상품 | 더보기</h2>
+      <ul class="newProduct1">
+        <li>
+          <a href="">
+            <img src="img/03newProduct/01.jpg" alt="">
+            <div>
+              <p>[경주] 마우나리조트 눈썰매장</p>
+              <strong>27%</strong>
+              <strong>8,800원</strong>
+              <p>눈썰매 1인이용권 (대인) 기준</p>
+              <span>9800원 무료배송</span>
+            </div>
+          </a>
+        </li>
+        <li><a href=""><img src="img/03newProduct/02.jpg" alt=""><div><p>[경주] 마우나리조트 눈썰매장</p><strong>27%</strong>
+          <strong>8,800원</strong><p>눈썰매 1인이용권 (대인) 기준</p><span>9800원 무료배송</span></div></a></li>
+        <li><a href=""><img src="img/03newProduct/06.jpg" alt=""><div><p>[경주] 마우나리조트 눈썰매장</p><strong>27%</strong>
+          <strong>8,800원</strong><p>눈썰매 1인이용권 (대인) 기준</p><span>9800원 무료배송</span></div></a></li>
+        <li><a href=""><img src="img/03newProduct/04.jpg" alt=""><div><p>[경주] 마우나리조트 눈썰매장</p><strong>27%</strong>
+          <strong>8,800원</strong><p>눈썰매 1인이용권 (대인) 기준</p><span>9800원 무료배송</span></div></a></li>
+        <li><a href=""><img src="img/03newProduct/05.jpg" alt=""><div><p>[경주] 마우나리조트 눈썰매장</p><strong>27%</strong>
+          <strong>8,800원</strong><p>눈썰매 1인이용권 (대인) 기준</p><span>9800원 무료배송</span></div></a></li>
+      </ul>
+      <ul class="newProduct2">
+        <li><a href=""><img src="img/03newProduct/03.jpg" alt=""><div><p>[경주] 마우나리조트 눈썰매장</p><strong>27%</strong>
+          <strong>8,800원</strong><p>눈썰매 1인이용권 (대인) 기준</p><span>9800원 무료배송</span></div></a></li>
+        <li><a href=""><img src="img/03newProduct/07.jpg" alt=""><div><p>[경주] 마우나리조트 눈썰매장</p><strong>27%</strong>
+          <strong>8,800원</strong><p>눈썰매 1인이용권 (대인) 기준</p><span>9800원 무료배송</span></div></a></li>
+        <li><a href=""><img src="img/03newProduct/08.jpg" alt=""><div><p>[경주] 마우나리조트 눈썰매장</p><strong>27%</strong>
+          <strong>8,800원</strong><p>눈썰매 1인이용권 (대인) 기준</p><span>9800원 무료배송</span></div></a></li>
+        <li><a href=""><img src="img/03newProduct/09.jpg" alt=""><div><p>[경주] 마우나리조트 눈썰매장</p><strong>27%</strong>
+          <strong>8,800원</strong><p>눈썰매 1인이용권 (대인) 기준</p><span>9800원 무료배송</span></div></a></li>
+        <li><a href=""><img src="img/03newProduct/10.jpg" alt=""><div><p>[경주] 마우나리조트 눈썰매장</p><strong>27%</strong>
+          <strong>8,800원</strong><p>눈썰매 1인이용권 (대인) 기준</p><span>9800원 무료배송</span></div></a></li>
+      </ul>
+      <ul class="newProduct3">
+        <li><a href=""><img src="img/03newProduct/11.jpg" alt=""><div><p>[경주] 마우나리조트 눈썰매장</p><strong>27%</strong>
+          <strong>8,800원</strong><p>눈썰매 1인이용권 (대인) 기준</p><span>9800원 무료배송</span></div></a></li>
+        <li><a href=""><img src="img/03newProduct/12.jpg" alt=""><div><p>[경주] 마우나리조트 눈썰매장</p><strong>27%</strong>
+          <strong>8,800원</strong><p>눈썰매 1인이용권 (대인) 기준</p><span>9800원 무료배송</span></div></a></li>
+        <li><a href=""><img src="img/03newProduct/13.jpg" alt=""><div><p>[경주] 마우나리조트 눈썰매장</p><strong>27%</strong>
+          <strong>8,800원</strong><p>눈썰매 1인이용권 (대인) 기준</p><span>9800원 무료배송</span></div></a></li>
+        <li><a href=""><img src="img/03newProduct/14.jpg" alt=""><div><p>[경주] 마우나리조트 눈썰매장</p><strong>27%</strong>
+          <strong>8,800원</strong><p>눈썰매 1인이용권 (대인) 기준</p><span>9800원 무료배송</span></div></a></li>
+        <li><a href=""><img src="img/03newProduct/15.jpg" alt=""><div><p>[경주] 마우나리조트 눈썰매장</p><strong>27%</strong>
+          <strong>8,800원</strong><p>눈썰매 1인이용권 (대인) 기준</p><span>9800원 무료배송</span></div></a></li>
+      </ul>
+    </section>
+
+
+
+    <section class="bestProduct">
+      <h2>BEST 상품 | 쿠팡에서 가장 인기있는 상품!</h2>
+      <ul>
+        <li>
+          <a href="">
+            <img src="img/04bestProduct/01.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/03.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/02.jpg" alt="">
+            <div class="detail">
+              <h3>새해엔 더 뽕긋! 시선압도 파파라치</h3>
+              <strong>쿠팡가</strong><em></em>
+              <del></del>
+              <strong>3,900</strong><span>원</span>
+              <span></span>
+              <p></p>
+            </div>
+            <div class="status">
+              <em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong>
+              <span class="buying">364,142</span><span>개 구매중</span>
+            </div>
+          </a>
+          <a class="open-new" href="">새창</a>
+        </li>
+        <li><a href=""><img src="img/04bestProduct/04.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/05.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/06.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/07.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/08.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/09.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/10.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/11.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/12.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/13.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/14.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/15.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/16.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/17.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/18.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/19.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/20.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/21.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/22.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/23.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/24.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/25.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/26.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/27.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/28.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/29.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/04bestProduct/30.jpg" alt="">
+            <div class="detail"><h3>[로켓배송] 아모레 해피바스 풀라인</h3>
+              <strong>30</strong><em>%</em><del>7,500원</del><strong>5,200</strong><span>원</span>
+              <span>로켓배송</span><p>레드벨벳더즌 기준</p></div>
+            <div class="status"><em class="freeShipping">9800원 이상 무료배송</em>
+              <strong class="newPro">신규상품</strong><span class="buying">364,142</span><span>개 구매중</span></div></a>
+          <a class="open-new" href="">새창</a></li>
+      </ul>
+    </section>
+
+
+
+    <section class="recommandProduct">
+      <input type="radio" id="recommandProduct1" name="rp" checked />
+      <input type="radio" id="recommandProduct2" name="rp" />
+      <input type="radio" id="recommandProduct3" name="rp" />
+      <h2>추천 상품 | 쿠팡이 자신있게 추천한 상품!</h2>
+      <div class="choiceBox">
+        <label for="recommandProduct1"><span> < </span></label>
+        <label for="recommandProduct2"><span> < </span></label>
+        <label for="recommandProduct3"><span> < </span></label>
+        <span>/3</span>
+        <label for="recommandProduct1"><span> > </span></label>
+        <label for="recommandProduct2"><span> > </span></label>
+        <label for="recommandProduct3"><span> > </span></label>
+      </div>
+      <ul class="recommandProduct1">
+        <li><a href=""><img src="img/05recommandProduct/01.jpg" alt="">
+            <h3>[문화역서울284] 반 고흐 인사이드</h3>
+            <div class="detail1">
+              <div><strong>30</strong><em>%</em></div>
+              <div><del>15,000원</del><strong>10,500</strong><em>원</em><p>1인 관람권 기준</p></div>
+              <div><span>로켓배송</span></div></div>
+            <div class="detail2"><em class="freeShipping">무료배송</em><em class="rightNow">바로사용</em>
+              <div><em class="buying">2,354</em><span>개 구매중</span></div></div></a><a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/05recommandProduct/02.jpg" alt="">
+            <h3>[문화역서울284] 반 고흐 인사이드</h3>
+            <div class="detail1">
+              <div><strong>30</strong><em>%</em></div>
+              <div><del>15,000원</del><strong>10,500</strong><em>원</em><p>1인 관람권 기준</p></div>
+              <div><span>로켓배송</span></div></div>
+            <div class="detail2"><em class="freeShipping">무료배송</em><em class="rightNow">바로사용</em>
+              <div><em class="buying">2,354</em><span>개 구매중</span></div></div></a><a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/05recommandProduct/03.jpg" alt="">
+            <h3>[문화역서울284] 반 고흐 인사이드</h3>
+            <div class="detail1">
+              <div><strong>30</strong><em>%</em></div>
+              <div><del>15,000원</del><strong>10,500</strong><em>원</em><p>1인 관람권 기준</p></div>
+              <div><span>로켓배송</span></div></div>
+            <div class="detail2"><em class="freeShipping">무료배송</em><em class="rightNow">바로사용</em>
+              <div><em class="buying">2,354</em><span>개 구매중</span></div></div></a><a class="open-new" href="">새창</a></li>
+      </ul>
+      <ul class="recommandProduct2">
+        <li><a href=""><img src="img/05recommandProduct/04.jpg" alt="">
+            <h3>[문화역서울284] 반 고흐 인사이드</h3>
+            <div class="detail1">
+              <div><strong>30</strong><em>%</em></div>
+              <div><del>15,000원</del><strong>10,500</strong><em>원</em><p>1인 관람권 기준</p></div>
+              <div><span>로켓배송</span></div></div>
+            <div class="detail2"><em class="freeShipping">무료배송</em><em class="rightNow">바로사용</em>
+              <div><em class="buying">2,354</em><span>개 구매중</span></div></div></a><a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/05recommandProduct/05.jpg" alt="">
+            <h3>[문화역서울284] 반 고흐 인사이드</h3>
+            <div class="detail1">
+              <div><strong>30</strong><em>%</em></div>
+              <div><del>15,000원</del><strong>10,500</strong><em>원</em><p>1인 관람권 기준</p></div>
+              <div><span>로켓배송</span></div></div>
+            <div class="detail2"><em class="freeShipping">무료배송</em><em class="rightNow">바로사용</em>
+              <div><em class="buying">2,354</em><span>개 구매중</span></div></div></a><a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/05recommandProduct/06.jpg" alt="">
+            <h3>[문화역서울284] 반 고흐 인사이드</h3>
+            <div class="detail1">
+              <div><strong>30</strong><em>%</em></div>
+              <div><del>15,000원</del><strong>10,500</strong><em>원</em><p>1인 관람권 기준</p></div>
+              <div><span>로켓배송</span></div></div>
+            <div class="detail2"><em class="freeShipping">무료배송</em><em class="rightNow">바로사용</em>
+              <div><em class="buying">2,354</em><span>개 구매중</span></div></div></a><a class="open-new" href="">새창</a></li>
+      </ul>
+      <ul class="recommandProduct3">
+        <li><a href=""><img src="img/05recommandProduct/07.jpg" alt="">
+            <h3>[문화역서울284] 반 고흐 인사이드</h3>
+            <div class="detail1">
+              <div><strong>30</strong><em>%</em></div>
+              <div><del>15,000원</del><strong>10,500</strong><em>원</em><p>1인 관람권 기준</p></div>
+              <div><span>로켓배송</span></div></div>
+            <div class="detail2"><em class="freeShipping">무료배송</em><em class="rightNow">바로사용</em>
+              <div><em class="buying">2,354</em><span>개 구매중</span></div></div></a><a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/05recommandProduct/08.jpg" alt="">
+            <h3>[문화역서울284] 반 고흐 인사이드</h3>
+            <div class="detail1">
+              <div><strong>30</strong><em>%</em></div>
+              <div><del>15,000원</del><strong>10,500</strong><em>원</em><p>1인 관람권 기준</p></div>
+              <div><span>로켓배송</span></div></div>
+            <div class="detail2"><em class="freeShipping">무료배송</em><em class="rightNow">바로사용</em>
+              <div><em class="buying">2,354</em><span>개 구매중</span></div></div></a><a class="open-new" href="">새창</a></li>
+        <li><a href=""><img src="img/05recommandProduct/09.jpg" alt="">
+            <h3>[문화역서울284] 반 고흐 인사이드</h3>
+            <div class="detail1">
+              <div><strong>30</strong><em>%</em></div>
+              <div><del>15,000원</del><strong>10,500</strong><em>원</em><p>1인 관람권 기준</p></div>
+              <div><span>로켓배송</span></div></div>
+            <div class="detail2"><em class="freeShipping">무료배송</em><em class="rightNow">바로사용</em>
+              <div><em class="buying">2,354</em><span>개 구매중</span></div></div></a><a class="open-new" href="">새창</a></li>
+      </ul>
+    </section>
+
+
+
+    <section class="coupangAD">
+      <h2>쿠팡 AD</h2>
+      <ul>
+        <li><a href=""><img src="img/06coupangAD/01.jpg" alt=""></a></li>
+        <li><a href=""><img src="img/06coupangAD/02.jpg" alt=""></a></li>
+        <li><a href=""><img src="img/06coupangAD/03.jpg" alt=""></a></li>
+        <li><a href=""><img src="img/06coupangAD/04.jpg" alt=""></a></li>
+        <li><a href=""><img src="img/06coupangAD/05.jpg" alt=""></a></li>
+        <li><a href=""><img src="img/06coupangAD/06.jpg" alt=""></a></li>
+        <li><a href=""><img src="img/06coupangAD/07.jpg" alt=""></a></li>
+        <li><a href=""><img src="img/06coupangAD/08.jpg" alt=""></a></li>
+      </ul>
+    </section>
+
+
+
+    <section class="contactUs">
+      <h2>Contact Us</h2>
+      <a href=""></a>
+      <a href=""></a>
+      <a href=""></a>
+      <a href=""></a>
+      <a href=""></a>
+    </section>
+  </main>
+
+
+
+  <footer>
+    <article>
+      <ul class="footerMenu">
+        <li><a href="">회사소개</a></li>
+        <li><a href="">입점제휴문의</a></li>
+        <li><a href="">이용약관</a></li>
+        <li><a href=""><strong>개인정보 취급방침</strong></a></li>
+        <li><a href="">이메일 무단수집거부</a></li>
+        <li><a href="">청소년 보호 정책</a></li>
+        <li><a href="">전자금융거래약관</a></li>
+        <li><a href="">판매이용약관</a></li>
+      </ul>
+    </article>
+    <section class="footerDetail">
+      <h1>
+        iRex
+        <br/>Company
+      </h1>
+      <div class="section1">
+        <address>
+          (주)iRex Company | 대표이사 : 양동호 | 사업자 등록번호 : 217-91-27380
+          <br/>통신판매업신고 : 2016-서울강남-02121 | 개인정보관리책임자 : 양동호 <a href="mailto:liberty914@naver.com" title="사업자정보 확인">liberty914@naver.com</a>
+          <br/>서울시 강남구 논현동 100-22 | Tel : 010-8916-8707 | Fax : 010-8916-8707
+          <br/>© Forward Ventures Co.,Ltd. All rights reserved.
+        </address>
+        <div class="section1-1">
+          <div>
+            <strong>고객센터</strong>
+            <address>서울시 강남구 논현동 100-22</address>
+          </div>
+          <div>
+            <strong>전자금융거래분쟁처리담당</strong>
+            <address>
+              Tel : 010-8916-8707 &nbsp; Fax : 02-3441-7011
+              <br/>Mail : liberty914@naver.com
+            </address>
+          </div>
+        </div>
+        <div class="section1-2">
+          <ul>
+            <li><a href="">쿠팡 카페</a></li>
+            <li><a href="">쿠팡 페이스북</a></li>
+            <li><a href="">쿠팡 카카오스토리</a></li>
+            <li><a href="">쿠팡 트위터</a></li>
+            <li><a href="">쿠팡 블로그</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="section2">
+        <h3>365 고객센터</h4>
+        <h4>1577-7011</h4>
+        <p>우리은행</p><p>&nbsp;채무지급보증 안내</p>
+        <p>당사는 고객님이 현금 결제한 금액에 대해 우리은행과 채무지급보증 계약을 체결하여 안전거래를 보장하고 있습니다.</p>
+        <a href="">서비스 가입사실 확인</a>
+      </div>
+    </section>
+    <section class="coupangAward">
+      <ul>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+      </ul>
+    </section>
+    <section class="immunity">
+      <strong>
+        개별 판매자가 등록한 마켓플레이스(오픈마켓) 상품에 대한 광고,
+        상품주문, 배송 및 환불의 의무와 책임은 각 판매자가 부담하고,
+        이에 대하여 쿠팡은 통신판매중개자로서 통신판매의 당사자가 아니므로 일체 책임을 지지 않습니다.
+      </strong>
+    </section>
+  </footer>
+
+
+
+</body>
+</html>

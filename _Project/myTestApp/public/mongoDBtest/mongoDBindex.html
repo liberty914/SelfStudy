@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>몽고디비 테스트</title>
+</head>
+<body>
+  <header>
+    <h1>MongoDB 테스트</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="javascript:">인서트 하기</a></li>
+      <li><a href="javascript:">목록 불러오기</a></li>
+      <li><a href="javascript:"></a></li>
+    </ul>
+  </nav>
+  <section id="insert">
+    <h2>insert 하기</h2>
+    <label>name : <input type="text" name="name" /></label><br/>
+    <label>age : <input type="text" name="age" /></label><br/>
+    <label>status : <input type="text" name="status" /></label>
+  </section>
+  <section id="view">
+    <h2>insert 된것 find</h2>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </section>
+  <footer>
+    <h3>footer</h3>
+  </footer>
+</body>
+</html>
+
+<script>
+"use strict";
+window.addEventListener("load", function() {
+
+
+  document.querySelector("nav ul li:nth-child(1) a").onclick = function() {
+    console.log('insert메소드 실행');
+    var name = document.querySelector("#insert [name^=name]").value;
+    var age = document.querySelector("#insert [name^=age]").value;
+    var status = document.querySelector("#insert [name^=status]").value;
+    var xHttp = new XMLHttpRequest();
+    xHttp.onreadystatechange = function (event) {
+      if (xHttp.readyState == 4 && xHttp.status == 200) {  //console.log(xHttp);  //responseText & responseXML
+        console.log("AJAX 결과물은?");
+        var resultObject = JSON.parse(xHttp.responseText);
+        console.log(resultObject);
+        document.querySelector("#view ul li").innerHTML += xHttp.responseText;
+      }
+    };
+    xHttp.open("GET", "/mongoDB/insert?name="+name+"&age="+age+"&status="+status, true);
+    xHttp.send();
+  };
+
+  document.querySelector("nav ul li:nth-child(2) a").onclick = function() {
+    console.log('find메소드 실행');
+    var xHttp = new XMLHttpRequest();
+    xHttp.onreadystatechange = function (event) {
+      if (xHttp.readyState == 4 && xHttp.status == 200) {  //console.log(xHttp);  //responseText & responseXML
+        console.log("AJAX 결과물은?");
+        var resultObject = JSON.parse(xHttp.responseText);
+        console.log(resultObject);
+        document.querySelector("#view ul li").innerHTML += xHttp.responseText;
+      }
+    };
+    xHttp.open("GET", "/mongoDB/find", true);
+    xHttp.send();
+  };
+
+});
+</script>

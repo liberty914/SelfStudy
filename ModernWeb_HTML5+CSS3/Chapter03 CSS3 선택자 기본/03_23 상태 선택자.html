@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Selector Basic Page</title>
+  <!--   <반응 선택자>
+          :hover   ==>  사용자가 마우스를 '올린' 태그를 선택합니다.
+          :active  ==>  사용자가 마우스를 '클릭한' 태그를 선택합니다.
+          
+          <상태 선택자>
+          :checked  ==>  체크 상태의 input태그를 선택
+          :focus    ==>  초점이 맞추어진 input태그를 선택
+          :enabled  ==>  사용 가능한 input태그를 선택
+          :disabled ==>  사용 불가능한 input태그를 선택   -->
+  <style>
+    input:enabled {background-color: green; }
+    input:disabled {background-color: lightskyblue; }
+    input:focus {background-color: orange; }
+    /* input태그에 초점이 맞추어진 경우에 background-color 속성에 orange키워드를 적용합니다. */
+  </style>
+</head>
+
+<body>
+  <h2>Enabled</h2>
+  <input />
+  <h2>Disabled</h2>
+  <input disabled="disabled" />
+</body>
+</html>

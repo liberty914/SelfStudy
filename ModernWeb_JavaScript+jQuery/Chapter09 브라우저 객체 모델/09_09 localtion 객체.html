@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>Chapter09 브라우저 객체 모델</title>
+  <script src='./../common/common.js'></script>
+</head>
+
+<body>
+  <script src='./../common/includeBody.js'></script>
+</body>
+</html>
+
+
+<!--==========================================================================================================-->
+
+
+<!--
+    location 객체  ==>  http://www.w3schools.com/jsref/obj_location.asp
+    - 브라우저의 "주소 표시줄"과 관련된 객체
+    - 페이지를 이동할 때 많이 사용한다.
+    
+    <location 객체의 속성>
+    href      ==>  문서의 URL 주소
+    host      ==>  호스트 이름과 포트번호 (localhost:9999)
+    hostname  ==>  호스트 이름            (localhost)
+    port      ==>  포트 번호              (9999)
+    pathname  ==>  디렉토리 경로          (/Project/Localtion.html)
+    hash      ==>  앵커 이름              (#aaa)
+    search    ==>  요청 파라미터          (?param=10)
+    protocol  ==>  프로토콜 종류          (http:)
+
+    <location 객체의 메소드>
+    reload()      ==>  새로고침합니다
+    assign(link)  ==>  현재 위치를 이동합니다
+    replace(link) ==>  현재 위치를 이동합니다 (뒤로가기 버튼 사용불가)
+-->
+
+<script>
+  'use strict';  //엄격하게 문법을 검사
+  
+  //페이지를 이동하는 방법 4가지
+  //location = 'http://naver.com';
+  //location.href = 'http://naver.com';
+  //location.assign('http://naver.com');
+  //location.replace('http://naver.com');
+
+  //새로고침 하는 방법 5가지
+  //location = location;
+  //location.href = location.href;
+  //location.assign(location);
+  //location.replace(location);
+  location.reload();    //주의! 페이지가 새로고침되면서 JavaScript 또한 다시 로드되기때문에 무한 새로고침이 될수도 있다!
+</script>

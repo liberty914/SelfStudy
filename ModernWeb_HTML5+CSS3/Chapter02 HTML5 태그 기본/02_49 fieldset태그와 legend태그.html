@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>HTML TEXT Basic Page</title>
+</head>
+
+<body>
+  <p>form태그 : 입력양식을 Server로 전송하도록 지원하는 태그 </p>
+  <p>action속성 : 입력 데이터의 전달 위치를 지정 ("/app/user/addUser", "/addUser.do") </p>
+  <p>method속성 : 입력 데이터의 전달 방식을 선택 (GET, POST ==> 디폴트는 GET방식) </p>
+
+  <hr/>
+
+  <form action="#" method="GET">
+    <fieldset> <!-- 입력하는 공간에 테두리를 입힌다. -->
+      <legend>입력 양식</legend> <!-- 입력하는 공간의 제목을 설정 -->
+      <table>
+        <tr>
+          <td><label for="name">이름</label></td>
+          <td><input id="name" type="text"/></td>
+        </tr>
+        <tr>
+          <td><label for="mail">이메일</label></td>
+          <td><input id="mail" type="email"/></td>
+        </tr>
+      </table>
+      <input type="submit"/>
+    </fieldset>
+  </form>
+
+  <hr/>
+
+  <p>textarea 태그 : 여러줄의 글자를 입력할 때 사용하는 태그</p>
+  <p>select 태그 : 여러 개의 목록에서 몇 가지를 선택할 수 있는 입력양식요소 </p>
+  <p>option태그 : 옵션을 생성함. </p>
+  <p>optgroup태그 : 옵션을 그룹화함 </p>
+
+
+</body>
+</html>

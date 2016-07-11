@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title></title>
+</head>
+<body>
+  <header>
+    <h2>JavaScript 함수</h2>
+  </header>
+  
+<!--
+  ★ 클로저 함수 ★
+   함수 내부의 변수는, 지역변수이므로, 함수가 종료될 때 당연히 사라져야한다.
+   그러나 클로저 함수는 return할 때 함수를 return하기 때문에, 그 return된 함수를 구성할 때 필요한 모든 지역변수들은
+   제거되지 않은 채로 메모리상에 남겨져 있다.
+   언제든지 그렇게 return된 함수를 사용할수 있도록 말이다.
+   * 클로저의 정의는 다양하다. (그래서 감을 잡는 것이 중요하다!)
+      1. 지역 변수를 남겨두는 현상을 클로저라고 부르기도 하고,
+      2. test() 함수로 생성된 공간을 클로저라고 부르기도 하고,
+      3. 리턴된 함수 자체를 클로저라고 부르기도 하며,
+      4. 살아남은 지역변수 output을 클로저라고 부르기도 한다.
+   
+   7장의 캡슐화 부분에서, 다시 한번 클로저와 관련된 내용을 살펴볼 것임.
+-->
+<script>
+  function test(name) {
+    var output = 'Hello ' + name + '...!';  //test() 함수가 실행될때 생성되며, 끝날때 소멸해야 하지만,
+    return function() {
+      alert(output);  //output변수는 이곳(return값)에 저장되어있다가,
+    };
+  }
+  test('JavaScript')();  //이렇게 호출될때 다시한번 사용된다. (변수를 제거하지 않고 남겨두었다!)
+</script>
+  
+</body>
+</html>

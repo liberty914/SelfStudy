@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>CSS3 Style Property Basic</title>
+  <style>
+    /*   <visibility 속성에 사용 가능한 키워드>
+         visible  ==> 태그를 보이게 만듬.
+         hidden   ==> 태그를 보이지 않게 만듬.(공간은 유지됨)
+         collapse ==> table태그를 보이지 않게 만듬.     */
+         
+    table {
+   /* display: none;          해당 태그의 공간까지 없애버린다. */ 
+   /* visibility: hidden;     해당 태그의 공간은 놔두고, 보여지는것만 안보이게한다. */
+      visibility: collapse;   /* IE, FireFox 에서만 작동하며, 크롬에서는 hidden과 똑같다. (사용하지말자)
+                                 display: none; 속성을 사용하는것이 옳다. */
+    }
+  </style>
+</head>
+
+<body>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  <table>
+    <tr><td>Test</td><td>Test</td></tr>
+    <tr><td>Test</td><td>Test</td></tr>
+    <tr><td>Test</td><td>Test</td></tr>
+  </table>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>몽고]회원가입 페이지</title>
+</head>
+<body>
+
+  <h1>몽고]로그인 페이지</h1>
+  <form action="javascript:" method="post">
+    <label>아이디 : <input type="text" name="id" id="id" required /></label><br/>
+    <label>비밀번호 : <input type="password" name="pw" id="pw" required /></label><br/>
+    <button id="loginButton">로그인</button>
+    <!--로그인을 하면 내 정보를 볼수있고, 수정, 탈퇴가 가능한 read&updateUser.html 파일로 이동-->
+  </form>
+  <hr/>
+  <h2>설마 아직도 계정이 없으세요?</h2>
+  <a href="/mongoDBlogin/createUser">가입하기</a>
+
+</body>
+</html>
+
+<script>
+window.addEventListener("load", function() {
+  var id = document.getElementById("id");
+  var pw = document.getElementById("pw");
+  document.getElementById("loginButton").addEventListener("click", function() {
+    var xHttp = new XMLHttpRequest();
+    xHttp.onreadystatechange = function() {
+      if (xHttp.readyState === 4 && xHttp.status === 200) {
+        var jsonResult = JSON.parse(xHttp.responseText);
+        console.log("AJAX요청 완료, 데이터는?");
+        console.log(jsonResult);  //Array객체를 받음, [0]: 상태값, [1]: object
+        switch (jsonResult[0]) {
+          case 0: alert("아이디가 존재하지 않습니다."); return;  //id로 find()해서 결과가 없으면, 서버단에서 null을 보내게 됨.
+          case 1: alert("비밀번호가 틀렸습니다."); return;      //id가 존재하다는걸 확인했으니, pw만 비교함.
+          case 2: alert("로그인에 성공하였습니다."); break;
+          default: alert("오류가 발생하였습니다."); return;
+        }
+        location.href = "/mongoDBlogin/getUser";  //페이지 이동
+      }
+    };
+    xHttp.open("POST", "/mongoDBlogin/loginMongo", true);
+    xHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");  //post 방식에 파라미터를 전달할때는 반드시 써줘야한다!!
+    xHttp.send("id="+id.value+"&pw="+pw.value);
+  });
+});
+</script>

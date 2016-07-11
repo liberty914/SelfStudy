@@ -1,0 +1,75 @@
+
+#main_aside { position: relative; width: 980px; margin: 0 auto; }
+#main_aside h1 { display: none; }
+
+#main_aside .coupangMan { position: absolute; top: -350px; right: -150px; cursor: pointer; }
+
+#main_aside .promotion img { position: absolute; right: -120px; cursor: pointer; }
+#main_aside .promotion img:nth-of-type(1) { top: 50px; }
+#main_aside .promotion img:nth-of-type(2) { top: 220px; }
+#main_aside .promotion img:nth-of-type(3) { top: 390px; }
+#main_aside .promotion img:nth-of-type(4) { top: 560px; }
+
+
+.myView { position: absolute; top: 730px; right: -120px; width: 102px; }
+/* 장바구니 */
+.myView .side-cart { padding: 10px; background-color: #363f57; border-bottom: 1px solid #70787c; cursor: pointer; }
+.myView .side-cart a { font-size: 11px; color: white; }
+.myView .side-cart em { color: skyblue; font-weight: bold; float: right; }
+
+/* 최근 본 상품 */
+.myView .recently-viewed-products { padding: 10px; background-color: #363f57; cursor: pointer; }
+.myView .recently-viewed-products a { font-size: 11px; color: white; }
+.myView .recently-viewed-products em { color: skyblue; font-weight: bold; float: right; }
+
+/* 최근 본 상품에 대한 이미지 스타일 */
+.myView .recently-viewed-list { position: relative; height: 405px; background-color: white; }
+.myView .recently-viewed-list [id^=rvl] { display: none; }  /* 라디오버튼 숨김 */
+.myView .recently-viewed-list ul { display: none; padding: 10px; }  /* 각 페이지를 기본적으로 숨김 */
+.myView .recently-viewed-list ul li { position: relative; margin: 0 0 5px 0; }
+.myView .recently-viewed-list ul li a img { width: 82px; height: 82px; box-sizing: border-box; border: 2px solid #d6d6d6; }
+
+/* 이미지에 hover되었을 때 스타일 지정 */
+.myView .recently-viewed-list ul li .detail {
+  display: none;
+  position: absolute; top: 0px; right: 82px;
+  z-index: 2;
+  background-color: #f0f0f0;
+  width: 150px;
+  height: 82px;
+  padding: 25px 10px;
+  box-sizing: border-box;
+}
+.myView .recently-viewed-list ul li:hover a img {
+  border-top: 2px solid #464857;
+  border-right: 2px solid #464857;
+  border-bottom: 2px solid #464857;
+}
+.myView .recently-viewed-list ul li:hover .detail {
+  display: block;
+  border-top: 2px solid #464857;
+  border-left: 2px solid #464857;
+  border-bottom: 2px solid #464857;
+}
+.myView .recently-viewed-list ul li:hover .detail h3 { text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+.myView .recently-viewed-list ul li:hover .detail em { display: block; margin: 5px 0 0 0; font-weight: bold; color: #008cff; }
+
+/* 선택박스 부분 스타일지정 */
+.myView .recently-viewed-list .choiceBox { position: absolute; width: 82px; bottom: 0px; padding: 10px; cursor: default; }
+.myView .recently-viewed-list .choiceBox .currentPage { padding: 10px; }
+.myView .recently-viewed-list .choiceBox div { position: absolute; right: 10px; bottom: 10px; background-color: #f3f3f3; border: 1px solid #d6d6d6; }
+.myView .recently-viewed-list .choiceBox label { display: none; cursor: pointer; }
+.myView .recently-viewed-list .choiceBox label span { color: #656565; display: block; font: bold 13px "consolas"; text-align: center; width: 16px; height: 16px; }
+.myView .recently-viewed-list .choiceBox label span:active { background-color: #c9c9c9; color: white; }
+
+/* 각 라디오버튼이 선택되었을 때의 로직 */
+.myView [id=rvl1]:checked ~ ul:nth-of-type(1) { display: block; }
+.myView [id=rvl1]:checked ~ .choiceBox .currentPage::before { content: "1"; }
+.myView [id=rvl1]:checked ~ .choiceBox label:nth-of-type(2) { display: inline-block; }
+.myView [id=rvl1]:checked ~ .choiceBox label:nth-of-type(4) { display: inline-block; }
+
+.myView [id=rvl2]:checked ~ ul:nth-of-type(2) { display: block; }
+.myView [id=rvl2]:checked ~ .choiceBox .currentPage::before { content: "2"; }
+.myView [id=rvl2]:checked ~ .choiceBox label:nth-of-type(1) { display: inline-block; }
+.myView [id=rvl2]:checked ~ .choiceBox label:nth-of-type(3) { display: inline-block; }
+

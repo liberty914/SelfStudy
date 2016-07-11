@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>Chapter11 이벤트</title>
+  <script>
+    "use strict";  //엄격하게 문법을 검사
+    
+    function test() {  //화면 출력, 콘솔창, 경고창띄우기용 모듈
+      for(var i=0; i<arguments.length; i++) {
+        document.getElementById('main_footer').innerHTML 
+          = document.getElementById('main_footer').innerHTML
+            +'<p>test['+i+'] ==> '+arguments[i]+'</p>';  //화면출력
+          console.log(arguments[i]);                     //콘솔창
+          alert(arguments[i]);                           //경고창
+      }
+      document.getElementById('main_footer').innerHTML 
+        = document.getElementById('main_footer').innerHTML+'<br/>';  //한줄 추가
+    }
+  </script>
+</head>
+
+<body>
+  <header id="main_header">
+    <div id="main_title">
+      <h1></h1>
+    </div>
+    <nav id="main_gnb">
+      <ul>
+        <li><a href="#"></a></li>
+      </ul>
+    </nav>
+    <nav id="main_lnb">
+      <ul>
+        <li><a href="#"></a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div id="content">
+    <section id="main_section">
+      <header>
+        <h1></h1>
+      </header>
+      <article class="main_article">
+      </article>
+    </section>
+  </div>
+  
+  <aside id="main_aside">
+    <a href="#"></a>
+  </aside>
+  
+  <footer id="main_footer">
+    <h3></h3>
+    <address></address>
+  </footer>
+</body>
+</html>
+
+
+
+<!--==========================================================================================================-->
+
+<!--
+  수많은 이벤트 종류 ==> http://www.w3schools.com/jsref/dom_obj_event.asp
+  이벤트 관련 용어 정리
+  
+  window.onload = function() {};
+  load     ==> 이벤트 이름, 이벤트 타입
+  onload   ==> 이벤트 속성
+  function ==> 이벤트 리스너, 이벤트 핸들러
+  이벤트를 연결하는 방법 ==> 이벤트 모델 (고전/표준/인라인)
+
+  function(e) { }; 에서 "e" 파라미터  ==> 이벤트 객체 (어떻게 이벤트가 발생하였는지 ==> 마우스좌표, 키보드상태 등)
+  this.style.color 에서 "this" 키워드 ==> 이벤트 발생 객체 (어떤 객체의 의미 ==> h1태그인지 등)
+-->
+
+<script>
+/*  고전이벤트 모델
+    ==> 문서 객체의 이벤트 속성으로 이벤트를 연결하는 방법
+    ==> 이벤트 하나에 이벤트리스너 하나만 연결할 수 있다.    */
+
+var aaa = document.getElementById('main_header');  //객체를 가져오고
+aaa.onclick = function() {  //이벤트를 연결
+  alert(this);
+  aaa.onclick = null;    //이벤트를 제거 (1회만 사용하기)
+};
+
+
+
+/*  표준이벤트 모델
+    ==> W3C 에서 공식적으로 지정한 DOM Level 2 이벤트모델
+    ==> 이벤트 하나에 여러가지 이벤트리스너를 추가 가능
+    ==> 이벤트 캡쳐링을 지원함. (3번째 param이 true일 경우에만해당, 디폴트는 false)   */
+
+var onClickHandler = function () {
+  alert('오호라!');
+  this.removeEventListener('click', onClickHandler);  //이벤트를 제거 (1회만 사용하기)
+};
+window.addEventListener('click', onClickHandler, false);
+
+
+
+
+/*  디폴트이벤트 막기 (submit 등)  */
+document.getElementById('my_form').onsubmit = function() { return false; };  //false를 리턴하게 하면 됨.
+document.getElementById('my_form').onsubmit = function() {
+  var pw = document.getElementById('password').value;
+  var pwCon = document.getElementById('password_confirm').value;
+  if (pw === pwCon) {
+    alert('성공');
+  } else {
+    alert('비밀번호를 동일하게 입력하세요');
+    return false;  //디폴트이벤트를 막았음
+  }
+};
+
+
+
+/*  이벤트 전달 막기 (캡쳐링, 버블링)
+    캡쳐링 : 부모노드에서 자식노드로 전달되는것 (사진찍듯 작아지는것)
+    버블링 : 자식노드에서 부모노드로 전달되는것 (거품일듯 커지는것)    */
+event.cancelBubble = true;  //IE의 버블링 막기 방식 (속성을 사용하는 것을 오류를 일으키지만,
+                            //속성에 값을 입력하는 것은 오류가 발생하지 않는다.)
+if (event.stopPropagation) {
+  event.stopPropagation();  //IE 외의 브라우저방식
+}
+</script>

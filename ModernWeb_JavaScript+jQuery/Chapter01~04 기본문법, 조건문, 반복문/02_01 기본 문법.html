@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+</head>
+<body>
+  
+<script>
+/*
+  //02-04 기본적인 출력
+  alert('Hello JavaScript..!');
+  
+  
+  //02-06 이스케이프 문자
+  alert("This is \"String\"");
+  alert('this is \'string\'');
+  alert('동해물과 백두산이\n마르고 닳도록');  // \t, \n, \', \", \\ 를 사용할 수 있다.
+  
+  
+  //02-09 사칙 연산자
+  alert(5+3*2);  //11
+  alert((5+3)*2);  //16
+  alert(10%7);  //3
+
+
+  //02-11 참과 거짓
+  alert(52 > 273);  //false
+  alert(52 < 273);  //true
+  //02-12 불과 불의 비교
+  alert(true > false);  //true  ==> 1 > 0 으로 변환됨.
+  
+  
+  //02-24 자바스크립트의 6가지 자료형
+  var stringVar = 'String';  //string형
+  var numberVar = 273;  //number형
+  var booleanVar = true;  //boolean형
+  var functionVar = function() {};  //function
+  var objectVar = {};  //Object
+  var undefinedVar;  //undefined (초기화가 안된상태, null이 아니다! null은 초기화는 되었으나, 그 안에 아무것도 없는경우..)
+  
+  
+  //02-26 복합 대입 연산자의 활용
+  window.onload = function() {
+    var list = '';  //string형으로 변수선언.
+    list += '<ul>';
+    list += '<li>안녕하세요?</li>';
+    list += '<li>헬로 자바스크립트!</li>';
+    list += '</ul>';
+    document.body.innerHTML = list;
+  }
+  
+  
+  //02-35 변수 재선언의 문제점
+  var alert = 'red Alert';
+  alert(alert);  //Uncaught TypeError: alert is not a function 에러발생!
+  //기존에 정의되어있는 alert()함수가 'red Alert' string형 변수로 재정의(오버라이딩) 되었기 때문에, 함수가 아니라는 에러가 발생!
+  
+  
+  //02-37 자료형 검사 : typeof 연산자 (!와 같은 단항연산자)
+  alert(typeof 'string');  //string 출력, 괄호를 안쳐도되고 
+  alert(typeof (273));     //number 출력, 쳐줘도 되고 (괄호를 치는걸 추천한다. 가독성좋게)
+  alert(typeof 1 + '문자열');  //number문자열 출력 ==> 가독성이 매우 떨어진다. 괄호를 쓰자.
+  alert(typeof aaa);  //undefined 출력 
+  
+  
+  //02-41 prompt() 함수
+  var input = prompt('Message', 'default');
+  alert(input);
+  
+  
+  //02-42 confirm() 함수
+  var input = confirm('수락하시겠습니까?');  //확인누르면 true, 취소누르면 false
+  alert(input);
+*/
+  
+  
+  //02-43 숫자와 문자열 자료형 변환(1)
+  console.log('52 + 273');
+  console.log(52 + 273);
+  console.log('52' + 273);
+  console.log(52 + '273');
+  console.log('52' + '273');  //'+' 연산자는 string형 우선으로 캐스팅한다.
+  
+  
+  //02-44 숫자와 문자열 자료형 변환(2)
+  console.log('52 * 273');
+  console.log(52 * 273);
+  console.log('52' * 273);
+  console.log(52 * '273');
+  console.log('52' * '273');  //'+'연산자 이외의 사칙연산자는 number형 우선으로 캐스팅한다.
+  
+  console.log("하나둘셋" == "하나");
+  console.log("하나둘셋" === "하나");
+  console.log("하나둘셋" == "하나둘셋");
+  console.log("하나둘셋" === "하나둘셋");
+  console.log("123" == 123);  //true
+  console.log("123" === 123);  //false
+</script>
+  
+</body>
+</html>

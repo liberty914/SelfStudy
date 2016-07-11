@@ -1,0 +1,76 @@
+
+#process .first .content { text-align: center; }
+#process .first .content h1 { color: #d6005b; font-size: 1.5em; margin: 10% auto 0; font-weight: bold; }
+#process .first .content hr { background-color: #d6005b; width: 70px; height: 1px; border: 0; margin: 20px auto; }
+
+
+
+#process .second { background-color: #051731; color: white; }
+#process .second .content { display: flex; width: 60%; flex-direction: row; flex-wrap: wrap; align-content: center; margin: 0 auto; }
+#process .second .content .process-box { position: relative; width: 90%; margin: 0 auto; height: 200px; text-align: center; }
+#process .second .content .process-box [class$=-left] { border: 1px solid white; position: absolute; left: 0px; }
+#process .second .content .process-box [class$=-right] { border: 1px solid #d6005b; position: absolute; right: 0px; }
+#process .second .content .process-box [class^=process-line-] { width: 1px; height: 190px; box-sizing: border-box; }
+#process .second .content .process-box [class^=process-circle-] { width: 10px; height: 10px; border-radius: 100%; bottom: 0px; box-sizing: border-box; border-width: 2px; }
+#process .second .content .process-box .process-circle-left { left: -4px; }
+#process .second .content .process-box .process-circle-right { right: -4px; }
+#process .second .content .process-box em { display: block; font-size: 20px; font-weight: bold; line-height: 600%; }
+#process .second .content .process-box img {  }
+#process .second .content .process-box span { font-weight: bold; }
+
+#process .second .content .process-box { transition: 0.8s; }
+#process .second .content .process-box:nth-of-type(1) { opacity: 0; }
+#process .second .content .process-box:nth-of-type(2) { opacity: 0; }
+#process .second .content .process-box:nth-of-type(3) { opacity: 0; }
+#process .second .content .process-box:nth-of-type(4) { opacity: 0; }
+#process .second .content .process-box:nth-of-type(5) { opacity: 0; }
+#process .second .content .process-box:nth-of-type(6) { opacity: 0; }
+#process .second .content .process-box:nth-of-type(7) { opacity: 0; }
+#process .second .content .process-box:nth-of-type(8) { opacity: 0; }
+
+
+
+#process .third .content { background-color: rgb(255,170,255); }
+#process .third .content .develop { position: relative; height: 500px; color: white; /*border: 1px solid black;*/ }
+#process .third .content .develop .detail { position: relative; width: 250px; top: 150px; left: 30%; }
+#process .third .content .develop .detail h2 { font-size: 40px; font-weight: bold; text-align: center; margin: 0 0 20px 0; }
+#process .third .content .develop .detail strong { font-weight: bold; }
+#process .third .content .develop .detail ol { margin: 20px 0 0 0; }
+#process .third .content .develop .detail ol li { }
+#process .third .content .develop .video { position: relative; left: 60%; top: -100px; width: 15%; /*border: 1px solid black;*/ }
+#process .third .content .develop .video img { position: absolute; top: 0px; left: 0px; width: 100%; z-index: 5; }
+#process .third .content .develop .video video { position: absolute; top: 0px; left: 0px; width: 100%; box-sizing: border-box; padding: 27% 5% 30% 5%; }
+
+#abab {width: 100%; height: 100%; position: relative;}
+
+/*
+      <div class="content">
+        <div class="develop">
+          <div class="detail">
+            <h2>Native App</h2>
+            <strong>Native Plug in을 사용하여 일반
+            하이브리드 앱에서는 구현하기 힘든 기능들을 구현합니다.</strong>
+            <ol>
+              <li>01 Native App</li>
+              <li>02 Web View (Cordova)</li>
+              <li>03 AngularJS</li>
+              <li>04 Ionic</li>
+            </ol>
+          </div>
+          <img src="img/native_bg.png" alt="" />
+          <video autoplay loop controls muted>
+            <source src="video/native_phone_1.mp4" />
+          </video>
+        </div>*/
+
+
+
+
+
+
+
+
+
+
+
+

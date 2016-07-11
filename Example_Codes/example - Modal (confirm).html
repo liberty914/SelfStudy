@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Modal Test</title>
+</head>
+<body>
+
+  <button id="openModalBtn">Open Modal</button>
+
+  <!--Modal 예제 (Confirm Modal)-->
+  <div id="modal-container">
+    <div id="modal-content">
+      <div>
+        <p>저를 좋아하세요?</p>
+      </div>
+      <div>
+        <span id="negativeBtn" style="background-color: lightgray;">
+          그렇겠죠..?
+        </span>
+        <span id="positiveBtn" style="background-color: pink;">
+          네 너무 좋아요!!
+        </span>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+
+
+<style>
+#modal-container {
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%; overflow: auto;
+  padding-top: 150px; text-align: center;
+  background-color: rgba(0,0,0,0.6);
+  visibility: hidden; opacity: 0; z-index: 9;
+  transition: 0.5s;
+}
+#modal-content {
+  position: relative;
+  width: 80%;
+  margin: auto;
+  background-color: #ffffff;
+  padding: 0;
+  border: 1px solid black;
+}
+</style>
+
+<script>
+var openModalBtn = document.getElementById("openModalBtn");
+var negativeBtn = document.getElementById("negativeBtn");
+var positiveBtn = document.getElementById("positiveBtn");
+var modal = document.getElementById("modal-container");
+
+openModalBtn.onclick = function() { openModal(modal); };
+negativeBtn.onclick = function() { closeModal(modal); };
+positiveBtn.onclick = function() { closeModal(modal); console.log("Good~!!"); };
+window.onclick = function(e) {  //Modal창 밖을 클릭해도 Modal이 꺼지도록 함
+  if (event.target === modal) {
+    console.log(event);  //target: div#modal-container
+    closeModal(modal);
+  }
+};
+
+function openModal (modal) {
+  modal.style.visibility = "visible";
+  modal.style.opacity = "1";
+}
+
+function closeModal (modal) {
+  modal.style.visibility = "hidden";
+  modal.style.opacity = "0";
+}
+</script>

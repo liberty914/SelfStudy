@@ -1,0 +1,171 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset='UTF-8'/>
+  <title>오목</title>
+</head>
+
+<!--======================================================================-->
+
+<body>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+    </tr>
+     <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>
+
+<!--======================================================================-->
+
+<style>
+table { border-collapse: collapse; color: lightbrown; }
+td { border: 1px solid black; padding: 30 30 30 30; }
+</style>
+
+<!--======================================================================-->
+
+<script>
+(function () {
+  var tdTags = document.getElementsByTagName('td');
+  console.log(tdTags);
+
+  var turn = false;
+  for(var i=0; i<tdTags.length; i++) {
+    tdTags[i].addEventListener('click', function() {
+      if (!this.innerHTML.length) {
+        if (turn) {
+          this.innerHTML = '●';
+          turn = false;
+        } else {
+          this.innerHTML = '○';
+          turn = true;
+        }
+      }
+    });
+  }
+})();
+</script>

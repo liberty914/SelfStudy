@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title></title>
+</head>
+
+<!--
+  배열은 index를 사용해서 요소에 접근하지만,
+  객체는 키(key)를 사용해서 요소에 접근한다.
+  
+  배열 ==> array[0], array[1]
+  객체 ==> object.속성 또는 object['속성']  (식별자가 아닌 문자를 키로 사용했을 때에는 무조건 대괄호를 사용해야 한다.)
+-->
+<body>
+  <header><h1></h1></header>
+  
+  <script>
+    var object = {
+      number: 273, 
+      string: 'Rex', 
+      boolean: true,
+      array: [52, 273, 103, 32],
+      method: function() {
+        alert('하하하 object메소드');
+      }
+    };
+    
+    var output = '';
+    for (var key in object) {  //객체의 속성을 모두 살펴보려면 for in 반복문을 사용하면 된다.
+      output += '●'+ key + ': ' + object[key] + '\n';
+    }
+    alert(output);
+  </script>
+    
+</body>

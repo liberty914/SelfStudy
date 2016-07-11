@@ -1,0 +1,283 @@
+/*
+    공식홈페이지         ==> http://lesscss.org/
+    온라인 Less 컴파일러 ==> http://winless.org/online-less-compiler
+    SimpLess 컴파일러   ==> http://wearekiss.com/simpless
+    
+    책 집필 당시에는 로컬 환경에서도 <style>이 변경되었으나...
+    출판된 이후 웹 호스팅 환경에서만 볼 수 있도록 변경되었음.
+    그러니 반드시 온라인 Less컴파일러 또는 다른 컴파일러를 사용해서,
+    .css 파일에 붙여넣는 방식으로 사용해야한다.
+
+*/
+/*========================================================================================================================================*/
+/* C_02 LessStyleSheet.less */
+
+header {
+  width: 800px;
+  margin: 0 auto;
+
+  hgroup {
+    h1 {
+      color: red;
+    }
+    h2 {
+      color: blue;
+    }
+  }
+
+  nav {
+    ul {
+        overflow: hidden;
+    }
+    li {
+        float: left;
+    }
+  }
+}
+
+
+/*========================================================================================================================================*/
+/* C_03 변수 생성 */
+
+@color: #4d926f; 
+@defaultFontSize: 16px; 
+
+body {
+  color: @color;                /* #4d926f */
+  font-size: @defaultFontSize;  /* 16px */ 
+}
+
+
+/*========================================================================================================================================*/
+/* C_05 연산자 사용 */
+
+@margin: 10px; 
+@padding: 10px; 
+@width: 200px; 
+
+div {
+  width: @width - (@padding * 2);  /* 180px */
+  padding: @padding;               /* 10px */
+  margin: @margin;                 /* 10px */
+}
+
+
+/*========================================================================================================================================*/
+/* C_07 내장 선택자(1) */
+
+a {
+  &:hover {    /* &은 '자기자신(this)'를 가리키는 선택자. */
+    
+  }
+  &:active {  /* a:active 와 완전히 동일함. */
+    
+  }
+}
+
+
+/*========================================================================================================================================*/
+/* C_08 내장 선택자(2) */
+
+div {
+  background: black; 
+  &:hover { background: white; }  /* div:hover */
+  
+  a {  /* div태그의 자손태그 a 를 선택 */
+    background: red; 
+    color: white; 
+    &:hover { background: blue; }  /* a:hover */
+    &:active { background: green; }  /* a:active */
+  }
+}
+
+
+/*========================================================================================================================================*/
+/* C_10 색상 관련 내장함수
+   lighten(색상단위, %단위)    ==> 색상을 밝게 만듭니다. 
+   darken(색상단위, %단위)     ==> 색상을 어둡게 만듭니다.
+   saturate(색상단위, %단위)   ==> 색이 두드러지게 만듭니다.
+   desaturate(색상단위, %단위) ==> 색을 두드러지지 않게 만듭니다.
+   fadein(색상단위, %단위)     ==> 색상을 투명하지 않게 만듭니다. 
+   fadeout(색상단위, %단위)    ==> 색상을 투명하게 만듭니다.
+   fade(색상단위, %단위)       ==> 색상을 반투명하게 만듭니다. (50%)
+   spin(색상단위, %단위)       ==> 색상 속성을 변경합니다.
+   mix(색상단위, 색상단위)     ==> 색상을 섞습니다.          */
+
+@color: #ff0000; 
+
+div { height: 10px; }
+div:nth-child(1) { background: darken(@color, 0%); }
+div:nth-child(2) { background: darken(@color, 10%); }
+div:nth-child(3) { background: darken(@color, 20%); }
+div:nth-child(4) { background: darken(@color, 30%); }
+div:nth-child(5) { background: darken(@color, 40%); }
+div:nth-child(6) { background: darken(@color, 50%); }
+
+
+/*========================================================================================================================================*/
+/* C_13 색상 속성 추출 내장함수 
+   hue(색상단위)  ==> 색상의 Hue 속성을 추출합니다. 
+   saturation(색상단위) ==> 색상의 Saturation 속성을 추출합니다.
+   lightness(색상단위) ==> 색상의 Lightness 속성을 추출합니다.
+   alpha(색상단위) ==> 색상의 Alpha 속성을 추출합니다.        */
+
+@color: #ff0000; 
+@hue: hue(@color); 
+@saturation: saturation(@color);
+@lightness: lightness(@color); 
+
+div { height: 5px; }
+
+div:nth-child(1) { background: hsl(@hue, @saturation, @lightness); }
+div:nth-child(2) { background: hsl(@hue+10, @saturation, @lightness); }
+div:nth-child(3) { background: hsl(@hue+20, @saturation, @lightness); }
+div:nth-child(4) { background: hsl(@hue+30, @saturation, @lightness); }
+div:nth-child(5) { background: hsl(@hue+40, @saturation, @lightness); }
+div:nth-child(6) { background: hsl(@hue+50, @saturation, @lightness); }
+//.....
+div:nth-child(36) { background: hsl(@hue+350, @saturation, @lightness); }
+div:nth-child(37) { background: hsl(@hue+360, @saturation, @lightness); }
+// Less 스타일시트는 이렇게 한줄주석도 쓸수 있다. 진작말하지...
+// 색상 관련 함수를사용하면 웹페이지의 전체 테마를 손쉽게 변경 가능하다!
+
+/*  수학함수도 제공된다. 
+    round(숫자)  ==> 숫자를 반올림
+    cell(숫자)  ==> 숫자를 올림
+    floor(숫자)  ==> 숫자를 내림(버림)
+    percentage(숫자)  ==> 숫자를 %단위로 변경   */
+
+
+/*========================================================================================================================================*/
+/* C_14 믹스인 ==> 사용자 정의 스타일시트 함수(function) */
+
+.button() {  //믹스인을 선언합니다! ==> .이름() { } 
+  width: 200px; 
+  height: 100px; 
+  line-height: 100px; 
+  text-align: center; 
+  border-radius: 5px; 
+}
+
+div {
+  background: red; 
+  .button();  //믹스인을 실행합니다!  ==> .이름();
+}
+
+
+/*========================================================================================================================================*/
+/* C_16 .linearGradient() 믹스인함수 */
+
+@start: #ff00ff;
+@end: #00ff00;
+.linearGradient(@start, @end) {  //이렇게 만들어두면 어떤 경우에서도 쉽게 Gradient를 사용할 수 있다.
+  background: @start; 
+  background: -moz-linear-gradient(top, @start 0%, @end 100%);
+  background: -webkit-linear-gradient(top, @start 0%, @end 100%);
+  background: -o-linear-gradient(top, @start 0%, @end 100%);
+  background: -ms-linear-gradient(top, @start 0%, @end 100%);
+  background: linear-gradient(top, @start 0%, @end 100%);
+}
+
+
+/*========================================================================================================================================*/
+/* C_17 믹스인 복합 사용 */
+
+.linearGradient(@start, @end) {  //이렇게 만들어두면 어떤 경우에서도 쉽게 Gradient를 사용할 수 있다.
+  background: @start; 
+  background: -moz-linear-gradient(top, @start 0%, @end 100%);
+  background: -webkit-linear-gradient(top, @start 0%, @end 100%);
+  background: -o-linear-gradient(top, @start 0%, @end 100%);
+  background: -ms-linear-gradient(top, @start 0%, @end 100%);
+  background: linear-gradient(top, @start 0%, @end 100%);
+}
+
+.button(@width, @height, @radius) {
+  width: @width; 
+  height: @height; 
+  line-height: @height; 
+  text-align: center; 
+  border-radius: @radius; 
+}
+
+* { margin: 0; padding: 0; }
+div {
+  margin: 10px; 
+  float: left; 
+  
+  &:nth-child(1) {
+    .linearGradient(#0094ff, #004f89);  //그레디언트를 적용하고 
+    .button(200px, 100px, 10px);            //버튼형태로 출력!
+  }
+  &:nth-child(2) {
+    .linearGradient(#0094ff + #cc0000, #004f89 + #cc0000);
+    .button(200px, 100px, 10px); 
+  }
+  &:nth-child(3) {
+    .linearGradient(#0094ff + #ff0000, #004f89 + #ff0000);
+    .button(200px, 100px, 10px); 
+  }
+}
+
+
+/*========================================================================================================================================*/
+/* C_19 매개변수 자료형 확인 
+   자료형 확인 내장함수
+   iscolor(변수) ==> 변수가 색상 단위인지 확인
+   isnumber(변수) ==> 변수가 숫자 단위인지 확인
+   isstring(변수) ==> 변수가 문자열 단위인지 확인
+   iskeyword(변수) ==> 변수가 키워드인지 확인 
+   isurl(변수) ==> 변수가 URL인지 확인
+   ispixel(변수) ==> 변수가 pixel단위인지 확인
+   ispercentage(변수) ==> 변수가 %단위인지 확인
+   isem(변수) ==> 변수가 배수 단위인지 확인           */
+
+.linearGradient(@start, @end) when (iscolor(@start)) and (iscolor(@end)) {
+  background: @start; 
+  background: -moz-linear-gradient(top, @start 0%, @end 100%);
+  background: -webkit-linear-gradient(top, @start 0%, @end 100%);
+  background: -o-linear-gradient(top, @start 0%, @end 100%);
+  background: -ms-linear-gradient(top, @start 0%, @end 100%);
+  background: linear-gradient(top, @start 0%, @end 100%);
+}
+
+
+/*========================================================================================================================================*/
+/* C_20 when 키워드 */
+
+.max (@a, @b) when (@a > @b) { width: @a }
+.max (@a, @b) when (@a < @b) { width: @b }
+
+.max (@a, @b) when (@a > @b) { width: @b }
+.max (@a, @b) when (@a < @b) { width: @a }
+
+
+/*========================================================================================================================================*/
+/* C_21 기본 변수 */
+
+.button(@width: 200px, @height: 100px, @radius: 10px) {  //이렇게 default값을 줄수도 있다.
+  width: @width; 
+  height: @height; 
+  line-height: @height; 
+  text-align: center; 
+  border-radius: @radius; 
+}
+
+div {
+  .button();
+}
+
+
+/*========================================================================================================================================*/
+/* C_22 Node.js 를 사용한 서버에서 Less스타일시트 변환하는 내용.
+   ==> Node.js 를 배우게되면 하도록 하자. */
+
+
+
+
+
+
+
+
+
+
+

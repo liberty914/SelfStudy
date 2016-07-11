@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  <!-- 이게 없으면 한글이 깨진다. -->
+  <title></title>
+</head>
+
+<!--
+  in 키워드 ==> 해당 키가 객체 안에 있는지 확인 (true, false 리턴)
+  with 키워드 ==> 객체를 넣어주면 괄호 안에서 객체를 명시할 필요 없이 속성을 쉽게 사용.
+-->
+<body>
+  <header><h1></h1></header>
+  
+  <script>
+    var student = {
+      이름 : 'Rex',
+      국어: 92, 
+      수학: 98, 
+      영어: 100, 
+      과학: 98,
+      output: '이미있지롱'  //충돌! with 블록 내에서는 해당 객체의 property가 우선시된다. (지역변수가 전역변수를 가리는 원리)
+    }
+    
+    var output = '';  //이런 경우에는 window객체 내부의 output변수를 사용하겠다고 지정해주어야 한다.
+    with (student) {
+      window.output += '이름: ' + 이름 + '\n';
+      window.output += '국어: ' + 국어 + '\n';
+      window.output += '수학: ' + 수학 + '\n';
+      window.output += '영어: ' + 영어 + '\n';
+      window.output += '과학: ' + 과학 + '\n';
+      window.output += '총점: ' + (국어 + 수학 + 영어 + 과학) + '\n';
+    }
+    alert(output);
+    alert(student.output);
+  </script>
+    
+</body>

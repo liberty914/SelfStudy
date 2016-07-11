@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title></title>
+</head>
+<body>
+  <header>
+    <h2>JavaScript 함수</h2>
+  </header>
+  
+<!--
+-->
+<script>
+  for(var i=0; i<3; i++) {
+    (function (closed_i) {
+      setTimeout(function() {
+        alert(closed_i);
+      }, 0);
+    })(i);  //==> i를 복사해두고 바로 함수실행! (근데 0, 2, 1이 50%확률로 나오는것 같다. 왜지???)
+  }
+</script>
+  
+</body>
+</html>

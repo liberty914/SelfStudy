@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <!-- 이게 없으면 한글이 깨진다. -->
+  <title>부록B_부트스트랩 (Bootstrap)</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- 6장에서 설명 -->
+  <link rel="stylesheet" href="./bootstrap-3.3.2-dist/css/bootstrap.min.css" />
+  <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script> <!-- jQuery 임포트 ★반드시 부트스트랩보다 먼저 선언되어야 한다.  -->
+  <script src="./bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+  
+  <style>
+  </style>
+</head>
+
+<!--  Fixed 레이아웃
+      ==> 고정된 너비를 사용하는 레이아웃 (예: 네이버 메인페이지)
+          div태그에 container클래스를 입력.
+      Fluid 레이아웃
+      ==> 브라우저 크기에 맞게 레이아웃이 변경 (예: http://music.naver.com)
+          div태그에 container-fluid클래스를 입력.                    -->
+
+<body>
+  <div class="container-fluid">  <!-- Fluid Layout, 부트스트랩의 기본 화면 너비는 960px -->
+    <h1>Lorem ipsum</h1>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+    <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+    <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+    <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    <!-- 반응형 웹은 11장에서 다시 배우게됨 -->
+    <!-- Fixed 레이아웃과 Fluid 레이아웃은 5장과 7장에서 직접 만들어볼 것. (용어 기억해두기)  -->
+</body>
+</html>
